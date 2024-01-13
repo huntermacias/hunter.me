@@ -71,7 +71,7 @@ export const MyCurrentProjects: Project[] = [
     logo: HunterLogo,
     link: {
       label: 'github.com',
-      href: 'https://github.com/HM',
+      href: 'https://hunter-me.vercel.app',
     },
   },
   {

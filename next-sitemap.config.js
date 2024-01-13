@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://hunter.me',
+  siteUrl: process.env.SITE_URL || 'https://hunter-me.vercel.app/',
   generateRobotsTxt: true,
   autoLastmod: false,
   generateIndexSitemap: false,
