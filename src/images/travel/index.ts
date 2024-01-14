@@ -24,10 +24,10 @@ import image22 from './22.jpg';
 export const travelImages = [
   { img: image1, title: 'Free photobooth, USA', alt: 'Picture taken in Seattle, USA' },
   { img: image2, title: 'Mac Miller Light Show, USA', alt: 'Picture taken Pacific Science Center, USA' },
-  { img: image3, title: 'Am I an adult?, USA', alt: 'Picture taken in the car, USA' },
-  { img: image4, title: 'Allegiant Stadium, USA', alt: 'Picture taken in Las Vegas, USA' },
-  { img: image5, title: 'Stranger Things Exhibit, USA', alt: 'Picture taken in Las Vegas, USA' },
-  { img: image6, title: 'Las Vegas, USA', alt: 'Picture taken in Las Vegas, USA' },
+  { img: image3, title: 'Space Needle', alt: 'Picture taken in the car, USA' },
+  { img: image4, title: 'Am I an Adult?', alt: 'Picture taken in Las Vegas, USA' },
+  { img: image5, title: 'Allegiant Stadium, Las Vegas', alt: 'Picture taken in Las Vegas, USA' },
+  { img: image6, title: 'Stranger Things Exhibit - Las Vegas, USA', alt: 'Picture taken in Las Vegas, USA' },
   {
     img: image7,
     title: 'Personality Shot, USA',
