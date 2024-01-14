@@ -177,6 +177,21 @@ export const MyPastProjects: Project[] = [
     },
   },
   {
+    title: "PeerChat",
+    techStack: [
+      "Side Project",
+      "WebRTC",
+      "SDP",
+      "React.js",
+    ],
+    description: "Video Calling application built using WebRTC, similiar to zoom. Features include video on/off, mic on/off, chat, live participants, screen share, highlight video",
+    logo: EvercastLogo,
+    link: {
+      label: "Peer Chat - Twitch Rooms",
+      href: "https://lively-pastelito-3c6253.netlify.app/",
+    },
+  },
+  {
     title: "Blockchain-Powered Crowdfunding Platform",
     techStack: [
       "Side Project",
