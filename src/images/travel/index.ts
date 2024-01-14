@@ -41,10 +41,10 @@ export const travelImages = [
     title: "lucholibre Championship",
     alt: "Seattle Washington",
   },
-  { img: image12, title: 'Bura, Wrocław, Poland', alt: 'Picture of my cat, Bura' },
+  { img: image12, title: 'The Gorge Amphitheater', alt: 'Picture of my cat, Bura' },
   {
     img: image13,
-    title: 'Gorgeous Music Festival',
+    title: 'The Gorge',
     alt: 'Music Festival',
   },
   {
