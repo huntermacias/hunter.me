@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import React from 'react';
 
 export const AvatarContainer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   return (

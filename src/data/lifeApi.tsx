@@ -2,21 +2,26 @@ import { ExternalLink } from '../components/ExternalLink';
 import { GitHubIcon } from '../components/icons/GitHubIcon';
 import { InstagramIcon } from '../components/icons/InstagramIcon';
 import { XIcon } from '../components/icons/XIcon';
-import AmbitLogo from '../images/logos/ambit.png';
-import BarepapersLogo from '../images/logos/barepapers.svg';
-import BimLogo from '../images/logos/bim.png';
-import CDGOLogo from '../images/logos/cdgo.png';
+import RaiderLogo from '../images/logos/raiders.jpg';
+import EventlyLogo from '../images/logos/evently.jpg';
 import MissionBit from '../images/logos/missionbit.jpg';
-import EvercastLogo from '../images/logos/evercast.svg';
-import Howdy from '../images/logos/howdy.png';
 import HunterLogo from '../images/logos/logome.png';
 import Leadbird from '../images/logos/leadbird.jpg';
-import MonitoLogo from '../images/logos/monito.svg';
-import MobileVikingsLogo from '../images/logos/mv.png';
+import PythonLogo from '../images/logos/pythonlogo.png';
 import Candor from '../images/logos/candor.png';
 import CoderSchool from '../images/logos/coderschool.jpg';
-import TastyCloudLogo from '../images/logos/tastycloud.png';
-import YearProgressLogo from '../images/logos/yearprogress.svg';
+import NFTLogo from "../images/logos/nftlogo.png"
+import BitcoinLogo from "../images/logos/bitcoin.png"
+import NotionLogo from '../images/logos/notionlogo.png';
+import VideoShareLogo from "../images/logos/videosharelogo.png";
+import KobeLogo from "../images/logos/kobe.jpg";
+import CureChatLogo from "../images/logos/curechat.png";
+import PeerChatLogo from "../images/logos/peerchat.png";
+import JobSearchLogo from "../images/logos/jobsearch.png";
+import OpenSeaLogo from "../images/logos/opensea.png"
+import AIMessengerLogo from "../images/logos/chatgptlogo.png";
+import TextSimLogo from "../images/logos/textsim.png";
+import PortfolioLogo from "../images/logos/threeDinitial.png";
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
@@ -66,6 +71,7 @@ Greetings, tech enthusiast! I'm Hunter Macias, and I'm not just a coder; I'm a d
 📧 Reach Out: Don't wait! Drop me a line at huntermacias20@gmail.com to embark on a journey of innovation. Let's build a future where technology knows no limits.`;
 
 export type Project = {
+  video?: any;
   title: string;
   techStack: string[];
   description: string;
@@ -82,7 +88,7 @@ export const MyCurrentProjects: Project[] = [
     techStack: ['Web Development', 'Typescript', 'Documentation'],
     description:
       'Created a Python Documentation Portal using Next.js and TailwindCSS. The platform offers features such as documentation search, documentation filtering, and documentation navigation, fostering an engaging and interactive community experience.',
-    logo: MonitoLogo,
+    logo: PythonLogo,
     link: {
       label: 'Explore Pygame Docs',
       href: 'https://pydocs-aoc.vercel.app',
@@ -93,7 +99,7 @@ export const MyCurrentProjects: Project[] = [
     techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'Server Actions'],
     description:
       "Evently is a comprehensive event management app, featuring a robust backend and a modern UI/UX design. It's a one-stop solution for event organizers and attendees alike.",
-    logo: CDGOLogo,
+    logo: EventlyLogo,
     link: {
       label: 'https://meetix.vercel.app/',
       href: 'https://meetix.vercel.app/',
@@ -101,7 +107,7 @@ export const MyCurrentProjects: Project[] = [
   },
   {
     title: 'Hunter.me',
-    techStack: ['Side Project', 'Next.js', 'MDX'],
+    techStack: ['Side Project', 'Next.js', 'MDX', 'Notion API'],
     description: 'My personal website you are currently on, built with Next.js.',
     logo: HunterLogo,
     link: {
@@ -114,7 +120,7 @@ export const MyCurrentProjects: Project[] = [
     techStack: ['Side Project', 'Sanity', 'React.js'],
     description:
       "The ultimate resource for Las Vegas Raiders fans, featuring game recaps, player profiles, draft predictions, and the latest updates. It's a one-stop destination for all things Raiders.",
-    logo: AmbitLogo,
+    logo: RaiderLogo,
     link: {
       label: 'https://www.raidersrundown.com',
       href: 'https://www.raidersrundown.com',
@@ -128,7 +134,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'Stripe', 'SaaS', 'Drizzle ORM', 'Supabase', 'Sockets'],
     description:
       'Developed a Notion inspired web application using Next.js, Supabase, and Stripe. The platform offers features such as user authentication, subscription payments, and real-time collaboration, fostering an engaging and interactive community experience.',
-    logo: MonitoLogo,
+    logo: NotionLogo,
     link: {
       label: 'Notionary',
       href: 'https://notionary.vercel.app/',
@@ -139,7 +145,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'TypeScript', 'Next.js', 'Sanity Management'],
     description:
       'Developed an interactive web application using Next.js and Sanity.io, designed to create a shared space for users to connect with friends and family through video content. The platform offers features such as video sharing, commenting, liking, and user search, fostering an engaging and interactive community experience.',
-    logo: MonitoLogo,
+    logo: VideoShareLogo,
     link: {
       label: 'shareme.dev',
       href: 'https://symphonious-kitten-397f94.netlify.app/',
@@ -149,7 +155,7 @@ export const MyPastProjects: Project[] = [
     title: 'Similarity Scout',
     techStack: ['Side Project', 'Typescript', 'Animations', 'Radix UI'],
     description: 'API Service that compares the similarity of two pieces of text',
-    logo: EvercastLogo,
+    logo: TextSimLogo,
     link: {
       label: 'SimilarityScout',
       href: 'https://similarityscout.netlify.app/',
@@ -160,7 +166,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'React Native', 'RapidAPI'],
     description:
       'A powerful job search tool leveraging RapidAPI for comprehensive job listings. Features modern UX/UI design and robust search functionality to match users with their ideal job roles.',
-    logo: BarepapersLogo,
+    logo: JobSearchLogo,
     link: {
       label: 'Job Hunt - RN',
       href: 'https://expo.dev/@huntermacias/job-search-app?serviceType=classic&distribution=expo-go',
@@ -171,7 +177,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'React Native', 'TailwindCSS'],
     description:
       'Created an NFT Marketplace mobile app using React Native. Integrated modern UI/UX principles with efficient backend handling for a seamless digital asset trading experience.',
-    logo: YearProgressLogo,
+    logo: NFTLogo,
     link: {
       label: 'NFT Marketplace - RN',
       href: 'https://pro-nef-x.netlify.app/',
@@ -182,7 +188,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'Smart Contracts', 'Solidity', 'Blockchain', 'Next.js'],
     description:
       'Designed a cryptocurrency lottery application leveraging Next.js and Solidity smart contracts. Featured Metamask integration for secure blockchain transactions.',
-    logo: EvercastLogo,
+    logo: BitcoinLogo,
     link: {
       label: 'Web3 Lottery App',
       href: 'https://lottery-draw.netlify.app/',
@@ -193,7 +199,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'React.js', 'Twilio', 'Stream', 'SSA'],
     description:
       'With Direct and Group Chats, emojis & Reactions, Built-in Gif support, the ability to edit & delete messages, specialized commands, and much more',
-    logo: EvercastLogo,
+    logo: CureChatLogo,
     link: {
       label: 'CureChat',
       href: 'https://curechat.netlify.app/',
@@ -204,7 +210,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'WebRTC', 'SDP', 'React.js'],
     description:
       'Video Calling application built using WebRTC, similiar to zoom. Features include video on/off, mic on/off, chat, live participants, screen share, highlight video',
-    logo: EvercastLogo,
+    logo: PeerChatLogo,
     link: {
       label: 'Peer Chat - Twitch Rooms',
       href: 'https://lively-pastelito-3c6253.netlify.app/',
@@ -215,7 +221,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'Smart Contracts', 'Solidity', 'Web3'],
     description:
       "A blockchain-based crowdfunding platform, featuring Metamask integration, smart contract interactions, and Ethereum transactions. It's a comprehensive demonstration of creating and participating in blockchain-enabled campaigns.",
-    logo: EvercastLogo,
+    logo: BitcoinLogo,
     link: {
       label: 'crowdfund-campaign.app',
       href: 'https://cool-cactus-84bc7e.netlify.app/',
@@ -226,7 +232,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'Next.js', 'Web3'],
     description:
       'An NFT marketplace mimicking OpenSea, showcasing a variety of blockchain use cases. It stands out with features like multi-test support and comprehensive NFT trading functionalities.',
-    logo: MobileVikingsLogo,
+    logo: OpenSeaLogo,
     link: {
       label: 'NFT Marketplace - OpenSea',
       href: 'https://opensea-hm.netlify.app',
@@ -236,7 +242,7 @@ export const MyPastProjects: Project[] = [
     title: "Kobe Bryant's Legacy: A Data Visualization",
     techStack: ['Side Project', 'D3.js', 'Data Visualization'],
     description: 'Interactive Data Visualization with D3.js',
-    logo: Howdy,
+    logo: KobeLogo,
     link: {
       label: 'Kobe Bryant - A Visual Story',
       href: 'https://huntermacias.github.io/data-vis-basketball/index.html',
@@ -247,7 +253,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Lead Android Developer', 'Android', 'Kotlin'],
     description:
       "ChatGPT Messenger revolutionizes communication with AI-driven conversations, leveraging NLP and ML for personalized user interactions. It's a seamless blend of technology and user experience",
-    logo: TastyCloudLogo,
+    logo: AIMessengerLogo,
     link: {
       label: 'AI-Responds',
       href: 'https://chatgpt-messenger-three.vercel.app/',
@@ -257,7 +263,7 @@ export const MyPastProjects: Project[] = [
     title: '3D Interactive Developer Portfolio',
     techStack: ['Side Project', 'Three.js', 'Framer Motion'],
     description: 'Personal Portfolio Creation with Three.js & Framer Motion',
-    logo: BimLogo,
+    logo: PortfolioLogo,
     link: {
       label: '3D Portfolio',
       href: 'https://huntercodes.netlify.app/',
@@ -268,7 +274,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'Server Actions'],
     description:
       "Evently is a comprehensive event management app, featuring a robust backend and a modern UI/UX design. It's a one-stop solution for event organizers and attendees alike.",
-    logo: CDGOLogo,
+    logo: EventlyLogo,
     link: {
       label: 'Meetix',
       href: 'https://meetix.vercel.app/',

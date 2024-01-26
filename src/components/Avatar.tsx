@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 
-import AvatarImage from '../../public/assets/blog/authors/betterme.png';
+import AvatarImage from '../../public/assets/blog/authors/me_ai.png';
 
 type Props = {
   large?: boolean;

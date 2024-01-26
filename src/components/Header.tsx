@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
 
 import { Avatar } from './Avatar';
 import { AvatarContainer } from './AvatarContainer';
 import { Container } from './Container';
 import { MobileNavigation, DesktopNavigation } from './Navigation';
 import { ThemeToggle } from './ThemeToggle';
+import { useLayoutEffect, useRef } from 'react';
 
 const clamp = (number: number, a: number, b: number) => {
   let min = Math.min(a, b);

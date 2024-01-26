@@ -11,11 +11,11 @@ interface Props {
 export const ProjectCard = ({ project }: Props) => {
   return (
     <Card className="h-full group hover:scale-105 transition-transform duration-300 ease-in-out">
-      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 shadow-lg overflow-hidden">
+      <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gray-950 shadow-lg overflow-hidden">
         <Image
           src={project.logo}
           alt={`Logo of ${project.title}`}
-          className="h-full w-full object-contain p-2 transition duration-300 ease-in-out group-hover:scale-110"
+          className="h-full w-full object-contain scale-150 p-2 transition duration-300 ease-in-out group-hover:scale-110"
           unoptimized
         />
       </div>
