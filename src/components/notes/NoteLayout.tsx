@@ -47,6 +47,7 @@ export const NoteLayout = ({ children, meta, previousPathname }: Props) => {
                 <span className="ml-3">{formatDate(meta.date)}</span>
               </time>
             </header>
+            {/* <h2>{meta.description}</h2> */}
             <Prose className="mt-8">{children}</Prose>
           </article>
         </div>

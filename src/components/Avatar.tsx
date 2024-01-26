@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-import AvatarImage from '../../public/assets/blog/authors/me.jpg';
+import AvatarImage from '../../public/assets/blog/authors/betterme.png';
 
 type Props = {
   large?: boolean;
@@ -12,17 +12,15 @@ type Props = {
 export const Avatar = ({ large = false, className, ...props }: Props) => {
   return (
     <Link href="/" aria-label="Home" className={clsx(className, 'pointer-events-auto')} {...props}>
-      <Image
-        src={AvatarImage}
-        alt=""
-        sizes={large ? '4rem' : '2.25rem'}
-      
-        className={clsx(
-          'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
-          large ? 'h-16 w-16' : 'h-9 w-9',
-        )}
-        priority
-      />
+      <div className={clsx('relative overflow-hidden rounded-lg shadow-lg', large ? 'h-20 w-20' : 'h-19 w-19', 'group')}>
+        <Image
+          src={AvatarImage}
+          alt=""
+          className={clsx('object-cover')}
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-200 to-teal-200 mix-blend-multiply opacity-0 group-hover:opacity-60 transition-opacity duration-500 ease-in-out"></div>
+      </div>
     </Link>
   );
 };

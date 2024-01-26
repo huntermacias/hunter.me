@@ -12,13 +12,11 @@ import Howdy from '../images/logos/howdy.png';
 import HunterLogo from '../images/logos/logome.png';
 import Leadbird from '../images/logos/leadbird.jpg';
 import MonitoLogo from '../images/logos/monito.svg';
-import Consultly from '../images/logos/consultly.svg';
 import MobileVikingsLogo from '../images/logos/mv.png';
 import Candor from '../images/logos/candor.png';
 import CoderSchool from '../images/logos/coderschool.jpg';
 import TastyCloudLogo from '../images/logos/tastycloud.png';
 import YearProgressLogo from '../images/logos/yearprogress.svg';
-import Minimal from '../images/logos/minimal.svg';
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';

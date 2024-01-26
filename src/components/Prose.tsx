@@ -8,6 +8,7 @@ export const Prose = ({ children, className }: Props) => {
     <div
       className={clsx(className, 'md:prose-md xl:prose-lg prose prose-zinc w-full dark:prose-dark')}
     >
+      
       {children}
     </div>
   );

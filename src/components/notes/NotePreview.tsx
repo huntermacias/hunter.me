@@ -24,6 +24,7 @@ interface Props {
 }
 
 export const NotePreview = ({ note, dense }: Props) => {
+  // console.log('note', note.description);
   return (
     <motion.div
       initial={ANIMATION_FROM_PROPS}
