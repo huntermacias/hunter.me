@@ -3,7 +3,7 @@ import { GitHubIcon } from '../components/icons/GitHubIcon';
 import { InstagramIcon } from '../components/icons/InstagramIcon';
 import { XIcon } from '../components/icons/XIcon';
 import RaiderLogo from '../images/logos/raiders.jpg';
-import EventlyLogo from '../images/logos/evently.jpg';
+import EventlyLogo from '../images/logos/evently.png';
 import MissionBit from '../images/logos/missionbit.jpg';
 import HunterLogo from '../images/logos/logome.png';
 import Leadbird from '../images/logos/leadbird.jpg';
@@ -22,6 +22,8 @@ import OpenSeaLogo from "../images/logos/opensea.png"
 import AIMessengerLogo from "../images/logos/chatgptlogo.png";
 import TextSimLogo from "../images/logos/textsim.png";
 import PortfolioLogo from "../images/logos/threeDinitial.png";
+import FrameRateLogo from "../images/logos/framerate.png";
+import LotteryLogo from "../images/logos/lotteryapp.png";
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
@@ -106,6 +108,17 @@ export const MyCurrentProjects: Project[] = [
     },
   },
   {
+    title: 'FrameRate: Movie Review Social App',
+    techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'MovieAPI'],
+    description:
+      "At FrameRate, every review counts. Share your perspective, rate movies, and contribute to a community-driven rating system that values authenticity and diversity of opinion.",
+    logo: FrameRateLogo,
+    link: {
+      label: 'FrameRate',
+      href: 'https://better-letterboxd.vercel.app/',
+    },
+  },
+  {
     title: 'Hunter.me',
     techStack: ['Side Project', 'Next.js', 'MDX', 'Notion API'],
     description: 'My personal website you are currently on, built with Next.js.',
@@ -147,7 +160,7 @@ export const MyPastProjects: Project[] = [
       'Developed an interactive web application using Next.js and Sanity.io, designed to create a shared space for users to connect with friends and family through video content. The platform offers features such as video sharing, commenting, liking, and user search, fostering an engaging and interactive community experience.',
     logo: VideoShareLogo,
     link: {
-      label: 'shareme.dev',
+      label: 'ShareMe',
       href: 'https://symphonious-kitten-397f94.netlify.app/',
     },
   },
@@ -188,7 +201,7 @@ export const MyPastProjects: Project[] = [
     techStack: ['Side Project', 'Smart Contracts', 'Solidity', 'Blockchain', 'Next.js'],
     description:
       'Designed a cryptocurrency lottery application leveraging Next.js and Solidity smart contracts. Featured Metamask integration for secure blockchain transactions.',
-    logo: BitcoinLogo,
+    logo: LotteryLogo,
     link: {
       label: 'Web3 Lottery App',
       href: 'https://lottery-draw.netlify.app/',
@@ -223,7 +236,7 @@ export const MyPastProjects: Project[] = [
       "A blockchain-based crowdfunding platform, featuring Metamask integration, smart contract interactions, and Ethereum transactions. It's a comprehensive demonstration of creating and participating in blockchain-enabled campaigns.",
     logo: BitcoinLogo,
     link: {
-      label: 'crowdfund-campaign.app',
+      label: 'CrowdFund with Web3',
       href: 'https://cool-cactus-84bc7e.netlify.app/',
     },
   },
