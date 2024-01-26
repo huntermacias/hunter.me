@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-import AvatarImage from '../../public/assets/blog/authors/me.jpg';
+import AvatarImage from '../../public/assets/blog/authors/betterme.png';
 import { Container } from '../components/Container';
 import { ExternalLink } from '../components/ExternalLink';
 import { PageTitle } from '../components/PageTitle';
@@ -52,14 +52,18 @@ export default function AboutMe() {
               <Image
                 src={AvatarImage}
                 alt=""
-                sizes="(min-width: 1024px) 32rem, 20rem"
+                sizes="(min-width: 512px) 16rem, 10rem"
                 className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
               />
             </div>
           </div>
           <div className="lg:order-first lg:row-span-2">
             <PageTitle>Hi, I&apos;m Hunter Macias.</PageTitle>
-            <div className="mt-6 text-base">{AboutExtended}</div>
+            <div className="mt-6 text-base">
+  {AboutExtended.split('\n').map((paragraph, index) => (
+    <p key={index}>{paragraph}</p>
+  ))}
+</div>
             <div className="mt-6 flex gap-6">
               {SocialMedia.map((socialProfile) => (
                 <SocialLink

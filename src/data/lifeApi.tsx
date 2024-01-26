@@ -27,7 +27,29 @@ export const About = (
     <ExternalLink href="https://hunters-resume.vercel.app/">send me an email.</ExternalLink>
   </>
 );
-export const AboutExtended = `About Section - Extended [add more personal info here]`;
+export const AboutExtended = `🚀 About Me: Unleashing Innovation, One Line of Code at a Time 🚀
+
+Greetings, tech enthusiast! I'm Hunter Macias, and I'm not just a coder; I'm a digital sorcerer on a mission to revolutionize the tech landscape. 🌟
+
+🔥 Passion for the Digital Realm: From an early age, I was captivated by the mesmerizing dance of ones and zeros. Technology isn't just a career choice for me; it's a lifelong love affair. I don't simply write code; I craft digital symphonies that transform ideas into reality.
+
+🧠 A Curious Mind: Curiosity fuels my existence. I'm not content with the status quo. Instead, I relentlessly explore the uncharted territories of emerging technologies. My mind is a playground, and I'm always on the lookout for the next game-changing innovation.
+
+💡 Innovative Problem Solver: Challenges are my playground. I thrive in situations where others see roadblocks. My knack for out-of-the-box thinking enables me to engineer elegant solutions to complex problems, making the impossible possible.
+
+💻 Mastery in Code Craftsmanship: I'm fluent in the languages of innovation: Python, Java, JavaScript, and more. My code is poetry, and I take pride in writing clean, efficient, and scalable solutions that stand the test of time.
+
+🌐 Global Perspective: I believe technology can bridge gaps and create a better world. I've collaborated on international projects, gaining a holistic perspective that's crucial in our interconnected world. My code doesn't just function; it harmonizes with diverse cultures and user needs.
+
+🌈 Diversity & Inclusion Advocate: I'm not just committed to lines of code; I'm passionate about lines of diversity. Inclusivity is the cornerstone of my work, and I actively promote gender, racial, and cultural diversity in tech.
+
+🚀 Entrepreneurial Spirit: Beyond my technical prowess, I have an entrepreneurial fire. I've co-founded startups, transforming visionary ideas into profitable ventures. My experiences have cultivated a unique blend of technical expertise and business acumen.
+
+📚 Lifelong Learner: The tech world evolves at warp speed, and I'm a perpetual student. I devour books, attend conferences, and engage with industry leaders to stay at the forefront of innovation.
+
+🌟 Let's Create the Future Together: I'm not just seeking a job; I'm looking for a mission. If you're searching for a tech visionary who doesn't just adapt to change but drives it, let's connect. Together, we can harness the power of technology to reshape industries, enhance lives, and push the boundaries of what's possible.
+
+📧 Reach Out: Don't wait! Drop me a line at huntermacias20@gmail.com to embark on a journey of innovation. Let's build a future where technology knows no limits.`;
 
 export type Project = {
   title: string;
@@ -42,24 +64,25 @@ export type Project = {
 
 export const MyCurrentProjects: Project[] = [
   {
-    title: "Python Documentation Portal",
-    techStack: ["Web Development", "Typescript", "Documentation"],
-    description: "Created a Python Documentation Portal using Next.js and TailwindCSS. The platform offers features such as documentation search, documentation filtering, and documentation navigation, fostering an engaging and interactive community experience.",
-    logo: MonitoLogo, 
+    title: 'Python Documentation Portal',
+    techStack: ['Web Development', 'Typescript', 'Documentation'],
+    description:
+      'Created a Python Documentation Portal using Next.js and TailwindCSS. The platform offers features such as documentation search, documentation filtering, and documentation navigation, fostering an engaging and interactive community experience.',
+    logo: MonitoLogo,
     link: {
-      label: "Explore Pygame Docs",
-      href: "https://pydocs-aoc.vercel.app"
-    }
+      label: 'Explore Pygame Docs',
+      href: 'https://pydocs-aoc.vercel.app',
+    },
   },
   {
-    title: "Evently: Event Management Mobile App",
-    techStack: ["Side Project", "TailwindCSS", "Next.js", "Server Actions"],
+    title: 'Evently: Event Management Mobile App',
+    techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'Server Actions'],
     description:
       "Evently is a comprehensive event management app, featuring a robust backend and a modern UI/UX design. It's a one-stop solution for event organizers and attendees alike.",
     logo: CDGOLogo,
     link: {
-      label: "https://meetix.vercel.app/",
-      href: "https://meetix.vercel.app/",
+      label: 'https://meetix.vercel.app/',
+      href: 'https://meetix.vercel.app/',
     },
   },
   {
@@ -73,195 +96,171 @@ export const MyCurrentProjects: Project[] = [
     },
   },
   {
-    title: "Las Vegas Raiders Fan Blog",
-    techStack: ["Side Project", "Sanity", "React.js"],
+    title: 'Las Vegas Raiders Fan Blog',
+    techStack: ['Side Project', 'Sanity', 'React.js'],
     description:
       "The ultimate resource for Las Vegas Raiders fans, featuring game recaps, player profiles, draft predictions, and the latest updates. It's a one-stop destination for all things Raiders.",
     logo: AmbitLogo,
     link: {
-      label: "https://www.raidersrundown.com",
-      href: "https://www.raidersrundown.com",
+      label: 'https://www.raidersrundown.com',
+      href: 'https://www.raidersrundown.com',
     },
   },
-  
 ];
 
 export const MyPastProjects: Project[] = [
   {
-    title: "Notionary",
-    techStack: ["Side Project", "Stripe", "SaaS", "Drizzle ORM", "Supabase", "Sockets"],
+    title: 'Notionary',
+    techStack: ['Side Project', 'Stripe', 'SaaS', 'Drizzle ORM', 'Supabase', 'Sockets'],
     description:
-      "Developed a Notion inspired web application using Next.js, Supabase, and Stripe. The platform offers features such as user authentication, subscription payments, and real-time collaboration, fostering an engaging and interactive community experience.",
+      'Developed a Notion inspired web application using Next.js, Supabase, and Stripe. The platform offers features such as user authentication, subscription payments, and real-time collaboration, fostering an engaging and interactive community experience.',
     logo: MonitoLogo,
     link: {
-      label: "Notionary",
-      href: "https://notionary.vercel.app/",
+      label: 'Notionary',
+      href: 'https://notionary.vercel.app/',
     },
   },
   {
-    title: "Video-Sharing Social Network",
-    techStack: ["Side Project", "TypeScript", "Next.js", "Sanity Management"],
+    title: 'Video-Sharing Social Network',
+    techStack: ['Side Project', 'TypeScript', 'Next.js', 'Sanity Management'],
     description:
-      "Developed an interactive web application using Next.js and Sanity.io, designed to create a shared space for users to connect with friends and family through video content. The platform offers features such as video sharing, commenting, liking, and user search, fostering an engaging and interactive community experience.",
+      'Developed an interactive web application using Next.js and Sanity.io, designed to create a shared space for users to connect with friends and family through video content. The platform offers features such as video sharing, commenting, liking, and user search, fostering an engaging and interactive community experience.',
     logo: MonitoLogo,
     link: {
-      label: "shareme.dev",
-      href: "https://symphonious-kitten-397f94.netlify.app/",
+      label: 'shareme.dev',
+      href: 'https://symphonious-kitten-397f94.netlify.app/',
     },
   },
   {
-    title: "Similarity Scout",
-    techStack: ["Side Project", "Typescript", "Animations", "Radix UI"],
-    description:
-      "API Service that compares the similarity of two pieces of text",
+    title: 'Similarity Scout',
+    techStack: ['Side Project', 'Typescript', 'Animations', 'Radix UI'],
+    description: 'API Service that compares the similarity of two pieces of text',
     logo: EvercastLogo,
     link: {
-      label: "SimilarityScout",
-      href: "https://similarityscout.netlify.app/",
+      label: 'SimilarityScout',
+      href: 'https://similarityscout.netlify.app/',
     },
   },
   {
-    title: "Comprehensive Job Search Mobile App",
-    techStack: ["Side Project", "React Native", "RapidAPI"],
+    title: 'Comprehensive Job Search Mobile App',
+    techStack: ['Side Project', 'React Native', 'RapidAPI'],
     description:
-      "A powerful job search tool leveraging RapidAPI for comprehensive job listings. Features modern UX/UI design and robust search functionality to match users with their ideal job roles.",
+      'A powerful job search tool leveraging RapidAPI for comprehensive job listings. Features modern UX/UI design and robust search functionality to match users with their ideal job roles.',
     logo: BarepapersLogo,
     link: {
-      label: "Job Hunt - RN",
-      href: "https://expo.dev/@huntermacias/job-search-app?serviceType=classic&distribution=expo-go",
+      label: 'Job Hunt - RN',
+      href: 'https://expo.dev/@huntermacias/job-search-app?serviceType=classic&distribution=expo-go',
     },
   },
   {
-    title: "NFT Marketplace React Native App",
-    techStack: ["Side Project", "React Native", "TailwindCSS"],
-    description: "Created an NFT Marketplace mobile app using React Native. Integrated modern UI/UX principles with efficient backend handling for a seamless digital asset trading experience.",
+    title: 'NFT Marketplace React Native App',
+    techStack: ['Side Project', 'React Native', 'TailwindCSS'],
+    description:
+      'Created an NFT Marketplace mobile app using React Native. Integrated modern UI/UX principles with efficient backend handling for a seamless digital asset trading experience.',
     logo: YearProgressLogo,
     link: {
-      label: "NFT Marketplace - RN",
-      href: "https://pro-nef-x.netlify.app/",
+      label: 'NFT Marketplace - RN',
+      href: 'https://pro-nef-x.netlify.app/',
     },
   },
   {
-    title: "Web3 Crypto Lottery App",
-    techStack: [
-      "Side Project",
-      "Smart Contracts",
-      "Solidity",
-      "Blockchain",
-      "Next.js",
-    ],
+    title: 'Web3 Crypto Lottery App',
+    techStack: ['Side Project', 'Smart Contracts', 'Solidity', 'Blockchain', 'Next.js'],
     description:
-      "Designed a cryptocurrency lottery application leveraging Next.js and Solidity smart contracts. Featured Metamask integration for secure blockchain transactions.",
+      'Designed a cryptocurrency lottery application leveraging Next.js and Solidity smart contracts. Featured Metamask integration for secure blockchain transactions.',
     logo: EvercastLogo,
     link: {
-      label: "Web3 Lottery App",
-      href: "https://lottery-draw.netlify.app/",
+      label: 'Web3 Lottery App',
+      href: 'https://lottery-draw.netlify.app/',
     },
   },
   {
-    title: "CureChat",
-    techStack: [
-      "Side Project",
-      "React.js",
-      "Twilio",
-      "Stream",
-      "SSA",
-    ],
-    description: "With Direct and Group Chats, emojis & Reactions, Built-in Gif support, the ability to edit & delete messages, specialized commands, and much more",
+    title: 'CureChat',
+    techStack: ['Side Project', 'React.js', 'Twilio', 'Stream', 'SSA'],
+    description:
+      'With Direct and Group Chats, emojis & Reactions, Built-in Gif support, the ability to edit & delete messages, specialized commands, and much more',
     logo: EvercastLogo,
     link: {
-      label: "CureChat",
-      href: "https://curechat.netlify.app/",
+      label: 'CureChat',
+      href: 'https://curechat.netlify.app/',
     },
   },
   {
-    title: "PeerChat",
-    techStack: [
-      "Side Project",
-      "WebRTC",
-      "SDP",
-      "React.js",
-    ],
-    description: "Video Calling application built using WebRTC, similiar to zoom. Features include video on/off, mic on/off, chat, live participants, screen share, highlight video",
+    title: 'PeerChat',
+    techStack: ['Side Project', 'WebRTC', 'SDP', 'React.js'],
+    description:
+      'Video Calling application built using WebRTC, similiar to zoom. Features include video on/off, mic on/off, chat, live participants, screen share, highlight video',
     logo: EvercastLogo,
     link: {
-      label: "Peer Chat - Twitch Rooms",
-      href: "https://lively-pastelito-3c6253.netlify.app/",
+      label: 'Peer Chat - Twitch Rooms',
+      href: 'https://lively-pastelito-3c6253.netlify.app/',
     },
   },
   {
-    title: "Blockchain-Powered Crowdfunding Platform",
-    techStack: [
-      "Side Project",
-      "Smart Contracts",
-      "Solidity",
-      "Web3",
-    
-    ],
+    title: 'Blockchain-Powered Crowdfunding Platform',
+    techStack: ['Side Project', 'Smart Contracts', 'Solidity', 'Web3'],
     description:
       "A blockchain-based crowdfunding platform, featuring Metamask integration, smart contract interactions, and Ethereum transactions. It's a comprehensive demonstration of creating and participating in blockchain-enabled campaigns.",
     logo: EvercastLogo,
     link: {
-      label: "crowdfund-campaign.app",
-      href: "https://cool-cactus-84bc7e.netlify.app/",
+      label: 'crowdfund-campaign.app',
+      href: 'https://cool-cactus-84bc7e.netlify.app/',
     },
   },
   {
-    title: "NFT Marketplace: OpenSea",
-    techStack: ["Side Project", "Next.js", "Web3"],
+    title: 'NFT Marketplace: OpenSea',
+    techStack: ['Side Project', 'Next.js', 'Web3'],
     description:
-      "An NFT marketplace mimicking OpenSea, showcasing a variety of blockchain use cases. It stands out with features like multi-test support and comprehensive NFT trading functionalities.",
+      'An NFT marketplace mimicking OpenSea, showcasing a variety of blockchain use cases. It stands out with features like multi-test support and comprehensive NFT trading functionalities.',
     logo: MobileVikingsLogo,
     link: {
-      label: "NFT Marketplace - OpenSea",
-      href: "https://opensea-hm.netlify.app",
+      label: 'NFT Marketplace - OpenSea',
+      href: 'https://opensea-hm.netlify.app',
     },
   },
   {
     title: "Kobe Bryant's Legacy: A Data Visualization",
-    techStack: ["Side Project", "D3.js", "Data Visualization"],
-    description:
-      "Interactive Data Visualization with D3.js",
+    techStack: ['Side Project', 'D3.js', 'Data Visualization'],
+    description: 'Interactive Data Visualization with D3.js',
     logo: Howdy,
     link: {
-      label: "Kobe Bryant - A Visual Story",
-      href: "https://huntermacias.github.io/data-vis-basketball/index.html",
+      label: 'Kobe Bryant - A Visual Story',
+      href: 'https://huntermacias.github.io/data-vis-basketball/index.html',
     },
   },
   {
-    title: "AI-Powered ChatGPT Messaging Platform",
-    techStack: ["Lead Android Developer", "Android", "Kotlin"],
+    title: 'AI-Powered ChatGPT Messaging Platform',
+    techStack: ['Lead Android Developer', 'Android', 'Kotlin'],
     description:
       "ChatGPT Messenger revolutionizes communication with AI-driven conversations, leveraging NLP and ML for personalized user interactions. It's a seamless blend of technology and user experience",
     logo: TastyCloudLogo,
     link: {
-      label: "AI-Responds",
-      href: "https://chatgpt-messenger-three.vercel.app/",
+      label: 'AI-Responds',
+      href: 'https://chatgpt-messenger-three.vercel.app/',
     },
   },
   {
-    title: "3D Interactive Developer Portfolio",
-    techStack: ["Side Project", "Three.js", "Framer Motion"],
-    description:
-      "Personal Portfolio Creation with Three.js & Framer Motion",
+    title: '3D Interactive Developer Portfolio',
+    techStack: ['Side Project', 'Three.js', 'Framer Motion'],
+    description: 'Personal Portfolio Creation with Three.js & Framer Motion',
     logo: BimLogo,
     link: {
-      label: "3D Portfolio",
-      href: "https://huntercodes.netlify.app/",
+      label: '3D Portfolio',
+      href: 'https://huntercodes.netlify.app/',
     },
   },
   {
-    title: "Evently: Event Management Mobile App",
-    techStack: ["Side Project", "TailwindCSS", "Next.js", "Server Actions"],
+    title: 'Evently: Event Management Mobile App',
+    techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'Server Actions'],
     description:
       "Evently is a comprehensive event management app, featuring a robust backend and a modern UI/UX design. It's a one-stop solution for event organizers and attendees alike.",
     logo: CDGOLogo,
     link: {
-      label: "Meetix",
-      href: "https://meetix.vercel.app/",
+      label: 'Meetix',
+      href: 'https://meetix.vercel.app/',
     },
   },
-]
+];
 
 export const SocialMedia = [
   { name: 'Twitter', link: 'https://twitter.com/huntermacias_', icon: XIcon },
@@ -301,7 +300,6 @@ export const Work = [
   },
 ] as const;
 
-
 export const Books = [
   {
     name: 'Shoe Dog: A Memoir by the Creator of Nike by Phil Knight',
@@ -332,7 +330,6 @@ export const Books = [
     link: 'https://amzn.to/3iqimpZ',
   },
 ] as const;
-
 
 export const Podcasts = [
   {
@@ -517,7 +514,6 @@ export const Tools = {
         'While my laptop may be old and outdated to some, this is the laptop that kickstarted my coding journey over 6 years ago. Every project, assignment, job, or meeting, this laptop has gotten me through it.',
       href: 'https://amzn.to/3XkWxhF',
     },
-    
   ],
   Software: [
     {
@@ -525,7 +521,7 @@ export const Tools = {
       description: `Long gone are the days of Eclipse. I now use Visual Studio for all my web development needs. `,
       href: 'https://code.visualstudio.com/',
     },
-  
+
     {
       title: 'Figma',
       description: `I'm not a designer but it allows me to quickly mock up interfaces and play with my ideas. One day I'll learn how to use it properly.`,
@@ -541,6 +537,5 @@ export const Tools = {
       description: `I use Excalidraw to quickly sketch out ideas and concepts. It's a great tool for visualizing your thoughts and sharing them with others.`,
       href: 'https://www.Excalidraw.com',
     },
-
   ],
 } as const;
