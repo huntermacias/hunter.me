@@ -23,7 +23,21 @@ export const Name = 'Hunter Macias';
 
 export const About = (
   <>
-    {`I am a pragmatic software developer with a foundational background in computer science, marked by an energetic pursuit of innovative project work. My academic knowledge, while not fully complete, has been the springboard for a diverse portfolio of hands-on tech creations. I've spearheaded cutting-edge projects ranging from a real-time collaborative platform reminiscent of Notion, to advanced solutions in blockchain crowdfunding and AI-driven communication platforms. These endeavors highlight a fluency in contemporary tools such as React, Next.js, and Python, showcasing my ability to not only adapt to but also anticipate the shifting tides of the tech landscape. Engaging with my work reveals a developer dedicated to building not just functional, but captivating, user-centric applications that drive forward the intersection of technology and practicality.`}{' '}
+    {`I am a pragmatic software developer with a strong foundational background in computer science, 
+    marked by a relentless pursuit of innovation in project work. My academic foundation, while not 
+    culminating in a formal master's degree, has served as the cornerstone for a diverse portfolio of 
+    hands-on technical creations. I have spearheaded cutting-edge projects that span a wide spectrum of complexity, 
+    from the development of a real-time collaborative platform reminiscent of Notion to the implementation 
+    of sophisticated solutions in blockchain-based crowdfunding and AI-driven communication platforms. 
+    These ventures serve as testament to my fluency in contemporary development tools, 
+    including React.js, Next.js, Python, Java, JavaScript, and more. My ability to not only adapt to but also
+    anticipate the ever-evolving landscape of technology is evident in these endeavors. 
+    I engage with my work as a developer who is unwaveringly committed to crafting not merely functional, 
+    but truly captivating, user-centric applications. 
+    My goal is to continuously propel the intersection of technology and practicality forward, 
+    bringing innovative solutions to fruition.
+
+For further discussions and collaboration, please feel free to reach out to me via email.`}{' '}
     <ExternalLink href="https://hunters-resume.vercel.app/">send me an email.</ExternalLink>
   </>
 );
