@@ -24,6 +24,7 @@ import TextSimLogo from "../images/logos/textsim.png";
 import PortfolioLogo from "../images/logos/threeDinitial.png";
 import FrameRateLogo from "../images/logos/framerate.png";
 import LotteryLogo from "../images/logos/lotteryapp.png";
+import AcquisitionLogo from "../images/logos/acquisition.png"
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
@@ -85,6 +86,18 @@ export type Project = {
 };
 
 export const MyCurrentProjects: Project[] = [
+  {
+    title: 'Stratify', 
+    techStack: ['Next.js14', 'Bun', 'Stripe Connect', 'Prisma', 'MySQL'], 
+    description: "Welcome to the ultimate SaaS Website Builder and Project Management platform, tailored for agencies and sub-accounts looking to streamline their online presence and internal workflows. Built on the cutting-edge Next.js 14 and leveraging the speed of Bun, this solution integrates Stripe Connect for seamless financial transactions, Prisma for robust database management, and MySQL for data storage. Dive into a world where connecting a user's Stripe account, syncing products, and crafting unique websites and funnels from scratch is the norm - all hosted on custom subdomains within the app.", 
+    logo: AcquisitionLogo, 
+    link: {
+      label: 'Stratify: Agency Manangement', 
+      href: 'https://stratifyapp.vercel.app/', 
+    }
+
+  }, 
+
   {
     title: 'Python Documentation Portal',
     techStack: ['Web Development', 'Typescript', 'Documentation'],
@@ -537,15 +550,19 @@ export const Quotes = [
     content: 'We suffer more often in imagination than in reality',
     author: '― Seneca',
   },
+  {
+    content: "A language that doesn't affect the way you think about programming, is not worth knowing.",
+    author: '- Alan Perlis'
+  }
 ] as const;
 
 export const Tools = {
   Workstation: [
     {
-      title: '13.5” Surface Book (1st Gen), 8GB RAM (2021)',
+      title: 'Apple M3 Pro chip with 11‑core CPU, 14‑core GPU, 16‑core Neural Engine',
       description:
-        'While my laptop may be old and outdated to some, this is the laptop that kickstarted my coding journey over 6 years ago. Every project, assignment, job, or meeting, this laptop has gotten me through it.',
-      href: 'https://amzn.to/3XkWxhF',
+        "This MacBook Pro M3 represents the latest leap in my computing journey, embodying cutting-edge technology and performance. Its sleek design and powerful M3 chip enable me to tackle the most demanding projects, from coding to content creation. With this machine, I'm equipped to explore new horizons and push the boundaries of what's possible in my work.",
+      href: 'https://www.apple.com/shop/buy-mac/macbook-pro/14-inch-space-black-apple-m3-pro-with-11-core-cpu-and-14-core-gpu-18gb-memory-512gb?afid=p238%257CsF7IpQiKR-dc_mtid_1870765e38482_pcrid_652759409002_pgrid_146259541814_pntwk_g_pchan_local_pexid__&cid=aos-us-kwgo-pla-mac_lia--slid---product-MTLC3LL/A',
     },
   ],
   Software: [
@@ -562,7 +579,7 @@ export const Tools = {
     },
     {
       title: 'Notion',
-      description: `I use it for everything. I have a separate workspace for each of my projects and I use it to keep track of my tasks, notes, and ideas.`,
+      description: `I use it for everything. I have a separate workspace for each of my projects and I use it to keep track of my tasks, notes, and ideas. I'm even using Notion as a database for this portfolio :)`,
       href: 'https://www.notion.so/',
     },
     {

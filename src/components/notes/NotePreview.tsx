@@ -24,7 +24,6 @@ interface Props {
 }
 
 export const NotePreview = ({ note, dense }: Props) => {
-  // console.log('note', note.description);
   return (
     <motion.div
       initial={ANIMATION_FROM_PROPS}
@@ -41,7 +40,12 @@ export const NotePreview = ({ note, dense }: Props) => {
             decorate
           >
             {formatDate(note.publishedAt)}
-            {note.inProgress && <StaticBadge className="ml-4">Work in progress</StaticBadge>}
+            {/* Display "Work in progress" or "Completed" based on note.inProgress */}
+            {note.inProgress ? (
+              <StaticBadge className="ml-4">Work in progress</StaticBadge>
+            ) : (
+              <StaticBadge className="ml-4 bg-pink-500">Completed</StaticBadge> // Change the badge color for completed items
+            )}
           </Card.Eyebrow>
           <Card.Description>{note.description}</Card.Description>
           <Card.Cta>Read note</Card.Cta>
@@ -49,7 +53,12 @@ export const NotePreview = ({ note, dense }: Props) => {
         {!dense && (
           <Card.Eyebrow as="time" dateTime={note.publishedAt} className="mt-1 hidden md:block">
             {formatDate(note.publishedAt)}
-            {note.inProgress && <StaticBadge className="mt-2">Work in progress</StaticBadge>}
+            {/* Adjust badge for non-dense view as well */}
+            {note.inProgress ? (
+              <StaticBadge className="mt-2">Work in progress</StaticBadge>
+            ) : (
+              <StaticBadge className="mt-2 bg-green-500">Completed</StaticBadge> // Adjusting for the completed state in a non-dense layout
+            )}
           </Card.Eyebrow>
         )}
       </article>

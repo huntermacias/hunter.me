@@ -1,48 +1,49 @@
 const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
+  mode: 'jit',
   purge: ['./src/**/*.{tsx,jsx,ts,js}'],
-  plugins: [require('@tailwindcss/typography')],
-  variants: {
-    typography: ['dark'],
-  },
-  darkMode: 'class',
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        'primary': '#0ea5e9', // A modern, fresh primary color
+        'secondary': '#64748b', // Complementary secondary color
+        'accent': '#facc15', // Vibrant accent color for call-to-actions and highlights
+        'dark': '#0f172a', // Deep dark color for dark mode or accents
+        'light': '#f1f5f9', // Light color for backgrounds or light mode
+      },
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-geist-mono)'],
+        sans: ['Inter var', ...fontFamily.sans],
+        serif: ['Merriweather', ...fontFamily.serif],
+        mono: ['Fira Code', ...fontFamily.mono],
       },
       fontSize: {
-        xs: ['0.8125rem', { lineHeight: '1.5rem' }],
-        sm: ['0.875rem', { lineHeight: '1.5rem' }],
-        base: ['1rem', { lineHeight: '1.75rem' }],
-        lg: ['1.125rem', { lineHeight: '1.75rem' }],
-        xl: ['1.25rem', { lineHeight: '2rem' }],
-        '2xl': ['1.5rem', { lineHeight: '2rem' }],
-        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-        '4xl': ['2.5rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '3.5rem' }],
-        '6xl': ['3.75rem', { lineHeight: '1' }],
-        '7xl': ['4.5rem', { lineHeight: '1' }],
-        '8xl': ['6rem', { lineHeight: '1' }],
-        '9xl': ['8rem', { lineHeight: '1' }],
+        'hero': '4.5rem', // Extra-large font size for hero sections
       },
-      colors: {
-        primary: '#FB2576',
-        'primary-light': '#fd92ba',
-        'primary-dark': '#8d0237',
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-out forwards',
+        'slide-in': 'slideIn 0.5s ease-out forwards',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideIn: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.700'),
+            color: theme('colors.gray.800'),
             a: {
-              color: theme('colors.blue.500'),
+              color: theme('colors.primary'),
               '&:hover': {
-                color: theme('colors.blue.700'),
+                color: theme('colors.primary-dark'),
               },
-              code: { color: theme('colors.blue.400') },
             },
             'h2,h3,h4': {
               'scroll-margin-top': spacing[32],
@@ -57,13 +58,12 @@ module.exports = {
         },
         dark: {
           css: {
-            color: theme('colors.gray.200'),
+            color: theme('colors.gray.300'),
             a: {
-              color: theme('colors.blue.400'),
+              color: theme('colors.primary-light'),
               '&:hover': {
-                color: theme('colors.blue.600'),
+                color: theme('colors.primary'),
               },
-              code: { color: theme('colors.blue.400') },
             },
             blockquote: {
               borderLeftColor: theme('colors.gray.700'),
@@ -97,6 +97,9 @@ module.exports = {
           },
         },
       }),
+      
     },
+    
   },
+  
 };
