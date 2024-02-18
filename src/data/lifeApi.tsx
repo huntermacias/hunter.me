@@ -25,6 +25,7 @@ import PortfolioLogo from "../images/logos/threeDinitial.png";
 import FrameRateLogo from "../images/logos/framerate.png";
 import LotteryLogo from "../images/logos/lotteryapp.png";
 import AcquisitionLogo from "../images/logos/acquisition.png"
+import CameraLogo from "../images/logos/cameralogo.avif"
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
@@ -87,8 +88,19 @@ export type Project = {
 
 export const MyCurrentProjects: Project[] = [
   {
+    title: 'Headshot Hub', 
+    techStack: ['Next.js', 'Leap AI', 'Supabase', 'Stripe Connect', 'Resend'], 
+    description: "Headshot Hub - An Elite SaaS application to generate Professional Headshots like never before.", 
+    logo: CameraLogo, 
+    link: {
+      label: 'Headshot Hub', 
+      href: 'https://headshothub.vercel.app/', 
+    }
+
+  }, 
+  {
     title: 'Stratify', 
-    techStack: ['Next.js14', 'Bun', 'Stripe Connect', 'Prisma', 'MySQL'], 
+    techStack: ['Next.js', 'Bun', 'Stripe Connect', 'Prisma', 'MySQL'], 
     description: "Welcome to the ultimate SaaS Website Builder and Project Management platform, tailored for agencies and sub-accounts looking to streamline their online presence and internal workflows. Built on the cutting-edge Next.js 14 and leveraging the speed of Bun, this solution integrates Stripe Connect for seamless financial transactions, Prisma for robust database management, and MySQL for data storage. Dive into a world where connecting a user's Stripe account, syncing products, and crafting unique websites and funnels from scratch is the norm - all hosted on custom subdomains within the app.", 
     logo: AcquisitionLogo, 
     link: {
@@ -332,7 +344,7 @@ export const Work = [
   },
   {
     company: 'Leadbird',
-    title: 'Web App Developer → Lead Developer',
+    title: 'Full Stack Developer',
     logo: Leadbird,
     start: '2021',
     end: '2022',
