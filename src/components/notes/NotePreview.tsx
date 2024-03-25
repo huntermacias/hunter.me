@@ -30,13 +30,13 @@ export const NotePreview = ({ note, dense }: Props) => {
       whileInView={ANIMATION_TO_PROPS}
       viewport={{ once: true }}
     >
-      <article className="md:grid md:grid-cols-4 md:items-baseline">
-        <Card className="md:col-span-3">
+      <article className="md:grid md:grid-cols-4 md:items-baseline gap-4 p-4 backdrop-filter backdrop-blur-xl bg-opacity-30 dark:bg-opacity-30 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg transition-all duration-300 hover:bg-opacity-40 dark:hover:bg-opacity-40">
+        <Card className="md:col-span-3 bg-white/60 dark:bg-black/60">
           <Card.Title href={`/notes/${note.slug}`}>{note.title}</Card.Title>
           <Card.Eyebrow
             as="time"
             dateTime={note.publishedAt}
-            className={clsx(!dense && 'md:hidden')}
+            className={clsx(!dense && 'md:hidden')}            
             decorate
           >
             {formatDate(note.publishedAt)}
@@ -47,7 +47,7 @@ export const NotePreview = ({ note, dense }: Props) => {
               <StaticBadge className="ml-4 bg-pink-500">Completed</StaticBadge> // Change the badge color for completed items
             )}
           </Card.Eyebrow>
-          <Card.Description>{note.description}</Card.Description>
+          <Card.Description>{note.shortDescription}</Card.Description>
           <Card.Cta>Read note</Card.Cta>
         </Card>
         {!dense && (

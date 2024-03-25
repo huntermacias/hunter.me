@@ -26,6 +26,9 @@ export default function Uses() {
       <PageLayout
         title="Software I use, gadgets I love, and other things I recommend."
         intro="Here's a big list of all of my favorite stuff."
+        className='mt-16 sm:mt-32 max-w-xl lg:max-w-5xl mx-auto backdrop-blur-xl bg-white/30  dark:bg-transparent rounded-lg p-8 shadow-lg border border-gray-200 dark:border-slate-800 transition-all duration-300 hover:bg-opacity-40 dark:hover:bg-opacity-40'
+
+        
       >
         <div className="space-y-20">
           {Object.entries(Tools).map(([title, tools]) => (

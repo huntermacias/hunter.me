@@ -21,6 +21,7 @@ import PodcastSection from 'src/components/sections/PodcastSection';
 import BlogsSection from 'src/components/sections/BlogsSection';
 import PeopleWorthFollowing from 'src/components/sections/PeopleWorthFollowing';
 import QuoteSection from 'src/components/sections/QuoteSection';
+import { PageLayout } from 'src/components/PageLayout';
 
 const seoTitle = `About`;
 const seoDescription = `A few words about me.`;
@@ -34,20 +35,13 @@ export default function AboutMe() {
 
   return (
     <>
-      <NextSeo
-        title={seoTitle}
-        description={seoDescription}
-        canonical={`${process.env.NEXT_PUBLIC_URL}/about`}
-        openGraph={{
-          images: [
-            {
-              url: `${process.env.NEXT_PUBLIC_URL}/api/og?title=${seoTitle}&description=${seoDescription}`,
-            },
-          ],
-        }}
-      />
-      <Container className="mt-10 sm:mt-20 lg:mt-32">
-        <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-3 lg:gap-x-8">
+      <NextSeo title={seoTitle} description={seoDescription} canonical={`${process.env.NEXT_PUBLIC_URL}/about`} />
+      <PageLayout
+        title='Digitally Distinctive, Technically Eclectic.'
+        intro='Learn more about me.'
+        className='mt-16 sm:mt-32 max-w-xl lg:max-w-5xl mx-auto backdrop-blur-xl bg-white/30  dark:bg-transparent rounded-lg p-8 shadow-lg border border-gray-200 dark:border-slate-800 transition-all duration-300 hover:bg-opacity-40 dark:hover:bg-opacity-40'
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-1">
             <Image
               src={AvatarImage}
@@ -58,43 +52,37 @@ export default function AboutMe() {
               priority
             />
           </div>
-          <div className="lg:order-first lg:row-span-2">
-            <PageTitle>Hi, I&apos;m Hunter Macias.</PageTitle>
-            <div className="mt-6 text-base">
+          <div className="lg:col-span-3">
+            <h1 className="text-3xl font-bold tracking-tight text-black dark:text-white">Hi, I'm Hunter Macias.</h1>
+            <div className="mt-6 text-base space-y-4">
               {AboutExtended.split('\n').map((paragraph, index) => (
-                <div key={index}>
-                  <p>{paragraph}</p>
-                  <br />
-
-                </div>
+                <p key={index}>{paragraph}</p>
               ))}
             </div>
             <div className="mt-6 flex gap-6">
               {SocialMedia.map((socialProfile) => (
-                <SocialLink
-                  key={socialProfile.name}
-                  aria-label={`Follow on ${socialProfile.name}`}
-                  href={socialProfile.link}
-                  icon={socialProfile.icon}
-                />
+                  <SocialLink
+                    key={socialProfile.name}
+                    aria-label={`Follow on ${socialProfile.name}`}
+                    href={socialProfile.link}
+                    icon={socialProfile.icon}
+                  />                
               ))}
             </div>
 
             <WorkStation />
             <BooksSection Books={Books} />
-            <PodcastSection Podcasts={Podcasts}/>
+            <PodcastSection Podcasts={Podcasts} />
             <BlogsSection Blogs={Blogs} />
-            <PeopleWorthFollowing 
-              PeopleWorthFollowingOnTwitter={PeopleWorthFollowingOnTwitter} 
-            />
+            <PeopleWorthFollowing PeopleWorthFollowingOnTwitter={PeopleWorthFollowingOnTwitter} />
             
             {randomQuote && (
-              <QuoteSection randomQuote={randomQuote} />
+              <div className="mt-6 italic">{randomQuote.content}</div>
             )}
-
           </div>
         </div>
-      </Container>
+      </PageLayout>
     </>
   );
-}
+};
+

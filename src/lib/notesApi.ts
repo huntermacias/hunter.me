@@ -16,6 +16,7 @@ export type Note = {
   tags: string[];
   title: string;
   description: string;
+  shortDescription: string;
   slug: string;
   isPublished: boolean;
   publishedAt: string;
@@ -95,20 +96,30 @@ class NotesApi {
             'multi_select' in page.properties.hashtags
               ? page.properties.hashtags.multi_select.map((tag) => tag.name)
               : [],
-          title: 'title' in page.properties.title ? page.properties.title.title[0].plain_text : '',
-          description:
-            'rich_text' in page.properties.description
+          title: page.properties.title?.title?.[0]?.plain_text ?? '',
+          shortDescription:
+            'rich_text' in page.properties.description && page.properties.description.rich_text.length > 0
               ? page.properties.description.rich_text[0].plain_text
               : '',
-          slug:
-            'rich_text' in page.properties.slug ? page.properties.slug.rich_text[0].plain_text : '',
+              description:
+            'rich_text' in page.properties.description
+              ? page.properties.description.rich_text.map((textBlock) => textBlock.plain_text).join(' ')
+              : '',
+          slug: 
+            'rich_text' in page.properties.slug && page.properties.slug.rich_text.length > 0
+              ? page.properties.slug.rich_text[0].plain_text
+              : '',
           isPublished:
             'checkbox' in page.properties.published ? page.properties.published.checkbox : false,
           publishedAt:
-            'date' in page.properties.publishedAt ? page.properties.publishedAt.date!.start : '',
+            'date' in page.properties.publishedAt && page.properties.publishedAt.date
+              ? page.properties.publishedAt.date.start
+              : '',
           inProgress:
             'checkbox' in page.properties.inProgress ? page.properties.inProgress.checkbox : false,
         };
+        
+        
       })
       .filter((post) => post.isPublished);
   };

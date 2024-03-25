@@ -9,9 +9,18 @@ module.exports = {
       colors: {
         'primary': '#0ea5e9', // A modern, fresh primary color
         'secondary': '#64748b', // Complementary secondary color
-        'accent': '#facc15', // Vibrant accent color for call-to-actions and highlights
+        // 'accent': '#facc15', // Vibrant accent color for call-to-actions and highlights
         'dark': '#0f172a', // Deep dark color for dark mode or accents
         'light': '#f1f5f9', // Light color for backgrounds or light mode
+        'darkbg': '#121212',
+        'accent': '#ff007c', 
+      },
+      backdropFilter: {
+        'none': 'none',
+        'blur': 'blur(20px)',
+      },
+      backdropBlur: {
+        xl: '40px',
       },
       fontFamily: {
         sans: ['Inter var', ...fontFamily.sans],
@@ -100,6 +109,12 @@ module.exports = {
       
     },
     
+    
   },
+
+  plugins: [
+    require('@tailwindcss/typography'),
+
+  ],
   
 };
