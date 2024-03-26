@@ -11,7 +11,7 @@ const StaticBadge = ({ className, children }: React.PropsWithChildren<{ classNam
   <span
     className={clsx(
       className,
-      'inline-flex items-center rounded-md bg-primary px-2 py-0 text-xs font-medium text-white',
+      'inline-flex items-center rounded-md ml-6 px-2 py-0 text-sm mb-4 font-medium text-white',
     )}
   >
     {children}
@@ -30,8 +30,9 @@ export const NotePreview = ({ note, dense }: Props) => {
       whileInView={ANIMATION_TO_PROPS}
       viewport={{ once: true }}
     >
-      <article className="md:grid md:grid-cols-4 md:items-baseline gap-4 p-4 backdrop-filter backdrop-blur-xl bg-opacity-30 dark:bg-opacity-30 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg transition-all duration-300 hover:bg-opacity-40 dark:hover:bg-opacity-40">
-        <Card className="md:col-span-3 bg-white/60 dark:bg-black/60">
+      <article className="py-3"
+      >
+        <Card className="md:col-span-3 border-2 shadow-xl" href={`/notes/${note.slug}`}>
           <Card.Title href={`/notes/${note.slug}`}>{note.title}</Card.Title>
           <Card.Eyebrow
             as="time"
@@ -42,7 +43,7 @@ export const NotePreview = ({ note, dense }: Props) => {
             {formatDate(note.publishedAt)}
             {/* Display "Work in progress" or "Completed" based on note.inProgress */}
             {note.inProgress ? (
-              <StaticBadge className="ml-4">Work in progress</StaticBadge>
+              <StaticBadge className="ml-4 bg-teal-500">Work in progress</StaticBadge>
             ) : (
               <StaticBadge className="ml-4 bg-pink-500">Completed</StaticBadge> // Change the badge color for completed items
             )}
@@ -55,7 +56,7 @@ export const NotePreview = ({ note, dense }: Props) => {
             {formatDate(note.publishedAt)}
             {/* Adjust badge for non-dense view as well */}
             {note.inProgress ? (
-              <StaticBadge className="mt-2">Work in progress</StaticBadge>
+              <StaticBadge className="mt-2 bg-teal-500">Work in progress</StaticBadge>
             ) : (
               <StaticBadge className="mt-2 bg-green-500">Completed</StaticBadge> // Adjusting for the completed state in a non-dense layout
             )}

@@ -39,8 +39,9 @@ export default function AboutMe() {
       <PageLayout
         title='Digitally Distinctive, Technically Eclectic.'
         intro='Learn more about me.'
-        className='mt-16 sm:mt-32 max-w-xl lg:max-w-5xl mx-auto backdrop-blur-xl bg-white/30  dark:bg-transparent rounded-lg p-8 shadow-lg border border-gray-200 dark:border-slate-800 transition-all duration-300 hover:bg-opacity-40 dark:hover:bg-opacity-40'
-      >
+        className="mt-16 sm:mt-32 max-w-xl lg:max-w-6xl mx-auto rounded-lg p-8
+        border border-gray-200 shadow-lg transition-all duration-300
+        bg-white/60 dark:bg-inherit backdrop-blur-lg"      >
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-1">
             <Image

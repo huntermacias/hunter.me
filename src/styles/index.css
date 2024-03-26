@@ -15,3 +15,11 @@
 .text-balance {
   text-wrap: balance;
 }
+
+
+@media (min-width: 640px) {
+  .sm\:px-8 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

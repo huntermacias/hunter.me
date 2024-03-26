@@ -29,8 +29,8 @@ export default function Notes({ notes, tags }: Props) {
       <PageLayout
         title="Notes on software, building products, and other stuff."
         intro="All of my thoughts on programming, building products, leadership, and other random stuff. Not structured."
-        className='mt-16 sm:mt-32 max-w-xl lg:max-w-5xl mx-auto backdrop-blur-xl bg-white/30  dark:bg-transparent rounded-lg p-8 shadow-lg border border-gray-200 dark:border-slate-800 transition-all duration-300 hover:bg-opacity-40 dark:hover:bg-opacity-40'
-
+        className=' mt-16 sm:mt-32 max-w-xl lg:max-w-6xl mx-auto backdrop-blur-md dark:bg-inherit rounded-lg p-8 border border-gray-200
+        dark:border-slate-950 shadow-2xl transition-all duration-300'
       >
         <h3 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">Tags</h3>
         <div className="mt-4 flex max-w-xl flex-wrap gap-1 font-mono">

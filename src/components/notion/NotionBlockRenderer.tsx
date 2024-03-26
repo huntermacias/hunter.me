@@ -169,7 +169,7 @@ const NotionText = ({ textItems }: { textItems: TextRichTextItemResponse[] }) =>
             })}
             style={color !== 'default' ? { color } : {}}
           >
-            {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
+            {text.link ? <Link href={text.link.url}>{text.content}</Link> : text.content}
           </span>
         );
       })}

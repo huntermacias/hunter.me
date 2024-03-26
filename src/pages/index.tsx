@@ -22,48 +22,58 @@ type Props = {
 export default function Home({ latestNotes }: Props) {
   return (
     <>
-      <NextSeo
-        title={seoTitle}
-        description={seoDescription}
-        canonical={`${process.env.NEXT_PUBLIC_URL}`}
-        openGraph={{
-          images: [
-            {
-              url: `${process.env.NEXT_PUBLIC_URL}/api/og?title=${seoTitle}&description=${seoDescription}`,
-            },
-          ],
-        }}
-      />
-      <Container className="mt-9">
-        <div className="max-w-2xl">
-          <PageTitle>{Name}</PageTitle>
-          <p className="mt-6 max-w-2xl text-base text-balance">{About}</p>
-          <div className="mt-6 flex gap-6">
-            {SocialMedia.map((socialProfile) => (
-              <SocialLink
-                key={socialProfile.name}
-                aria-label={`Follow on ${socialProfile.name}`}
-                href={socialProfile.link}
-                icon={socialProfile.icon}
-              />
-            ))}
-          </div>
-        </div>
-      </Container>
-      <Photos />
-      <Container className="mt-12">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
-            {latestNotes.map((blogPost) => (
-              <NotePreview key={blogPost.slug} note={blogPost} dense />
-            ))}
-          </div>
-          <div className="lg:ml-auto space-y-10 lg:pl-16 xl:pl-24">
-            <Resume />
-          </div>
-        </div>
-      </Container>
-    </>
+  <NextSeo
+    title={seoTitle}
+    description={seoDescription}
+    canonical={`${process.env.NEXT_PUBLIC_URL}`}
+    openGraph={{
+      images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_URL}/api/og?title=${seoTitle}&description=${seoDescription}`,
+        },
+      ],
+    }}
+  />
+  {/* Main content container with more padding for better spacing */}
+  <Container className="mt-9 py-6">
+    <div className="max-w-4xl mx-auto">
+      {/* Page Title with increased font size for emphasis */}
+      <PageTitle className="text-4xl font-bold">{Name}</PageTitle>
+      {/* About section with improved readability */}
+      <p className="mt-6 text-lg text-gray-700 dark:text-gray-300 dark:bg-slate-950/90 p-6 rounded-xl">{About}</p>
+      {/* Social Media Links with increased interactivity */}
+      <nav className="mt-6 flex gap-6">
+        {SocialMedia.map((socialProfile) => (
+          <SocialLink
+            key={socialProfile.name}
+            aria-label={`Follow on ${socialProfile.name}`}
+            href={socialProfile.link}
+            className="transition-colors duration-300 hover:text-primary-500 dark:hover:text-primary-400"
+            icon={socialProfile.icon}
+          />
+        ))}
+      </nav>
+    </div>
+  </Container>
+  <Photos />
+
+  {/* Projects and Resume Section with improved layout */}
+  <Container className="mt-12">
+    <div className="grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-2">
+      {/* Latest Notes with more visual hierarchy */}
+      <div className="flex flex-col ">
+        {latestNotes.map((blogPost) => (
+          <NotePreview key={blogPost.slug} note={blogPost} dense />
+        ))}
+      </div>
+      {/* Resume Section with distinct background for focus */}
+      <div className="bg-gray-50/80 dark:bg-gray-950 h-[24rem] border border-gray-600 p-6 rounded-xl shadow-lg lg:ml-auto space-y-10 ">
+        <Resume />
+      </div>
+    </div>
+  </Container>
+</>
+
   );
 }
 

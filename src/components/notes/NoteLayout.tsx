@@ -21,7 +21,9 @@ export const NoteLayout = ({ children, meta, previousPathname }: Props) => {
   let router = useRouter();
 
   return (
-    <Container className="mt-16 lg:mt-32 ">
+    <Container    className="mt-16 sm:mt-32 max-w-xl lg:max-w-6xl mx-auto rounded-lg p-8
+    border border-gray-200 shadow-lg transition-all duration-300
+    bg-white/60 dark:bg-inherit backdrop-blur-lg">
     <div className="xl:relative">
       <div className="mx-auto max-w-3xl">
         {previousPathname && (
@@ -47,7 +49,7 @@ export const NoteLayout = ({ children, meta, previousPathname }: Props) => {
               <span className="ml-3">{formatDate(meta.date)}</span>
             </time>
           </header>
-          <Prose className="mt-8 bg-white/80 dark:bg-black/60 p-6 rounded-lg">{children}</Prose>
+          <Prose className="mt-8  p-6 rounded-lg">{children}</Prose>
         </article>
       </div>
     </div>
