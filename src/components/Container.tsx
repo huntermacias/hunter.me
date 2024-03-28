@@ -5,7 +5,7 @@ const OuterContainer = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
   function OuterContainer({ className, children, ...props }, ref) {
     return (
       <div ref={ref} className={clsx('sm:px-8', className)} {...props}>
-        <div className="mx-auto max-w-8xl lg:px-8">{children}</div>
+        <div className="mx-auto max-w-7xl lg:px-8">{children}</div>
       </div>
     );
   },
@@ -15,7 +15,7 @@ const InnerContainer = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
   function InnerContainer({ className, children, ...props }, ref) {
     return (
       <div ref={ref} className={clsx('relative px-4 sm:px-8 lg:px-12', className)} {...props}>
-        <div className="mx-auto max-w-2xl lg:max-w-7xl">{children}</div>
+        <div className="mx-auto max-w-5xl lg:max-w-7xl">{children}</div>
       </div>
     );
   },

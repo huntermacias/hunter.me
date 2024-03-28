@@ -134,9 +134,9 @@ export const NotionBlockRenderer = ({ block }: Props) => {
     case 'bookmark':
       const href = value.url;
       return (
-        <a href={href} target="_brank">
+        <Link href={href} target="_brank">
           {href}
-        </a>
+        </Link>
       );
     default:
       return (

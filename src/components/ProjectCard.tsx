@@ -28,10 +28,13 @@ export const ProjectCard = ({ projects }: Props) => {
               <IconClipboardCopy className="w-5 h-5 hover:text-primary-600 transition-colors duration-300" />
             </Link>
           }
+          
         />
+        
 
       ))}
     </BentoGrid>
+    
   );
 };
 

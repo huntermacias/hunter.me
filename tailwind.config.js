@@ -14,7 +14,10 @@ module.exports = {
         'light': '#f1f5f9', // Light color for backgrounds or light mode
         'darkbg': '#121212',
         'accent': '#ff007c', 
+       
+        
       },
+
       backdropFilter: {
         'none': 'none',
         'blur': 'blur(20px)',
@@ -33,6 +36,8 @@ module.exports = {
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'slide-in': 'slideIn 0.5s ease-out forwards',
+        "meteor-effect": "meteor 5s linear infinite",
+
       },
       keyframes: {
         fadeIn: {
@@ -42,6 +47,14 @@ module.exports = {
         slideIn: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
         },
       },
       typography: (theme) => ({

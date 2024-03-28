@@ -12,10 +12,10 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 export const PageLayout = ({ title, intro, children, ...rest }: React.PropsWithChildren<Props>) => {
   return (
     <Container
-      className="mt-16 sm:mt-32 max-w-xl lg:max-w-7xl mx-auto  rounded-lg p-8 shadow-lg border border-gray-200 "
+      className="mt-16 sm:mt-32 max-w-xllg:max-w-7xl mx-auto rounded-lg p-8 shadow-lg border border-gray-200 "
       {...rest}
     >
-      <header className="max-w-4xl mx-auto">
+      <header className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold tracking-tight text-black dark:text-white">
           {title}
         </h1>

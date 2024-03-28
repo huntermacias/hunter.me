@@ -25,54 +25,26 @@ import PortfolioLogo from "../images/logos/threeDinitial.png";
 import FrameRateLogo from "../images/logos/framerate.png";
 import LotteryLogo from "../images/logos/lotteryapp.png";
 import AcquisitionLogo from "../images/logos/acquisition.png"
-import CameraLogo from "../images/logos/cameralogo.avif"
+import CameraLogo from "../images/logos/camera.jpg"
+import CalendarLogo from "../images/logos/calendar.jpg"
+import Lingo from "../images/logos/lingo.jpg"
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
 
 export const About = (
   <>
-    {`I am a pragmatic software developer with a strong foundational background in computer science, 
-    marked by a relentless pursuit of innovation in project work. My academic foundation, while not 
-    culminating in a formal master's degree, has served as the cornerstone for a diverse portfolio of 
-    hands-on technical creations. I have spearheaded cutting-edge projects that span a wide spectrum of complexity, 
-    from the development of a real-time collaborative platform reminiscent of Notion to the implementation 
-    of sophisticated solutions in blockchain-based crowdfunding and AI-driven communication platforms. 
-    These ventures serve as testament to my fluency in contemporary development tools, 
-    including React.js, Next.js, Python, Java, JavaScript, and more. My ability to not only adapt to but also
-    anticipate the ever-evolving landscape of technology is evident in these endeavors. 
-    I engage with my work as a developer who is unwaveringly committed to crafting not merely functional, 
-    but truly captivating, user-centric applications. 
-    My goal is to continuously propel the intersection of technology and practicality forward, 
-    bringing innovative solutions to fruition.
+    {`Hi, I'm Hunter Macias, a Full Stack Engineer based in Seattle, Washington. I specialize in crafting dynamic and efficient code for cutting-edge applications, with a passion for exploring new technologies and leveraging innovation to solve challenges. My journey in the tech industry spans over five years, during which I've honed my skills in front-end and back-end development to deliver user-centric solutions that are both technically proficient and engaging.`}{' '}
 
-For further discussions and collaboration, please feel free to reach out to me via email.`}{' '}
+    {`For further discussions and collaboration, please feel free to reach out to me via email.`}{' '}
     <ExternalLink href="https://hunters-resume.vercel.app/">send me an email.</ExternalLink>
   </>
 );
-export const AboutExtended = `🚀 About Me: Unleashing Innovation, One Line of Code at a Time 🚀
-
-Greetings, tech enthusiast! I'm Hunter Macias, and I'm not just a coder; I'm a digital sorcerer on a mission to revolutionize the tech landscape. 🌟
-
-🔥 Passion for the Digital Realm: From an early age, I was captivated by the mesmerizing dance of ones and zeros. Technology isn't just a career choice for me; it's a lifelong love affair. I don't simply write code; I craft digital symphonies that transform ideas into reality.
-
-🧠 A Curious Mind: Curiosity fuels my existence. I'm not content with the status quo. Instead, I relentlessly explore the uncharted territories of emerging technologies. My mind is a playground, and I'm always on the lookout for the next game-changing innovation.
-
-💡 Innovative Problem Solver: Challenges are my playground. I thrive in situations where others see roadblocks. My knack for out-of-the-box thinking enables me to engineer elegant solutions to complex problems, making the impossible possible.
-
-💻 Mastery in Code Craftsmanship: I'm fluent in the languages of innovation: Python, Java, JavaScript, and more. My code is poetry, and I take pride in writing clean, efficient, and scalable solutions that stand the test of time.
-
-🌐 Global Perspective: I believe technology can bridge gaps and create a better world. I've collaborated on international projects, gaining a holistic perspective that's crucial in our interconnected world. My code doesn't just function; it harmonizes with diverse cultures and user needs.
-
-🌈 Diversity & Inclusion Advocate: I'm not just committed to lines of code; I'm passionate about lines of diversity. Inclusivity is the cornerstone of my work, and I actively promote gender, racial, and cultural diversity in tech.
-
-🚀 Entrepreneurial Spirit: Beyond my technical prowess, I have an entrepreneurial fire. I've co-founded startups, transforming visionary ideas into profitable ventures. My experiences have cultivated a unique blend of technical expertise and business acumen.
-
-📚 Lifelong Learner: The tech world evolves at warp speed, and I'm a perpetual student. I devour books, attend conferences, and engage with industry leaders to stay at the forefront of innovation.
-
-🌟 Let's Create the Future Together: I'm not just seeking a job; I'm looking for a mission. If you're searching for a tech visionary who doesn't just adapt to change but drives it, let's connect. Together, we can harness the power of technology to reshape industries, enhance lives, and push the boundaries of what's possible.
-
-📧 Reach Out: Don't wait! Drop me a line at huntermacias20@gmail.com to embark on a journey of innovation. Let's build a future where technology knows no limits.`;
+export const AboutExtended =
+  `I'm a passionate Full Stack Engineer with over five years of experience in crafting dynamic and efficient code for cutting-edge applications. My journey in the tech industry is fueled by a relentless drive to explore new technologies and an unwavering belief in the power of innovation to solve challenges.
+With a robust background in both front-end and back-end development, I pride myself on delivering solutions that are not only technically proficient but also user-centric. My expertise spans across a wide range of programming languages and frameworks, enabling me to adapt and thrive in fast-paced development environments.
+At the heart of my approach is a can-do attitude and a problem-solving mindset, guided by the principle that every challenge presents an opportunity for innovation. Whether working on complex projects or navigating the nuances of new technologies, my goal remains the same: to build software that makes a difference.
+As I continue to evolve as a developer and a tech enthusiast, I remain open to exploring new horizons and embracing the endless possibilities that the world of technology has to offer.`;
 
 export type Project = {
   video?: any;
@@ -88,27 +60,53 @@ export type Project = {
 
 export const MyCurrentProjects: Project[] = [
   {
-    title: 'Headshot Hub', 
-    techStack: ['Next.js', 'Leap AI', 'Supabase', 'Stripe Connect', 'Resend'], 
-    description: "Headshot Hub - An Elite SaaS application to generate Professional Headshots like never before.", 
-    logo: CameraLogo, 
+    title: 'Lingo',
+    techStack: [
+      'Next.js 14',
+      'React.js',
+      'Drizzle ORM',
+      'PostgreSQL',
+      'Stripe',
+      'Server Actions',
+      'ShadcnUI',
+      'Tailwind CSS',
+      'Elevenlabs AI',
+      'Clerk',
+      'KenneyNL Characters',
+      'React Admin',
+      'NeonDB',
+      'Vercel',
+    ],
+    description: "Lingo redefines language learning with an interactive SaaS platform inspired by Duolingo. Dive into a world where language learning meets gamification, enhanced with AI voices, beautiful design, engaging characters, and immersive sound effects. Master new languages through guided lessons built on the latest tech stack including Next.js 14, Drizzle ORM, and PostgreSQL. Experience personalized education with our unique features: AI-generated voices, character-driven narratives, sound effects, a hearts system, an XP system, interactive pop-ups, a leaderboard, quest milestones, and a shop system. Lingo's Pro tier, powered by Stripe, offers unlimited hearts for uninterrupted learning. Our platform, responsive across devices, is designed for learners of all ages. Get started on your language journey with Lingo, and explore the richness of languages in a fun, engaging way.",
+    logo: Lingo, 
     link: {
-      label: 'Headshot Hub', 
-      href: 'https://headshothub.vercel.app/', 
+      label: 'Explore Lingo',
+      href: 'https://lingo-aehvptrt5-huntermacias.vercel.app/',
     }
-
-  }, 
+  },
+  
   {
-    title: 'Stratify', 
-    techStack: ['Next.js', 'Bun', 'Stripe Connect', 'Prisma', 'MySQL'], 
-    description: "Welcome to the ultimate SaaS Website Builder and Project Management platform, tailored for agencies and sub-accounts looking to streamline their online presence and internal workflows. Built on the cutting-edge Next.js 14 and leveraging the speed of Bun, this solution integrates Stripe Connect for seamless financial transactions, Prisma for robust database management, and MySQL for data storage. Dive into a world where connecting a user's Stripe account, syncing products, and crafting unique websites and funnels from scratch is the norm - all hosted on custom subdomains within the app.", 
-    logo: AcquisitionLogo, 
+    title: 'Headshot Hub',
+    techStack: ['Next.js', 'Leap AI', 'Supabase', 'Stripe Connect', 'Resend'],
+    description: "Headshot Hub - An Elite SaaS application to generate Professional Headshots like never before.",
+    logo: CameraLogo,
     link: {
-      label: 'Stratify: Agency Manangement', 
-      href: 'https://stratifyapp.vercel.app/', 
+      label: 'Headshot Hub',
+      href: 'https://headshothub.vercel.app/',
     }
 
-  }, 
+  },
+  {
+    title: 'Stratify',
+    techStack: ['Next.js', 'Bun', 'Stripe Connect', 'Prisma', 'MySQL'],
+    description: "Welcome to the ultimate SaaS Website Builder and Project Management platform, tailored for agencies and sub-accounts looking to streamline their online presence and internal workflows. Built on the cutting-edge Next.js 14 and leveraging the speed of Bun, this solution integrates Stripe Connect for seamless financial transactions, Prisma for robust database management, and MySQL for data storage. Dive into a world where connecting a user's Stripe account, syncing products, and crafting unique websites and funnels from scratch is the norm - all hosted on custom subdomains within the app.",
+    logo: AcquisitionLogo,
+    link: {
+      label: 'Stratify: Agency Manangement',
+      href: 'https://stratifyapp.vercel.app/',
+    }
+
+  },
 
   {
     title: 'Python Documentation Portal',
@@ -122,18 +120,18 @@ export const MyCurrentProjects: Project[] = [
     },
   },
   {
-    title: 'Evently: Event Management Mobile App',
+    title: 'Evently',
     techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'Server Actions'],
     description:
       "Evently is a comprehensive event management app, featuring a robust backend and a modern UI/UX design. It's a one-stop solution for event organizers and attendees alike.",
-    logo: EventlyLogo,
+    logo: CalendarLogo,
     link: {
       label: 'https://meetix.vercel.app/',
       href: 'https://meetix.vercel.app/',
     },
   },
   {
-    title: 'FrameRate: Movie Review Social App',
+    title: 'FrameRate',
     techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'MovieAPI'],
     description:
       "At FrameRate, every review counts. Share your perspective, rate movies, and contribute to a community-driven rating system that values authenticity and diversity of opinion.",
@@ -154,7 +152,7 @@ export const MyCurrentProjects: Project[] = [
     },
   },
   {
-    title: 'Las Vegas Raiders Fan Blog',
+    title: 'Raiders Rundown',
     techStack: ['Side Project', 'Sanity', 'React.js'],
     description:
       "The ultimate resource for Las Vegas Raiders fans, featuring game recaps, player profiles, draft predictions, and the latest updates. It's a one-stop destination for all things Raiders.",
@@ -287,7 +285,7 @@ export const MyPastProjects: Project[] = [
     },
   },
   {
-    title: 'AI-Powered ChatGPT Messaging Platform',
+    title: 'AI-Powered Messaging Platform',
     techStack: ['Lead Android Developer', 'Android', 'Kotlin'],
     description:
       "ChatGPT Messenger revolutionizes communication with AI-driven conversations, leveraging NLP and ML for personalized user interactions. It's a seamless blend of technology and user experience",
@@ -308,7 +306,7 @@ export const MyPastProjects: Project[] = [
     },
   },
   {
-    title: 'Evently: Event Management Mobile App',
+    title: 'Evently',
     techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'Server Actions'],
     description:
       "Evently is a comprehensive event management app, featuring a robust backend and a modern UI/UX design. It's a one-stop solution for event organizers and attendees alike.",

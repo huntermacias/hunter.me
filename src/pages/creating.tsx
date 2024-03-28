@@ -6,7 +6,7 @@ import { PageLayout } from '../components/PageLayout';
 import { ProjectCard } from '../components/ProjectCard';
 import { MyCurrentProjects, MyPastProjects } from '../data/lifeApi';
 import { ANIMATION_FROM_PROPS, ANIMATION_TO_PROPS } from '../lib/animation';
-import { BentoGrid } from 'src/components/bento-grid';
+import { Meteors } from 'src/components/meteors';
 
 const seoTitle = 'Creating';
 const seoDescription = "Things I've made trying to put my dent in the universe.";
@@ -28,9 +28,9 @@ export default function Creating() {
       <PageLayout
         title="Things I've made trying to put my dent in the universe."
         intro="A list of projects I've worked on, I'm working on, and I will work on."
-        className="mt-16 sm:mt-32 max-w-xl lg:max-w-6xl mx-auto rounded-lg p-8
-        border border-gray-200 shadow-lg transition-all duration-300
-        bg-white/60 dark:bg-inherit backdrop-blur-lg"
+        className='m-16 sm:mt-32 max-w-2xl  lg:max-w-6xl mx-auto rounded-lg p-8
+        border border-gray-300 shadow-xl shadow-gray-500/20 transition-all duration-500
+        bg-white/30 dark:bg-[#0d1117]/30 backdrop-filter backdrop-blur-lg dark:border-gray-700'
       >
 
         {/* Current Projects Section */}
@@ -41,7 +41,6 @@ export default function Creating() {
 
 
           <ProjectCard projects={MyCurrentProjects} />
-
         </div>
 
 
@@ -51,7 +50,8 @@ export default function Creating() {
           <h2 className="text-2xl font-bold tracking-tight text-black dark:text-white">Past</h2>
           <p className="mt-2 text-base text-gray-600 dark:text-gray-400">Projects I worked on. Due to the nature of internet businesses, not all of them are still online.</p>
 
-          <ProjectCard projects={MyCurrentProjects} />
+          <ProjectCard projects={MyPastProjects} />
+          
         </div>
       </PageLayout>
     </>

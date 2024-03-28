@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 import React, { PropsWithChildren } from 'react';
 
 type Props = {
@@ -13,7 +14,7 @@ export const ExternalLink = ({
   ...otherProps
 }: PropsWithChildren<Props>) => {
   return (
-    <a
+    <Link
       className={clsx(className)}
       target="_blank"
       rel="noopener noreferrer"
@@ -21,6 +22,6 @@ export const ExternalLink = ({
       {...otherProps}
     >
       {children}
-    </a>
+    </Link>
   );
 };

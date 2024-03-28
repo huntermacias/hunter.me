@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Link, { LinkProps } from 'next/link';
 import React from 'react';
+import { Meteors } from './meteors';
 
 
 interface CardDescriptionProps extends React.PropsWithChildren<{}> {
@@ -21,12 +22,13 @@ const CardRoot = ({
       className={clsx(
         className,
         'group relative flex flex-col p-6 items-start overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105',
-        'backdrop-filter backdrop-blur-2xl border border-gray-200 dark:border-gray-700',
-        'bg-white bg-opacity-60 dark:bg-black dark:bg-opacity-20', // Enhanced Light/Dark dynamic backgrounds
+        'backdrop-filter backdrop-blur-md border border-gray-200 dark:border-gray-700',
+        'bg-white bg-opacity-20  dark:bg-zinc-600 dark:bg-opacity-20', // Enhanced Light/Dark dynamic backgrounds
         'text-black dark:text-white' // Text color adjustments for readability
       )}
     >
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+      {/* <Meteors number={10} /> */}
     </Component>
   );
 };
@@ -40,14 +42,13 @@ const CardLink = ({ children, ...props }: React.PropsWithChildren<LinkProps>) =>
 };
 
 const CardTitle = ({
-  as: Component = 'h2',
   href,
   children,
 }: React.PropsWithChildren<{ as?: React.ElementType; href?: string }>) => {
   return (
-    <Component className="text-xl font-bold tracking-tight ">
+    <h2 className="text-xl font-bold tracking-tight ">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
-    </Component>
+    </h2>
   );
 };
 
@@ -95,7 +96,7 @@ const CardEyebrow = ({
       className={clsx(
         className,
         'relative z-10 order-first mb-3 text-xs font-medium uppercase tracking-wide',
-        'text-gray-400 dark:text-gray-500',
+        'text-gray-950 dark:text-teal-600',
         decorate && 'pl-4 before:absolute before:inset-y-0 before:left-0 before:flex before:items-center before:content-[""] before:h-full before:w-0.5 before:rounded-full',
         decorate && 'before:bg-gradient-to-b from-pink-500 to-purple-600 dark:before:bg-gradient-to-b dark:from-pink-500 dark:to-purple-600 animate-pulse',
       )}

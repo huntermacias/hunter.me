@@ -29,15 +29,15 @@ export const NavigationItems = [
     type: 'internal',
   },
   {
-    name: 'Resume',
-    href: 'https://hunters-resume.vercel.app/',
-    type: 'external',
-  },
-  {
     name: 'About',
     href: '/about',
     type: 'internal',
   },
+  {
+    name: 'Resume',
+    href: 'https://hunters-resume.vercel.app/',
+    type: 'external',
+  }
 ] as const;
 
 export const NavLink = ({ href, children }: React.PropsWithChildren<{ href: string }>) => {
@@ -53,11 +53,12 @@ const NavItem = ({ href, children }: React.PropsWithChildren<{ href: string }>) 
 
   return (
     <li>
-      <Link
+     <Link
         href={href}
         className={clsx(
-          'relative block px-3 py-2 transition',
-          isActive ? 'text-primary' : 'hover:text-primary',
+          'relative block px-4 py-2 rounded-lg transition-all duration-300',
+          'hover:bg-white/30 dark:hover:bg-black/30 backdrop-blur',
+          isActive ? 'text-primary font-semibold' : 'hover:text-primary',
         )}
       >
         {children}
@@ -69,8 +70,10 @@ const NavItem = ({ href, children }: React.PropsWithChildren<{ href: string }>) 
 export const MobileNavItem = ({ href, children }: React.PropsWithChildren<{ href: string }>) => {
   return (
     <li>
-      <Popover.Button as={Link} href={href} className="block py-2">
-        {children}
+     <Popover.Button as={Fragment}>
+        <Link href={href} className="block py-2 text-base hover:text-primary transition-colors duration-300">
+          {children}
+        </Link>
       </Popover.Button>
     </li>
   );
@@ -81,7 +84,7 @@ export const DesktopNavigation = (
 ) => {
   return (
     <nav {...props}>
-      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+      <ul className="flex space-x-1 items-center rounded-full bg-white/30 dark:bg-black/30 px-4 py-2 backdrop-blur-lg shadow-lg border border-transparent ring-1 ring-gray-200/10 dark:ring-gray-700/50 transition-all duration-300">
         {NavigationItems.map((item) => {
           if (item.type === 'internal') {
             return (
@@ -92,14 +95,14 @@ export const DesktopNavigation = (
           }
 
           return (
-            <a
+            <Link
               key={item.href}
               className="transition hover:text-primary px-3 py-2"
               href={item.href}
               target="_blank"
             >
               {item.name}
-            </a>
+            </Link>
           );
         })}
       </ul>
@@ -110,9 +113,9 @@ export const DesktopNavigation = (
 export const MobileNavigation = (props: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+      <Popover.Button className="group flex items-center rounded-full bg-white/30 dark:bg-black/30 px-4 py-2 text-sm font-medium text-zinc-800 dark:text-zinc-200 backdrop-blur-lg shadow-lg ring-1 ring-gray-200/10 dark:ring-gray-700/50 transition-all duration-300">
         Menu
-        <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
+        <ChevronDownIcon className="ml-3 h-auto w-5 text-zinc-500 group-hover:text-zinc-700 dark:group-hover:text-zinc-400 transition-colors duration-300" />
       </Popover.Button>
       <Transition.Root>
         <Transition.Child

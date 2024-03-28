@@ -6,6 +6,8 @@
   display: none;
 }
 
+
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
@@ -23,3 +25,20 @@
     padding-right: 0 !important;
   }
 }
+
+/* Define default light mode variables */
+:root {
+  --meteor-core-color: rgba(255, 255, 255, 0.6);
+  --meteor-tail-color: rgba(255, 255, 255, 0.3);
+  --meteor-core-shadow: rgba(255, 255, 255, 0.8);
+}
+
+/* Define dark mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --meteor-core-color: rgba(209, 213, 219, 0.6); /* Dark mode core */
+    --meteor-tail-color: rgba(209, 213, 219, 0.3); /* Dark mode tail */
+    --meteor-core-shadow: rgba(209, 213, 219, 0.8); /* Dark mode shadow */
+  }
+}
+

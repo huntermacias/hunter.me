@@ -26,8 +26,9 @@ export default function Uses() {
       <PageLayout
         title="Software I use, gadgets I love, and other things I recommend."
         intro="Here's a big list of all of my favorite stuff."
-        className=' mt-16 sm:mt-32 max-w-xl lg:max-w-6xl mx-auto backdrop-blur-md dark:bg-inherit rounded-lg p-8 border border-gray-200
-        dark:border-slate-950 shadow-2xl transition-all duration-300'
+        className='mt-16 sm:mt-32 max-w-xl lg:max-w-6xl mx-auto rounded-lg p-8
+        border border-gray-300 shadow-xl shadow-gray-500/20 transition-all duration-500
+        bg-white/30 dark:bg-[#0d1117]/30 backdrop-filter backdrop-blur-lg dark:border-gray-700'
         
       >
         <div className="space-y-20">
