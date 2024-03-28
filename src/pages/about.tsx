@@ -54,7 +54,7 @@ export default function AboutMe() {
             />
           </div>
           <div className="lg:col-span-3">
-            <h1 className="text-3xl font-bold tracking-tight text-black dark:text-white">Hi, I'm Hunter Macias.</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-black dark:text-white">Hi, I&apos;m Hunter Macias.</h1>
             <div className="mt-6 text-base space-y-4">
               {AboutExtended.split('\n').map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
