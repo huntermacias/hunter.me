@@ -36,11 +36,11 @@ const Photo = ({
       )}
     >
       <Image
-        src={img}
+        src={img.src}
         alt={alt}
         layout="fill"
         className="object-cover transition-transform duration-300 ease-out transform group-hover:scale-110"
-        placeholder="blur"
+        // placeholder="blur"
       />
       <AnimatePresence>
         {isVisible && (
