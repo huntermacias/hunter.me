@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import { useState } from 'react';
 
-import { travelImages } from '../images/travel';
+import { techImages } from '../images/tech';
 
 const possibleRotations = [1.3, -1.3, 1.3, -1.3, 1.3, -1.3];
 
@@ -36,7 +36,7 @@ const Photo = ({
       )}
     >
       <Image
-        src={img}
+        src={img.src}
         alt={alt}
         layout="fill"
         className="object-cover transition-transform duration-300 ease-out transform group-hover:scale-110"
@@ -58,34 +58,18 @@ const Photo = ({
     </motion.div>
   );
 };
-const techImages = [
-'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaHxlbnwwfHwwfHx8MA%3D%3D',
-'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHRlY2h8ZW58MHx8MHx8fDA%3D',
-'https://plus.unsplash.com/premium_photo-1687119905837-0900281ea2c6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRlY2h8ZW58MHx8MHx8fDA%3D',
-'https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRlY2h8ZW58MHx8MHx8fDA%3D',
-'https://images.unsplash.com/photo-1624357676666-4cca3b657627?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHZpbnRhZ2UlMjBjb21wdXRlcnxlbnwwfHwwfHx8MA%3D%3D',
-'https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvZGluZ3xlbnwwfHwwfHx8MA%3D%3D',
-'https://images.unsplash.com/photo-1541185934-01b600ea069c?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-'https://images.unsplash.com/photo-1454789415558-bdda08f4eabb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHNwYWNleHxlbnwwfHwwfHx8MA%3D%3D',
-'https://images.unsplash.com/photo-1707665501064-807feb2ecb32?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8eHxlbnwwfHwwfHx8MA%3D%3D',
-'https://images.unsplash.com/photo-1531390770335-d94a0dacd992?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D',
-'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D',
-'https://images.unsplash.com/photo-1611262588019-db6cc2032da3?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-]
+
 export const Photos = () => {
   return (
     <div className="my-8">
       <div className="hide-scrollbar -my-4 flex gap-8 overflow-x-auto py-4 px-8">
-        {techImages.map((travelImage) => (
-          <img
-            src={travelImage}
-            alt={travelImage}
-            width={200}
-            height={100}
-            className="object-cover transition-transform duration-300 ease-out transform group-hover:scale-110"
-            
-        
-         
+        {techImages.map((techImage, index) => (
+          <Photo
+            key={techImage.img.src}
+            img={techImage.img}
+            title={techImage.title}
+            alt={techImage.alt}
+            idx={index}
           />
         ))}
       </div>
