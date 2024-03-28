@@ -19,6 +19,7 @@ const Photo = ({
   idx: number;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  // console.log(img)
 
   return (
     <motion.div
@@ -41,6 +42,7 @@ const Photo = ({
         layout="fill"
         className="object-cover transition-transform duration-300 ease-out transform group-hover:scale-110"
         // placeholder="blur"
+        blurDataURL={img.blurDataURL}
       />
       <AnimatePresence>
         {isVisible && (

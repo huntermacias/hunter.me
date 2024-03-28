@@ -14,13 +14,19 @@ export const ThemeToggle = () => {
 
   return (
     <AnimatePresence>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 20, opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="rounded-full p-1 bg-gradient-to-r from-cyan-500 to-blue-500 dark:from-indigo-500 dark:to-pink-500 shadow-lg shadow-cyan-500/50 dark:shadow-purple-500/50 backdrop-blur-sm"
+      >
         <button
-          type="button"
           aria-label="Toggle dark mode"
-          className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+          className="flex items-center justify-center w-12 h-12 rounded-full bg-white/80 dark:bg-black/80"
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         >
+   
           <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-primary [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-primary-dark" />
           <MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-primary" />
         </button>

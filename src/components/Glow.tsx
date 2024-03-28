@@ -16,7 +16,8 @@ export const Glow = ({ children }: Props) => {
     mouseY.set(clientY - top);
   }
 
-  const background = useMotionTemplate`radial-gradient(100px circle at ${mouseX}px ${mouseY}px, rgb(14 165 233 / 0.15), transparent 80%)`;
+  const background = useMotionTemplate`radial-gradient(20px circle at ${mouseX}px ${mouseY}px, rgba(100, 200, 255, 0.95), transparent 100%)`;
+  
 
   return (
     <div onMouseMove={handleMouseMove} className="relative group overflow-visible">

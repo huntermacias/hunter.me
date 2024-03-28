@@ -5,6 +5,7 @@ import { Badge } from '../../components/Badge';
 import { PageLayout } from '../../components/PageLayout';
 import { NotePreview } from '../../components/notes/NotePreview';
 import { Note, notesApi } from '../../lib/notesApi';
+import { Glow } from '../../components/Glow';
 
 const seoTitle = 'Notes';
 const seoDescription =
@@ -33,6 +34,7 @@ export default function Notes({ notes, tags }: Props) {
         border border-gray-300 shadow-xl shadow-gray-500/20 transition-all duration-500
         bg-white/30 dark:bg-[#0d1117]/30 backdrop-filter backdrop-blur-lg dark:border-gray-700'
       >
+    
         <h3 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">Tags</h3>
         <div className="mt-4 flex max-w-xl flex-wrap gap-1 font-mono">
           {tags.map((tag) => (

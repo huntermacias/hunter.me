@@ -30,8 +30,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
           <div className="fixed inset-0 flex justify-center sm:px-8 backdrop-blur-[20px]">
             <div className="flex w-screen">
               {/* Enhanced container with conditional styling and transition effects */}
-              <div className="
-                relative h-full w-full bg-[#F0F0F3]/90 dark:bg-[#0b0b0b] transition duration-500 ease-in-out 
+              <div className="relative h-full w-full bg-[#F0F0F3]/90 dark:bg-[#0b0b0b] transition duration-500 ease-in-out 
                 hover:bg-[#E0E0E3]/90 dark:hover:bg-[#16181D]/90 before:absolute before:inset-0 
                 before:bg-[linear-gradient(135deg,rgba(209,200,201,0.9),rgba(141,145,109,0.5))] 
                 dark:before:bg-[linear-gradient(135deg,rgba(6,8,9,1),rgba(9,7,14,1))] 
