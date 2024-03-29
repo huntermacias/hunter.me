@@ -6,6 +6,7 @@ const config = {
   },
   transpilePackages: ["geist"],
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -18,7 +19,8 @@ const config = {
     {
       protocol: 'https',
       hostname: 'plus.unsplash.com',
-    }
+    }, 
+    
     ],
   },
   async redirects() {

@@ -40,7 +40,7 @@ export const NoteLayout = ({ children, meta, previousPathname }: Props) => {
           </Button>
         )}
         <article>
-          <header className="flex flex-col">
+          <header className="flex flex-col mb-8">
             <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-800 dark:text-white sm:text-5xl">
               {meta.title}
             </h1>
@@ -62,3 +62,4 @@ export const NoteLayout = ({ children, meta, previousPathname }: Props) => {
   
   );
 };
+

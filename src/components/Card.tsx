@@ -16,19 +16,25 @@ const CardRoot = ({
   className,
   children,
 }: React.PropsWithChildren<{ as?: React.ElementType; className?: string; href?: string }>) => {
+  const content = href ? (
+    <Link href={href} passHref
+      className="relative z-10 inline-block w-full h-full">{children}
+    </Link>
+  ) : (
+    children
+  );
+
   return (
     <Component
-      
       className={clsx(
         className,
         'group relative flex flex-col p-6 items-start overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105',
         'backdrop-filter backdrop-blur-md border border-gray-200 dark:border-gray-700',
-        'bg-white bg-opacity-20  dark:bg-zinc-600 dark:bg-opacity-20', // Enhanced Light/Dark dynamic backgrounds
-        'text-black dark:text-white' // Text color adjustments for readability
+        'bg-white bg-opacity-20 dark:bg-zinc-600 dark:bg-opacity-20',
+        'text-black dark:text-white'
       )}
     >
-      {href ? <Card.Link href={href}>{children}</Card.Link> : children}
-      {/* <Meteors number={10} /> */}
+      {content}
     </Component>
   );
 };
@@ -42,26 +48,33 @@ const CardLink = ({ children, ...props }: React.PropsWithChildren<LinkProps>) =>
 };
 
 const CardTitle = ({
+  as: Component = 'h2',
   href,
   children,
 }: React.PropsWithChildren<{ as?: React.ElementType; href?: string }>) => {
-  return (
-    <h2 className="text-xl font-bold tracking-tight ">
-      {href ? <Card.Link href={href}>{children}</Card.Link> : children}
-    </h2>
+  const content = href ? (
+    <Link href={href} passHref
+      className="text-xl font-bold tracking-tight">{children}
+    </Link>
+  ) : (
+    children
   );
+
+  return <Component>{content}</Component>;
 };
 
-const CardDescription = ({ children, classNames }: CardDescriptionProps) => {
+const CardDescription = ({ children, classNames }: React.PropsWithChildren<{ classNames?: string }>) => {
   return (
     <div className={`relative z-0 text-sm leading-relaxed text-gray-800 dark:text-gray-300 space-y-4 ${classNames}`}>
-      {typeof children === 'string'
-        ? children.split('\n').map((paragraph, index) => (
-            <p key={index} className="first-letter:float-left first-letter:text-3xl first-letter:font-bold first-letter:mr-2 first-letter:text-primary-500">
-              {paragraph}
-            </p>
-          ))
-        : children}
+      {typeof children === 'string' ? (
+        children.split('\n').map((paragraph, index) => (
+          <p key={index} className="first-letter:float-left first-letter:text-3xl first-letter:font-bold first-letter:mr-2 first-letter:text-primary-500">
+            {paragraph}
+          </p>
+        ))
+      ) : (
+        children
+      )}
     </div>
   );
 };

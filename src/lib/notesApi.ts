@@ -1,8 +1,8 @@
 // @ts-nocheck
 import { Client, isFullPage } from '@notionhq/client';
+import { BlockObjectResponse, PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { compareAsc, compareDesc } from 'date-fns';
-import { NotionToMarkdown } from 'notion-to-md';
-
+import { getPlaiceholder } from 'plaiceholder';
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -23,7 +23,69 @@ export type Note = {
   inProgress: boolean;
 };
 
+const noop = async (block: BlockObjectResponse) => block;
 
+/**
+ * Union type of all block types
+ * @see https://developers.notion.com/reference/block
+ */
+type BlockType = BlockObjectResponse['type'];
+
+/**
+ * Lookup table for transforming block types
+ * Allows to transform an api response for a specific block type into a more usable format
+ */
+const BlockTypeTransformLookup: Record<
+  BlockType,
+  (block: BlockObjectResponse) => Promise<BlockObjectResponse>
+> = {
+  file: noop,
+  paragraph: noop,
+  heading_1: noop,
+  heading_2: noop,
+  heading_3: noop,
+  bulleted_list_item: noop,
+  numbered_list_item: noop,
+  quote: noop,
+  to_do: noop,
+  toggle: noop,
+  template: noop,
+  synced_block: noop,
+  child_page: noop,
+  child_database: noop,
+  equation: noop,
+  code: noop,
+  callout: noop,
+  divider: noop,
+  breadcrumb: noop,
+  table_of_contents: noop,
+  column_list: noop,
+  column: noop,
+  link_to_page: noop,
+  table: noop,
+  table_row: noop,
+  embed: noop,
+  bookmark: noop,
+  image: async (block: any) => {
+    const contents = block[block.type];
+    const buffer = await fetch(contents[contents.type].url).then(async (res) =>
+      Buffer.from(await res.arrayBuffer()),
+    );
+    const {
+      base64,
+      metadata: { height, width },
+    } = await getPlaiceholder(buffer, { size: 64 });
+    block.image['size'] = { height, width };
+    block.image['placeholder'] = base64;
+
+    return block;
+  },
+  video: noop,
+  pdf: noop,
+  audio: noop,
+  link_preview: noop,
+  unsupported: noop,
+};
 
 const CompareFunctionLookup = {
   asc: compareAsc,
@@ -35,9 +97,6 @@ class NotesApi {
     private readonly notion: Client,
     private readonly databaseId: string,
   ) {}
-
-  private n2m = new NotionToMarkdown({ notionClient: notion });
-
 
   async getNotes(sortOrder: 'asc' | 'desc' = 'desc', limit?: number) {
     const notes = await this.getDatabaseContent(this.databaseId);
@@ -56,11 +115,9 @@ class NotesApi {
     return relatedNotes;
   }
 
-  async getNote(id: string): Promise<string> {
-    const markdownContent = await this.getPageContent(id);
-    return markdownContent;
+  async getNote(id: string) {
+    return this.getPageContent(id);
   }
-  
 
   async getAllTags() {
     const posts = await notesApi.getNotes();
@@ -96,40 +153,100 @@ class NotesApi {
             'multi_select' in page.properties.hashtags
               ? page.properties.hashtags.multi_select.map((tag) => tag.name)
               : [],
-          title: page.properties.title?.title?.[0]?.plain_text ?? '',
-          shortDescription:
-            'rich_text' in page.properties.description && page.properties.description.rich_text.length > 0
-              ? page.properties.description.rich_text[0].plain_text
-              : '',
-              description:
-            'rich_text' in page.properties.description
-              ? page.properties.description.rich_text.map((textBlock) => textBlock.plain_text).join(' ')
-              : '',
-          slug: 
-            'rich_text' in page.properties.slug && page.properties.slug.rich_text.length > 0
-              ? page.properties.slug.rich_text[0].plain_text
-              : '',
-          isPublished:
-            'checkbox' in page.properties.published ? page.properties.published.checkbox : false,
-          publishedAt:
-            'date' in page.properties.publishedAt && page.properties.publishedAt.date
-              ? page.properties.publishedAt.date.start
-              : '',
-          inProgress:
-            'checkbox' in page.properties.inProgress ? page.properties.inProgress.checkbox : false,
+              title: page.properties.title?.title?.[0]?.plain_text ?? '',
+              shortDescription:
+                'rich_text' in page.properties.description && page.properties.description.rich_text.length > 0
+                  ? page.properties.description.rich_text[0].plain_text
+                  : '',
+                  description:
+                'rich_text' in page.properties.description
+                  ? page.properties.description.rich_text.map((textBlock) => textBlock.plain_text).join(' ')
+                  : '',
+              slug: 
+                'rich_text' in page.properties.slug && page.properties.slug.rich_text.length > 0
+                  ? page.properties.slug.rich_text[0].plain_text
+                  : '',
+              isPublished:
+                'checkbox' in page.properties.published ? page.properties.published.checkbox : false,
+              publishedAt:
+                'date' in page.properties.publishedAt && page.properties.publishedAt.date
+                  ? page.properties.publishedAt.date.start
+                  : '',
+              inProgress:
+                'checkbox' in page.properties.inProgress ? page.properties.inProgress.checkbox : false,
         };
-        
-        
       })
       .filter((post) => post.isPublished);
   };
 
-  private getPageContent = async (pageId: string): Promise<string> => {
-    const mdBlocks = await this.n2m.pageToMarkdown(pageId);
-    const markdown = this.n2m.toMarkdownString(mdBlocks);
-    return markdown; // Returns Markdown string
+  private getPageContent = async (pageId: string) => {
+    const blocks = await this.getBlocks(pageId);
+    console.log('BLOCKS', blocks)
+
+    const blocksChildren = await Promise.all(
+      blocks.map(async (block) => {
+        const { id } = block;
+        const contents = block[block.type as keyof typeof block] as any;
+        if (block.type === 'child_page') {
+          // Assume 'getBlockContent' is a new function that you create to handle child pages.
+          // This should not be the same as 'getBlocks' because 'getBlocks' fetches children of a block, not the content of a page.
+          contents.children = await this.getBlocks(block.id);
+          console.log('CHILDREN', contents.children)
+        }
+
+        return block;
+      }),
+    );
+
+    return Promise.all(
+      blocksChildren.map(async (block) => {
+        return BlockTypeTransformLookup[block.type as BlockType](block);
+      }),
+    ).then((blocks) => {
+      return blocks.reduce((acc: any, curr) => {
+        if (curr.type === 'bulleted_list_item') {
+          if (acc[acc.length - 1]?.type === 'bulleted_list') {
+            acc[acc.length - 1][acc[acc.length - 1].type].children?.push(curr);
+          } else {
+            acc.push({
+              type: 'bulleted_list',
+              bulleted_list: { children: [curr] },
+            });
+          }
+        } else if (curr.type === 'numbered_list_item') {
+          if (acc[acc.length - 1]?.type === 'numbered_list') {
+            acc[acc.length - 1][acc[acc.length - 1].type].children?.push(curr);
+          } else {
+            acc.push({
+              type: 'numbered_list',
+              numbered_list: { children: [curr] },
+            });
+          }
+        } else {
+          acc.push(curr);
+        }
+        return acc;
+      }, []);
+    });
   };
 
+  private getBlocks = async (blockId: string) => {
+    const list = await this.notion.blocks.children.list({
+      block_id: blockId,
+    });
+
+    while (list.has_more && list.next_cursor) {
+      const { results, has_more, next_cursor } = await this.notion.blocks.children.list({
+        block_id: blockId,
+        start_cursor: list.next_cursor,
+      });
+      list.results = list.results.concat(results);
+      list.has_more = has_more;
+      list.next_cursor = next_cursor;
+    }
+
+    return list.results as BlockObjectResponse[];
+  };
 }
 
 export const notesApi = new NotesApi(notion, process.env.NOTION_DATABASE_ID!);

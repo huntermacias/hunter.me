@@ -1,47 +1,88 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
-import ReactMarkdown from 'react-markdown';
-import { Note as NoteType, notesApi } from '../../lib/notesApi';
-import { NoteLayout } from '../../components/notes/NoteLayout';
+import Prism from 'prismjs';
+import { useEffect } from 'react';
+
 import { XIcon } from '../../components/icons/XIcon';
+import { NoteLayout } from '../../components/notes/NoteLayout';
+import { NotionBlockRenderer } from '../../components/notion/NotionBlockRenderer';
+import { Note as NoteType, notesApi } from '../../lib/notesApi';
+import Link from 'next/link';
 
-interface Props {
+type Props = {
   note: NoteType;
-  noteContent: string;
-}
+  noteContent: any[];
+};
 
-const NotePage: NextPage<Props> = ({ note, noteContent }) => {
-  const { title, description, createdAt, slug } = note;
+export default function Note({
+  note: { title, description, createdAt, slug },
+  noteContent,
+  previousPathname,
+}: Props & { previousPathname: string }) {
   const url = `${process.env.NEXT_PUBLIC_URL}/notes/${slug}`;
-  const openGraphImageUrl = `${process.env.NEXT_PUBLIC_URL}/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
+  const openGraphImageUrl = `${process.env.NEXT_PUBLIC_URL}/api/og?title=${title}&description=${description}`;
+
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
 
   return (
     <>
-      <NextSeo title={title} description={description} canonical={url} openGraph={{ images: [{ url: openGraphImageUrl }] }} />
-      <ArticleJsonLd url={url} images={[openGraphImageUrl]} title={title} datePublished={createdAt} authorName="Hunter Macias" description={description} />
-      <NoteLayout meta={{ title, description, date: createdAt }}>
+      <NextSeo
+        title={title}
+        description={description}
+        canonical={url}
+        openGraph={{
+          images: [{ url: openGraphImageUrl }],
+        }}
+      />
+      <ArticleJsonLd
+        url={url}
+        images={[openGraphImageUrl]}
+        title={title}
+        datePublished={createdAt}
+        authorName="Bartosz Jarocki"
+        description={description}
+      />
+      <NoteLayout
+        meta={{ title, description, date: createdAt }}
+        previousPathname={previousPathname}
+      >
         <div className="pb-32">
-          <h3 className='font-bold text-black dark:text-white'>Project Description</h3>
-          <ReactMarkdown>{description}</ReactMarkdown>
+          {noteContent.map((block) => (
+            <NotionBlockRenderer key={block.id} block={block} />
+          ))}
 
-          <hr className="my-8 mb-20" />
+          <hr />
+
+          <Link
+            className="group block text-xl font-semibold md:text-3xl no-underline"
+            href={`http://x.com/share?text=${title}&url=${url}`}
+          >
+            <h4 className="max-w-lg flex cursor-pointer flex-col duration-200 ease-in-out group-hover:text-primary group-hover:fill-primary fill-white text-wrap">
+              <XIcon className="my-6 h-10 w-10 transform transition-transform group-hover:-rotate-12 text-black dark:text-white group-hover:text-primary" />
+              Click here to share this article with your friends on X if you liked it.
+            </h4>
+          </Link>
         </div>
       </NoteLayout>
     </>
-
   );
-};
+}
 
-export const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({ params }) => {
-  const slug = params?.slug;
-  const note = await notesApi.getNotes().then(notes => notes.find(n => n.slug === slug));
+export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (context) => {
+  const slug = context.params?.slug;
+  const allNotes = await notesApi.getNotes();
+  const note = allNotes.find((note) => note.slug === slug);
 
   if (!note) {
-    console.log('Note not found for slug:', slug);
-    return { notFound: true };
+    return {
+      notFound: true,
+    };
   }
 
   const noteContent = await notesApi.getNote(note.id);
+
   return {
     props: {
       note,
@@ -52,17 +93,10 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({ 
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const notes = await notesApi.getNotes();
-  const paths = notes.map(note => ({
-    params: { slug: note.slug },
-  }));
-
-  console.log('Generated paths for getStaticPaths:', paths);
+  const posts = await notesApi.getNotes();
 
   return {
-    paths,
-    fallback: 'blocking', // or 'true' or 'false'
+    paths: posts.map((post) => ({ params: { slug: post.slug } })),
+    fallback: 'blocking',
   };
 };
-
-export default NotePage;

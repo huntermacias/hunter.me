@@ -66,3 +66,4 @@ export const NotePreview = ({ note, dense }: Props) => {
     </motion.div>
   );
 };
+

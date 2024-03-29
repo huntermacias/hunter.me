@@ -5,144 +5,128 @@ import Link from 'next/link';
 
 import { Quote } from '../Quote';
 
+
 //TODO: improve types here, cleanup the code
 type Props = {
   block: any;
 };
 
 export const NotionBlockRenderer = ({ block }: Props) => {
+
+
   const { type, id } = block;
   const value = block[type];
+  // console.log('block', block)
+  // console.log('type', type)
 
   switch (type) {
     case 'paragraph':
-      return (
-        <p>
-          <NotionText textItems={value.rich_text} />
-        </p>
-      );
+      return <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">{<NotionText textItems={value.rich_text} />}</p>;
+  
     case 'heading_1':
-      return (
-        <h1>
-          <NotionText textItems={value.rich_text} />
-        </h1>
-      );
+      return <h1 className="text-3xl font-bold my-4">{<NotionText textItems={value.rich_text} />}</h1>;
+  
     case 'heading_2':
-      return (
-        <h2>
-          <NotionText textItems={value.rich_text} />
-        </h2>
-      );
+      return <h2 className="text-2xl font-semibold my-3">{<NotionText textItems={value.rich_text} />}</h2>;
+  
     case 'heading_3':
-      return (
-        <h3>
-          <NotionText textItems={value.rich_text} />
-        </h3>
-      );
+      return <h3 className="text-xl font-medium my-2">{<NotionText textItems={value.rich_text} />}</h3>;
+  
     case 'bulleted_list':
-      return (
-        <ul className="list-outside list-disc">
-          {value.children.map((block: any) => (
-            <NotionBlockRenderer key={block.id} block={block} />
-          ))}
-        </ul>
-      );
+      return <ul className="list-disc pl-5 my-2">{value.children.map((block: any) => (<NotionBlockRenderer key={block.id} block={block} />))}</ul>;
+  
     case 'numbered_list':
-      return (
-        <ol className="list-outside list-decimal">
-          {value.children.map((block: any) => (
-            <NotionBlockRenderer key={block.id} block={block} />
-          ))}
-        </ol>
-      );
+      return <ol className="list-decimal pl-5 my-2">{value.children.map((block: any) => (<NotionBlockRenderer key={block.id} block={block} />))}</ol>;
+  
     case 'bulleted_list_item':
     case 'numbered_list_item':
-      return (
-        <li className="pl-0">
-          <NotionText textItems={value.rich_text} />
-          {!!value.children &&
-            value.children.map((block: any) => (
-              <NotionBlockRenderer key={block.id} block={block} />
-            ))}
-        </li>
-      );
+      return <li className="pl-2 my-1">{<NotionText textItems={value.rich_text} />}{value.children && value.children.map((block: any) => (<NotionBlockRenderer key={block.id} block={block} />))}</li>;
+  
     case 'to_do':
       return (
-        <div>
-          <label htmlFor={id}>
-            <input type="checkbox" id={id} defaultChecked={value.checked} />{' '}
-            <NotionText textItems={value.rich_text} />
-          </label>
+        <div className="flex items-center">
+          <input type="checkbox" id={id} defaultChecked={value.checked} className="form-checkbox h-5 w-5" />{' '}
+          <label htmlFor={id} className="ml-2">{<NotionText textItems={value.rich_text} />}</label>
         </div>
       );
+  
     case 'toggle':
       return (
-        <details>
-          <summary>
-            <NotionText textItems={value.rich_text} />
-          </summary>
-          {value.children?.map((block: any) => (
-            <NotionBlockRenderer key={block.id} block={block} />
-          ))}
+        <details className="my-2">
+          <summary className="cursor-pointer">{<NotionText textItems={value.rich_text} />}</summary>
+          {value.children?.map((block: any) => (<NotionBlockRenderer key={block.id} block={block} />))}
         </details>
       );
+  
     case 'child_page':
-      return <p>{value.title}</p>;
+   
+      // Render the child page blocks if they have been loaded
+      return (
+        <>
+          {value.children?.map((block: any) => (<NotionBlockRenderer key={block.id} block={block} />))}
+
+        </>
+      );
+  
     case 'image':
       const src = value.type === 'external' ? value.external.url : value.file.url;
       const caption = value.caption ? value.caption[0]?.plain_text : '';
       return (
-        <figure>
-          <Image
-            className="object-cover"
-            placeholder="blur"
+        <figure className="my-4">
+          <img
+            className=" rounded-md"
             src={src}
             alt={caption}
-            blurDataURL={value.placeholder}
-            width={value.size.width}
-            height={value.size.height}
+           
           />
-          {caption && <figcaption>{caption}</figcaption>}
+          {caption && <figcaption className="text-sm text-center mt-2">{caption}</figcaption>}
         </figure>
       );
+  
     case 'divider':
-      return <hr key={id} />;
+      return <hr className="my-4 border-t border-gray-200 dark:border-gray-600" />;
+  
     case 'quote':
-      return <Quote key={id} quote={value.rich_text[0].plain_text} />;
+      return <blockquote className="p-4 italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">{<Quote key={id} quote={value.rich_text[0].plain_text} />}</blockquote>;
+  
     case 'code':
+      // console.log('code', value, value.rich_text[0].plain_text, value.language);
       return (
-        <pre className={`language-${value.language}`}>
-          <code key={id}>{value.rich_text[0].plain_text}</code>
+        <pre className={`language-${value.language} p-4 font-mono text-sm bg-gray-200 dark:bg-gray-700 overflow-x-auto rounded-md`}>
+          <code>{value.rich_text[0].plain_text}</code>
         </pre>
       );
+  
     case 'file':
       const src_file = value.type === 'external' ? value.external.url : value.file.url;
       const splitSourceArray = src_file.split('/');
       const lastElementInArray = splitSourceArray[splitSourceArray.length - 1];
       const caption_file = value.caption ? value.caption[0]?.plain_text : '';
       return (
-        <figure>
-          <div>
-            📎{' '}
-            <Link href={src_file} passHref>
-              {lastElementInArray.split('?')[0]}
+        <figure className="my-4">
+          <div className="flex items-center space-x-2">
+            <span>📎</span>
+            <Link href={src_file} passHref
+              className="text-blue-600 hover:underline">{lastElementInArray.split('?')[0]}
             </Link>
           </div>
-          {caption_file && <figcaption>{caption_file}</figcaption>}
+          {caption_file && <figcaption className="text-sm">{caption_file}</figcaption>}
         </figure>
       );
+  
     case 'bookmark':
       const href = value.url;
       return (
-        <Link href={href} target="_brank">
+        <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
           {href}
-        </Link>
+        </a>
       );
+  
     default:
-      return (
-        <>❌ Unsupported block (${type === 'unsupported' ? 'unsupported by Notion API' : type})</>
-      );
+      console.warn('Unsupported block type encountered:', type, block);
+      return <div>Unsupported block ({type})</div>;
   }
+  
 };
 
 const NotionText = ({ textItems }: { textItems: TextRichTextItemResponse[] }) => {
@@ -150,6 +134,7 @@ const NotionText = ({ textItems }: { textItems: TextRichTextItemResponse[] }) =>
     return null;
   }
 
+  // console.log('textItems', textItems)
   return (
     <>
       {textItems.map((textItem) => {
