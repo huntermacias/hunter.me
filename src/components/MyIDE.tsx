@@ -35,15 +35,15 @@ export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '
     }, [formattedHtmlCode, formattedCssCode, formattedJsCode]);
 
     const isOnlyJsCode = htmlCode === '' && cssCode === '' && jsCode !== '';
-    const containerClass = isOnlyJsCode ? "w-full lg:min-w-[950px]" : "w-3/5";
+    const containerClass = isOnlyJsCode ? "lg:min-w-[950px]" : "w-full lg:w-3/5";
 
     
 
     return (
         
-        <div className="flex gap-8 bg-[#0d1117] p-6 rounded-lg">
-            <div className={`h-full ${containerClass} text-white bg-[#161b22] rounded-lg shadow-xl`}>
-                <div className="p-4 overflow-auto text-sm md:text-md">
+        <div className="flex-row lg:flex gap-8 bg-[#0d1117] p-6 rounded-lg">
+            <div className={`h-full ${containerClass} text-white  shadow-xl`}>
+                <div className="overflow-auto text-sm md:text-md">
                     {formattedHtmlCode && (
                         <SyntaxHighlighter language="html" style={atomDark} >
                             {formattedHtmlCode}
@@ -73,22 +73,25 @@ export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '
                 </div>
             </div>
 
-            <div className="h-full w-2/5 bg-[#161b22] rounded-lg shadow-xl relative overflow-auto">
+            <div className={`h-full ${containerClass} bg-[#161b22] border border-gray-500 rounded-lg shadow-xl relative overflow-auto`}>
                
                 {formattedHtmlCode && (
                     <>
-                        <div className="flex space-x-2 p-2 mb-4">
-                            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <div className=''>
+
+                            <div className="flex space-x-2 p-2 mb-4">
+                                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                            <iframe
+                                title="Preview"
+                                className="w-full"
+                                style={{ height: iframeHeight, border: 'none', marginTop: '-1rem', borderRadius: '0.5rem' }}
+                                srcDoc={previewCode}
+                                sandbox="allow-same-origin allow-scripts"
+                            />
                         </div>
-                        <iframe
-                            title="Preview"
-                            className="w-full"
-                            style={{ height: iframeHeight, border: 'none', marginTop: '-1rem' }}
-                            srcDoc={previewCode}
-                            sandbox="allow-same-origin allow-scripts"
-                        />
                     </>
                 )}
             </div>

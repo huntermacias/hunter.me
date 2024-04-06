@@ -23,10 +23,10 @@ export const NoteLayout = ({ children, meta, previousPathname }: Props) => {
 
   return (
     <Container
-      className="sm:mt-32 mt-8 max-w-xl lg:max-w-6xl mx-auto rounded-lg p-8
+      className="mt-32 md:mt-12 max-w-3xl lg:max-w-6xl mx-auto rounded-lg
     border border-gray-300 shadow-xl shadow-gray-500/20 transition-all duration-500
     bg-white/30 dark:bg-[#0d1117]/30 backdrop-filter backdrop-blur-lg dark:border-gray-700">
-      <div className="xl:relative">
+      <div className="xl:relative p-8">
         <div className="mx-auto max-w-5xl">
           {true && (
             <Button
