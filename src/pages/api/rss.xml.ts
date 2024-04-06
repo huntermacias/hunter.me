@@ -35,16 +35,16 @@ import { notesApi } from '../../lib/notesApi';
 
 const rss: NextApiHandler = async (req, res) => {
   const feed = new RSS({
-    title: 'Bartosz Jarocki',
-    site_url: 'https://jarocki.me',
-    feed_url: 'https://jarocki.me/rss.xml',
+    title: 'Hunter Macias',
+    site_url: 'https://hunter-me.vercel.app/',
+    feed_url: 'https://hunter-me.vercel.app//rss.xml',
   });
 
   const allPosts = await notesApi.getNotes();
   allPosts.map((post) => {
     feed.item({
       title: post.title,
-      url: `https://jarocki.me/notes/${post.slug}`,
+      url: `https://hunter-me.vercel.app/notes/${post.slug}`,
       date: post.publishedAt,
       description: post.description,
     });

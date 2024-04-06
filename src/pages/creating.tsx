@@ -1,12 +1,8 @@
-import { motion, useMotionValue } from 'framer-motion';
 import { NextSeo } from 'next-seo';
-import { MouseEvent } from 'react';
 
 import { PageLayout } from '../components/PageLayout';
 import { ProjectCard } from '../components/ProjectCard';
 import { MyCurrentProjects, MyPastProjects } from '../data/lifeApi';
-import { ANIMATION_FROM_PROPS, ANIMATION_TO_PROPS } from '../lib/animation';
-import { Meteors } from 'src/components/meteors';
 
 const seoTitle = 'Creating';
 const seoDescription = "Things I've made trying to put my dent in the universe.";
