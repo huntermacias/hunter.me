@@ -59,26 +59,44 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            // Shared styles across light and dark
+            // Common base styles
             maxWidth: 'none',
+            color: theme('colors.gray.300'), // Default text color for dark theme
+            a: {
+              color: theme('colors.blue.500'),
+              '&:hover': {
+                color: theme('colors.blue.400'),
+              },
+            },
             'h1, h2, h3, h4': {
               fontWeight: '700',
               'scroll-margin-top': theme('spacing[12]'),
-              textShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+              color: theme('colors.white'), // Ensuring headings stand out
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.75)', // Deeper shadow for prominence
             },
             code: {
-              fontWeight: '500',
+              color: theme('colors.pink.300'), // Bright color for code to stand out
+              backgroundColor: 'rgba(255, 255, 255, 0.1)', // Subtle background for glassmorphism
+              padding: '0.25rem 0.5rem',
+              borderRadius: theme('borderRadius.md'),
+              backdropFilter: 'blur(10px)', // Glassmorphic effect
+              borderWidth: '1px',
+              borderColor: 'rgba(255, 255, 255, 0.2)', // Border for definition
               fontFamily: 'Monaco, Courier New, monospace',
-              borderRadius: theme('borderRadius.lg'),
+              fontWeight: 'normal',
             },
             pre: {
-              padding: theme('spacing[6]'),
+              backgroundColor: 'rgba(40, 40, 40, 0.85)', // Darker background for code blocks
+              padding: theme('spacing[4]'),
               borderRadius: theme('borderRadius.lg'),
               overflowX: 'auto',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.25)', // Soft outer glow
+              border: 'solid 1px rgba(255, 255, 255, 0.1)', // Subtle border
             },
             blockquote: {
               paddingLeft: theme('spacing[4]'),
               borderLeftWidth: '4px',
+              borderLeftColor: theme('colors.gray.700'),
               quotes: '"\\201C""\\201D""\\2018""\\2019"',
               '&::before': {
                 content: 'open-quote',
@@ -86,39 +104,14 @@ module.exports = {
               '&::after': {
                 content: 'close-quote',
               },
-              fontWeight: '500',
+              color: theme('colors.gray.400'),
+              backgroundColor: 'rgba(255, 255, 255, 0.05)', // Soft background for contrast
             },
             hr: {
+              borderColor: theme('colors.gray.700'), // Subtle HR for section breaks
               borderTopWidth: '1px',
-              margin: theme('spacing[8]') + ' 0',
             },
-            // Rest of the styles...
-          },
-        },
-        light: {
-          css: {
-            color: theme('colors.gray.700'),
-            a: {
-              color: theme('colors.blue.600'),
-              '&:hover': {
-                color: theme('colors.blue.700'),
-              },
-            },
-            code: {
-              backgroundColor: theme('colors.gray.100'),
-              padding: '0.2em 0.4em',
-              boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)',
-            },
-            pre: {
-              backgroundColor: theme('colors.gray.200'),
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            },
-            blockquote: {
-              color: theme('colors.gray.600'),
-              borderLeftColor: theme('colors.blue.300'),
-              backgroundColor: theme('colors.gray.50'),
-            },
-            // Rest of the styles...
+            // Other styles as needed...
           },
         },
         dark: {
@@ -151,8 +144,9 @@ module.exports = {
               content: 'none', // Remove backticks appearance in markdown
             },
             code: {
-              color: theme('colors.pink.400'),
-              backgroundColor: 'rgba(255, 255, 255, 0.1)', // Lighter background for a frosted glass effect
+              backgroundColor: 'none',
+
+              // backgroundColor: 'rgba(255, 255, 255, 0.1)', // Lighter background for a frosted glass effect
               backdropFilter: 'blur(10px)', // Apply glassmorphism effect
               padding: '0.25rem 0.5rem',
               borderRadius: '0.375rem',

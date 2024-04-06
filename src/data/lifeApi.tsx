@@ -28,6 +28,7 @@ import AcquisitionLogo from "../images/logos/acquisition.png"
 import CameraLogo from "../images/logos/camera.jpg"
 import CalendarLogo from "../images/logos/calendar.jpg"
 import Lingo from "../images/logos/lingo.jpg"
+import USFCALogo from '../images/logos/usflogo.png';
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
@@ -330,29 +331,52 @@ export const Work = [
     company: 'TheCoderSchool',
     title: 'Lead Instructor',
     logo: CoderSchool,
-    start: '2020',
+    start: 'Jun 2020',
+    roles: [],
     end: 'Present',
+  },
+  {
+    company: 'USFCA',
+    logo: USFCALogo,
+    title: '',
+    roles: [
+      {
+        title: 'Teaching Assistant for Computer Science 245',
+        start: 'Jul 2020',
+        end: 'Jan 2021 · 7 mos',
+      },
+      {
+        title: 'Teaching Assistant for Computer Science 110',
+        start: 'Apr 2019',
+        end: 'Aug 2019 · 5 mos',
+      },
+    ],
+    start: '',
+    end: '',
   },
   {
     company: 'Mission Bit',
     title: 'Coding Instructor',
     logo: MissionBit,
-    start: '2020',
-    end: '2022',
+    roles: [],
+    start: 'Jan 2020',
+    end: 'Mar 2022 · 2 yrs 3 mos',
   },
   {
     company: 'Leadbird',
-    title: 'Full Stack Developer',
+    title: 'Software Developer',
     logo: Leadbird,
-    start: '2021',
-    end: '2022',
+    roles: [],
+    start: 'Jun 2021',
+    end: 'Nov 2021 · 6 mos',
   },
   {
     company: 'Candor',
     title: 'Frontend Developer',
     logo: Candor,
-    start: '2021',
-    end: '2021',
+    roles: [],
+    start: 'Oct 2021',
+    end: 'Jan 2022 · 4 mos',
   },
 ] as const;
 

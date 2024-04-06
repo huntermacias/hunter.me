@@ -33,7 +33,7 @@ export const NotePreview = ({ note, dense }: Props) => {
       <article className="py-3"
       >
         <Card className="md:col-span-3 border-2 shadow-xl" href={`/notes/${note.slug}`}>
-          <Card.Title href={`/notes/${note.slug}`}>{note.title}</Card.Title>
+          <Card.Title>{note.title}</Card.Title>
           <Card.Eyebrow
             as="time"
             dateTime={note.publishedAt}

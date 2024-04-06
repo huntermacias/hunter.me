@@ -1,9 +1,9 @@
 import { TextRichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 import clsx from 'clsx';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { Quote } from '../Quote';
+import { MyIDE } from '../MyIDE';
 
 
 //TODO: improve types here, cleanup the code
@@ -16,32 +16,32 @@ export const NotionBlockRenderer = ({ block }: Props) => {
 
   const { type, id } = block;
   const value = block[type];
-  // console.log('block', block)
-  // console.log('type', type)
+
+
 
   switch (type) {
     case 'paragraph':
       return <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">{<NotionText textItems={value.rich_text} />}</p>;
-  
+
     case 'heading_1':
       return <h1 className="text-3xl font-bold my-4">{<NotionText textItems={value.rich_text} />}</h1>;
-  
+
     case 'heading_2':
       return <h2 className="text-2xl font-semibold my-3">{<NotionText textItems={value.rich_text} />}</h2>;
-  
+
     case 'heading_3':
       return <h3 className="text-xl font-medium my-2">{<NotionText textItems={value.rich_text} />}</h3>;
-  
+
     case 'bulleted_list':
       return <ul className="list-disc pl-5 my-2">{value.children.map((block: any) => (<NotionBlockRenderer key={block.id} block={block} />))}</ul>;
-  
+
     case 'numbered_list':
       return <ol className="list-decimal pl-5 my-2">{value.children.map((block: any) => (<NotionBlockRenderer key={block.id} block={block} />))}</ol>;
-  
+
     case 'bulleted_list_item':
     case 'numbered_list_item':
       return <li className="pl-2 my-1">{<NotionText textItems={value.rich_text} />}{value.children && value.children.map((block: any) => (<NotionBlockRenderer key={block.id} block={block} />))}</li>;
-  
+
     case 'to_do':
       return (
         <div className="flex items-center">
@@ -49,7 +49,7 @@ export const NotionBlockRenderer = ({ block }: Props) => {
           <label htmlFor={id} className="ml-2">{<NotionText textItems={value.rich_text} />}</label>
         </div>
       );
-  
+
     case 'toggle':
       return (
         <details className="my-2">
@@ -57,9 +57,9 @@ export const NotionBlockRenderer = ({ block }: Props) => {
           {value.children?.map((block: any) => (<NotionBlockRenderer key={block.id} block={block} />))}
         </details>
       );
-  
+
     case 'child_page':
-   
+
       // Render the child page blocks if they have been loaded
       return (
         <>
@@ -67,7 +67,7 @@ export const NotionBlockRenderer = ({ block }: Props) => {
 
         </>
       );
-  
+
     case 'image':
       const src = value.type === 'external' ? value.external.url : value.file.url;
       const caption = value.caption ? value.caption[0]?.plain_text : '';
@@ -77,18 +77,18 @@ export const NotionBlockRenderer = ({ block }: Props) => {
             className=" rounded-md"
             src={src}
             alt={caption}
-           
+
           />
           {caption && <figcaption className="text-sm text-center mt-2">{caption}</figcaption>}
         </figure>
       );
-  
+
     case 'divider':
       return <hr className="my-4 border-t border-gray-200 dark:border-gray-600" />;
-  
+
     case 'quote':
       return <blockquote className="p-4 italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">{<Quote key={id} quote={value.rich_text[0].plain_text} />}</blockquote>;
-  
+
     case 'code':
       // console.log('code', value, value.rich_text[0].plain_text, value.language);
       return (
@@ -96,7 +96,7 @@ export const NotionBlockRenderer = ({ block }: Props) => {
           <code>{value.rich_text[0].plain_text}</code>
         </pre>
       );
-  
+
     case 'file':
       const src_file = value.type === 'external' ? value.external.url : value.file.url;
       const splitSourceArray = src_file.split('/');
@@ -113,7 +113,7 @@ export const NotionBlockRenderer = ({ block }: Props) => {
           {caption_file && <figcaption className="text-sm">{caption_file}</figcaption>}
         </figure>
       );
-  
+
     case 'bookmark':
       const href = value.url;
       return (
@@ -121,40 +121,59 @@ export const NotionBlockRenderer = ({ block }: Props) => {
           {href}
         </a>
       );
-  
+
     default:
       console.warn('Unsupported block type encountered:', type, block);
       return <div>Unsupported block ({type})</div>;
   }
-  
+
 };
+
 
 const NotionText = ({ textItems }: { textItems: TextRichTextItemResponse[] }) => {
   if (!textItems) {
     return null;
   }
 
-  // console.log('textItems', textItems)
+  // Parse and render content
+  const renderContent = (content: any) => {
+    // Detecting HTML/CSS code block pattern
+    const codeBlockPattern = /---htmlcss\s*([\s\S]*?)\s*---/;
+    const match = codeBlockPattern.exec(content);
+
+    if (match) {
+      const codeBlock = match[1];
+      // Assuming a simple split by "/* CSS */" to separate HTML from CSS
+      const [htmlCode, cssCode] = codeBlock.split("/* CSS */").map(part => part.trim());
+      return <MyIDE htmlCode={htmlCode} cssCode={cssCode} />;
+    }
+
+    // Default plain text rendering or links
+    return content;
+  };
+
   return (
     <>
-      {textItems.map((textItem) => {
+      {textItems.map((textItem, index) => {
         const {
           annotations: { bold, code, color, italic, strikethrough, underline },
           text,
         } = textItem;
+
         return (
           <span
-            key={text.content}
+            key={index} // Changed to index for uniqueness
             className={clsx({
               'font-bold': bold,
-              'font-mono font-semibold bg-zinc-600 text-zinc-200 px-1 py-0.5 m-1 rounded-md': code,
+              'font-mono font-semibold': code,
+              'bg-zinc-600 text-zinc-200 px-1 py-0.5 m-1 rounded-md': code,
               italic: italic,
               'line-through': strikethrough,
               underline: underline,
             })}
             style={color !== 'default' ? { color } : {}}
           >
-            {text.link ? <Link href={text.link.url}>{text.content}</Link> : text.content}
+            {text.link ? <Link href={text.link.url}>{text.content}</Link> : renderContent(text.content)}
           </span>
         );
       })}

@@ -28,7 +28,7 @@ export default function Document() {
         <meta name="twitter:site" content="@HunterMacias_" />
         <meta name="twitter:creator" content="@HunterMacias_" />
       </Head>
-      <body className="flex h-full flex-col ">
+      <body className="flex h-full flex-col " >
         <Main />
         <NextScript />
       </body>
