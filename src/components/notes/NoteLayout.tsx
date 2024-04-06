@@ -31,12 +31,13 @@ export const NoteLayout = ({ children, meta, previousPathname }: Props) => {
           {true && (
             <Button
               type="button"
+              variant="ghost"
               onClick={() => router.back()}
               aria-label="Go back"
-              className="flex items-center text-gray-800 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 mb-6"
+              className="flex items-center text-gray-800 bg-green-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 mb-6"
             >
-              <ArrowLeftIcon className="h-4 w-4 stroke-gray-700 hover:stroke-gray-900 dark:stroke-gray-400 dark:hover:stroke-white" />
-              Go back
+              <ArrowLeftIcon className="h-4 w-4 stroke-gray-800 hover:stroke-gray-900 dark:stroke-gray-900 dark:hover:stroke-white" />
+                <span className='text-black'>Go Back</span>
             </Button>
           )}
           <article>

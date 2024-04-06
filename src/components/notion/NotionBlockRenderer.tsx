@@ -134,21 +134,40 @@ const NotionText = ({ textItems }: { textItems: TextRichTextItemResponse[] }) =>
   if (!textItems) {
     return null;
   }
-
-  // Parse and render content
   const renderContent = (content: any) => {
-    // Detecting HTML/CSS code block pattern
-    const codeBlockPattern = /---htmlcss\s*([\s\S]*?)\s*---/;
-    console.log('content', content);
+    // Adjusting the pattern to optionally capture HTML, CSS, and JS blocks
+    const codeBlockPattern = /!\-htmlcssjs\s*([\s\S]*?)\s*\-!/;
     const match = codeBlockPattern.exec(content);
-    console.log('match', match);
 
     if (match) {
       const codeBlock = match[1];
-      // Enhanced split using RegEx to ignore newlines and spaces around "/* CSS */"
-      const splitPattern = /\s*\/\*\s*CSS\s*\*\/\s*/;
-      const [htmlCode, cssCode] = codeBlock.split(splitPattern).map(part => part.trim());
-      return <MyIDE htmlCode={htmlCode} cssCode={cssCode} />;
+      // Split patterns for CSS and JS
+      const splitCSSPattern = /\s*\/\*\s*CSS\s*\*\/\s*/;
+      const splitJSPattern = /\s*\/\*\s*JS\s*\*\/\s*/;
+
+      // Initially split the codeBlock by CSS
+      let [htmlCode, cssRest] = codeBlock.split(splitCSSPattern).map(part => part.trim());
+      let cssCode = '', jsCode = '';
+
+      if (cssRest) {
+        // If CSS content was delineated, it means we have a remainder to check for JS
+        let [potentialCssCode, jsRest] = cssRest.split(splitJSPattern).map(part => part.trim());
+        cssCode = potentialCssCode;
+        jsCode = jsRest; // What remains is JS, if anything
+      } else {
+        // If no CSS delineation was found, check directly for JS in the original codeBlock
+        let [potentialHtmlCode, jsRest] = codeBlock.split(splitJSPattern).map(part => part.trim());
+        if (jsRest !== undefined) {
+          // JS delineation found, meaning the initial split contains HTML
+          htmlCode = potentialHtmlCode;
+          jsCode = jsRest;
+        } else {
+          // No JS delineation found either, treat entire block as HTML or JS based on context
+          // This part is ambiguous without further context on how you want to treat undelineated blocks
+        }
+      }
+
+      return <MyIDE htmlCode={htmlCode} cssCode={cssCode} jsCode={jsCode} />;
     }
 
     // Default plain text rendering or links

@@ -9,7 +9,6 @@ module.exports = {
       colors: {
         'primary': '#0ea5e9', // A modern, fresh primary color
         'secondary': '#64748b', // Complementary secondary color
-        // 'accent': '#facc15', // Vibrant accent color for call-to-actions and highlights
         'dark': '#0f172a', // Deep dark color for dark mode or accents
         'light': '#f1f5f9', // Light color for backgrounds or light mode
         'darkbg': '#121212',
@@ -61,7 +60,7 @@ module.exports = {
           css: {
             // Common base styles
             maxWidth: 'none',
-            color: theme('colors.gray.300'), // Default text color for dark theme
+            color: theme('colors.gray.900'), // Default text color for dark theme
             a: {
               color: theme('colors.blue.500'),
               '&:hover': {
@@ -71,28 +70,30 @@ module.exports = {
             'h1, h2, h3, h4': {
               fontWeight: '700',
               'scroll-margin-top': theme('spacing[12]'),
-              color: theme('colors.white'), // Ensuring headings stand out
-              textShadow: '0 2px 4px rgba(0, 0, 0, 0.75)', // Deeper shadow for prominence
+              color: theme('colors.gray-600'), // Ensuring headings stand out
             },
+            'code::before, code::after': {
+              content: 'none', // Remove backticks appearance in markdown
+            },
+            
             code: {
-              color: theme('colors.pink.300'), // Bright color for code to stand out
-              backgroundColor: 'rgba(255, 255, 255, 0.1)', // Subtle background for glassmorphism
+              backgroundColor: 'transparent', // Transparent background for code blocks
               padding: '0.25rem 0.5rem',
-              borderRadius: theme('borderRadius.md'),
-              backdropFilter: 'blur(10px)', // Glassmorphic effect
-              borderWidth: '1px',
-              borderColor: 'rgba(255, 255, 255, 0.2)', // Border for definition
+              borderRadius: '0.375rem',
+              fontWeight: '500',
               fontFamily: 'Monaco, Courier New, monospace',
-              fontWeight: 'normal',
             },
             pre: {
-              backgroundColor: 'rgba(40, 40, 40, 0.85)', // Darker background for code blocks
-              padding: theme('spacing[4]'),
-              borderRadius: theme('borderRadius.lg'),
+              color: theme('colors.gray.300'),
+              backgroundColor: 'rgba(255, 255, 255, 0.05)', // Slightly visible background
+              backdropFilter: 'blur(10px)', // Glassmorphism effect
+              padding: '2rem',
+              borderRadius: '0.5rem',
               overflowX: 'auto',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.25)', // Soft outer glow
-              border: 'solid 1px rgba(255, 255, 255, 0.1)', // Subtle border
+              boxShadow: 'inset 0 0 8px rgba(0, 0, 0, 0.5)', // Inset shadow for a deep effect
+              border: '1px solid rgba(255, 255, 255, 0.2)', // Subtle border for defining edges
             },
+          
             blockquote: {
               paddingLeft: theme('spacing[4]'),
               borderLeftWidth: '4px',
@@ -144,15 +145,11 @@ module.exports = {
               content: 'none', // Remove backticks appearance in markdown
             },
             code: {
-              backgroundColor: 'none',
-
-              // backgroundColor: 'rgba(255, 255, 255, 0.1)', // Lighter background for a frosted glass effect
-              backdropFilter: 'blur(10px)', // Apply glassmorphism effect
+              backgroundColor: 'transparent', // Transparent background for code blocks
               padding: '0.25rem 0.5rem',
               borderRadius: '0.375rem',
               fontWeight: '500',
               fontFamily: 'Monaco, Courier New, monospace',
-              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.25)', // Softer shadow for depth
             },
             pre: {
               color: theme('colors.gray.300'),
