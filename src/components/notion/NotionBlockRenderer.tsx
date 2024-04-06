@@ -139,12 +139,15 @@ const NotionText = ({ textItems }: { textItems: TextRichTextItemResponse[] }) =>
   const renderContent = (content: any) => {
     // Detecting HTML/CSS code block pattern
     const codeBlockPattern = /---htmlcss\s*([\s\S]*?)\s*---/;
+    console.log('content', content);
     const match = codeBlockPattern.exec(content);
+    console.log('match', match);
 
     if (match) {
       const codeBlock = match[1];
-      // Assuming a simple split by "/* CSS */" to separate HTML from CSS
-      const [htmlCode, cssCode] = codeBlock.split("/* CSS */").map(part => part.trim());
+      // Enhanced split using RegEx to ignore newlines and spaces around "/* CSS */"
+      const splitPattern = /\s*\/\*\s*CSS\s*\*\/\s*/;
+      const [htmlCode, cssCode] = codeBlock.split(splitPattern).map(part => part.trim());
       return <MyIDE htmlCode={htmlCode} cssCode={cssCode} />;
     }
 
