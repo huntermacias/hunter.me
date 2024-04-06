@@ -11,12 +11,12 @@ type Props = {
     tsCode?: string;
 };
 
-export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '', jsxCode = '', tsCode = ''}) => {
+export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '', jsxCode = '', tsCode = '' }) => {
     const [iframeHeight, setIframeHeight] = useState('300px');
 
     const formattedHtmlCode = beautify.html(htmlCode, { indent_size: 2, wrap_line_length: 80 });
     const formattedCssCode = beautify.css(cssCode, { indent_size: 2 });
-    const formattedJsCode = beautify.js(jsCode, { indent_size: 2, wrap_line_length: 170});
+    const formattedJsCode = beautify.js(jsCode, { indent_size: 2, wrap_line_length: 170 });
     // Assuming you have a way to format or compile JSX/TS
     // const formattedJsxCode = compileOrFormatJSX(jsxCode);
     // const formattedTsCode = compileOrFormatTS(tsCode);
@@ -37,10 +37,10 @@ export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '
     const isOnlyJsCode = htmlCode === '' && cssCode === '' && jsCode !== '';
     const containerClass = isOnlyJsCode ? "lg:min-w-[950px]" : "w-full lg:w-3/5";
 
-    
+
 
     return (
-        
+
         <div className="flex-row lg:flex gap-8 bg-[#0d1117] p-6 rounded-lg">
             <div className={`h-full ${containerClass} text-white  shadow-xl`}>
                 <div className="overflow-auto text-sm md:text-md">
@@ -74,24 +74,22 @@ export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '
             </div>
 
             <div className={`h-full ${containerClass} bg-[#161b22] border border-gray-500 rounded-lg shadow-xl relative overflow-auto`}>
-               
+
                 {formattedHtmlCode && (
                     <>
-                        <div className=''>
 
-                            <div className="flex space-x-2 p-2 mb-4">
-                                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                            </div>
-                            <iframe
-                                title="Preview"
-                                className="w-full"
-                                style={{ height: iframeHeight, border: 'none', marginTop: '-1rem', borderRadius: '0.5rem' }}
-                                srcDoc={previewCode}
-                                sandbox="allow-same-origin allow-scripts"
-                            />
+                        <div className="flex space-x-2 p-2 mb-4">
+                            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                         </div>
+                        <iframe
+                            title="Preview"
+                            className="w-full"
+                            style={{ height: iframeHeight, border: 'none', marginTop: '-1rem', borderRadius: '0.5rem' }}
+                            srcDoc={previewCode}
+                            sandbox="allow-same-origin allow-scripts"
+                        />
                     </>
                 )}
             </div>

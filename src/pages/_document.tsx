@@ -26,7 +26,7 @@ export default function Document() {
         <meta name="og:description" content="Dive into the portfolio of Hunter Macias, a passionate software engineer with a knack for tackling complex tech challenges. Discover a blend of cutting-edge projects showcasing expertise in AI, full-stack development, and cloud solutions. John's portfolio is not just a display of technical skills but a testament to a continuous journey of learning, innovation, and driving impact in the tech world." />
         <meta name="twitter:site" content="@HunterMacias_" />
         <meta name="twitter:creator" content="@HunterMacias_" />
-        <meta property="og:image" content="/11.avif" />
+        <meta property="og:image" content="/11.png" />
 
 
       </Head>
