@@ -22,11 +22,13 @@ export default function Document() {
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hunter Macias: Innovative Software Engineer & Tech Problem Solver" />
-        <meta name="twitter:description" content="Dive into the portfolio of Hunter Macias, a passionate software engineer with a knack for tackling complex tech challenges. Discover a blend of cutting-edge projects showcasing expertise in AI, full-stack development, and cloud solutions. John's portfolio is not just a display of technical skills but a testament to a continuous journey of learning, innovation, and driving impact in the tech world." />
-        <meta name="twitter:image" content="https://i.imgur.com/UJUYMh8.png" />
+        <meta name="og:title" content="Hunter Macias: Innovative Software Engineer & Tech Problem Solver" />
+        <meta name="og:description" content="Dive into the portfolio of Hunter Macias, a passionate software engineer with a knack for tackling complex tech challenges. Discover a blend of cutting-edge projects showcasing expertise in AI, full-stack development, and cloud solutions. John's portfolio is not just a display of technical skills but a testament to a continuous journey of learning, innovation, and driving impact in the tech world." />
         <meta name="twitter:site" content="@HunterMacias_" />
         <meta name="twitter:creator" content="@HunterMacias_" />
+        <meta property="og:image" content="/11.avif" />
+
+
       </Head>
       <body className="flex h-full flex-col">
         <Main />
