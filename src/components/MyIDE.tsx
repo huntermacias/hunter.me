@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { atomDark, dracula, synthwave84 } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import beautify from 'js-beautify';
 
 type Props = {
@@ -35,64 +35,64 @@ export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '
     }, [formattedHtmlCode, formattedCssCode, formattedJsCode]);
 
     const isOnlyJsCode = htmlCode === '' && cssCode === '' && jsCode !== '';
-    const containerClass = isOnlyJsCode ? "lg:min-w-[950px]" : "w-full lg:w-3/5";
+    const containerClass = isOnlyJsCode ? "w-full" : "w-full lg:w-3/5";
+    const codeSectionClass = isOnlyJsCode ? "lg:min-w-[950px] lg:max-w-full" : "w-full";
+    const previewSectionClass = isOnlyJsCode ? "hidden" : "w-full lg:w-2/5";
 
 
 
     return (
 
-        <div className="flex-row lg:flex gap-8 bg-[#0d1117] p-6 rounded-lg">
-            <div className={`h-full ${containerClass} text-white  shadow-xl`}>
-                <div className="overflow-auto text-sm md:text-md">
+        <div className="flex flex-col glassEffect lg:flex-row gap-8 px-4 py-8 rounded-3xl border border-green-700/30 shadow-lg shadow-cyan-500/10">
+            <div className={`${containerClass} ${codeSectionClass} relative text-white bg-teal-500 rounded-md overflow-hidden`}>
+                <div className="absolute inset-0  bg-[#1a1c23]/30 shadow-inner" style={{ zIndex: -1 }}></div>
+                <div className="p-4 overflow-auto text-xs sm:text-sm">
                     {formattedHtmlCode && (
-                        <SyntaxHighlighter language="html" style={atomDark} >
+                        <SyntaxHighlighter language="html" style={dracula}>
                             {formattedHtmlCode}
                         </SyntaxHighlighter>
                     )}
                     {formattedCssCode && (
-                        <SyntaxHighlighter language="css" style={atomDark}>
+                        <SyntaxHighlighter language="css" style={dracula}>
                             {formattedCssCode}
                         </SyntaxHighlighter>
-
                     )}
                     {jsCode && (
-                        <SyntaxHighlighter language="javascript" style={atomDark}>
-                            {jsCode}
-                        </SyntaxHighlighter>
-                    )}
-                    {jsxCode && (
-                        <SyntaxHighlighter language="jsx" style={atomDark}>
-                            {jsxCode}
-                        </SyntaxHighlighter>
-                    )}
-                    {tsCode && (
-                        <SyntaxHighlighter language="typescript" style={atomDark}>
-                            {tsCode}
-                        </SyntaxHighlighter>
+                        <>
+                            <div className="flex justify-between items-center p-3 -mb-2 text-xs bg-[#0d1117]/80 filter backdrop-blur-lg bg-opacity-10 rounded-t-md">
+                                <div className="flex space-x-1">
+                                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                                </div>
+                            </div>
+                            <SyntaxHighlighter language="javascript" style={dracula}>
+                                {jsCode}
+                            </SyntaxHighlighter>
+                        </>
                     )}
                 </div>
             </div>
 
-            <div className={`h-full ${containerClass} bg-[#161b22] border border-gray-500 rounded-lg shadow-xl relative overflow-auto`}>
-
-                {formattedHtmlCode && (
-                    <>
-
-                        <div className="flex space-x-2 p-2 mb-4">
+            {formattedHtmlCode && (
+                <div className={`${previewSectionClass} bg-[#161b22]/50 relative rounded-2xl overflow-hidden shadow-inner`}>
+                    <div className="flex justify-between items-center p-2 text-xs bg-[#0d1117]/60 rounded-t-md">
+                        <div className="flex space-x-1">
                             <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                             <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                         </div>
-                        <iframe
-                            title="Preview"
-                            className="w-full"
-                            style={{ height: iframeHeight, border: 'none', marginTop: '-1rem', borderRadius: '0.5rem' }}
-                            srcDoc={previewCode}
-                            sandbox="allow-same-origin allow-scripts"
-                        />
-                    </>
-                )}
-            </div>
+                    </div>
+                    <iframe
+                        title="Preview"
+                        className="w-full h-full"
+                        style={{ border: 'none' }}
+                        srcDoc={previewCode}
+                        sandbox="allow-same-origin allow-scripts"
+                    />
+                </div>
+            )}
         </div>
+
     );
 };
