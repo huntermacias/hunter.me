@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark, dracula, synthwave84 } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import beautify from 'js-beautify';
+import beautify, { html } from 'js-beautify';
 
 type Props = {
     htmlCode?: string;
@@ -16,15 +16,16 @@ export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '
 
     const formattedHtmlCode = beautify.html(htmlCode, { indent_size: 2, wrap_line_length: 80 });
     const formattedCssCode = beautify.css(cssCode, { indent_size: 2 });
-    const formattedJsCode = beautify.js(jsCode, { indent_size: 2, wrap_line_length: 170 });
+    const formattedJsCode = beautify.js(jsCode, { indent_size: 2, wrap_line_length: 180 });
     // Assuming you have a way to format or compile JSX/TS
-    // const formattedJsxCode = compileOrFormatJSX(jsxCode);
+    const formattedJsxCode = beautify.js(jsxCode);
     // const formattedTsCode = compileOrFormatTS(tsCode);
 
     const previewCode = `
         <style>${formattedCssCode}</style>
         ${formattedHtmlCode}
         <script>${formattedJsCode}</script>
+        <script>${formattedJsxCode}</script>
         <script type="text/babel">${jsxCode}</script>
         <script type="module">${tsCode}</script>
     `;
@@ -47,12 +48,12 @@ export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '
             <div className={`${containerClass} ${codeSectionClass} relative text-white bg-teal-500 rounded-md overflow-hidden`}>
                 <div className="absolute inset-0  bg-[#1a1c23]/30 shadow-inner" style={{ zIndex: -1 }}></div>
                 <div className="p-4 overflow-auto text-xs sm:text-sm">
-                    {formattedHtmlCode && (
+                    {htmlCode && (
                         <SyntaxHighlighter language="html" style={dracula}>
                             {formattedHtmlCode}
                         </SyntaxHighlighter>
                     )}
-                    {formattedCssCode && (
+                    {cssCode && (
                         <SyntaxHighlighter language="css" style={dracula}>
                             {formattedCssCode}
                         </SyntaxHighlighter>
@@ -67,7 +68,7 @@ export const MyIDE: React.FC<Props> = ({ htmlCode = '', cssCode = '', jsCode = '
                                 </div>
                             </div>
                             <SyntaxHighlighter language="javascript" style={dracula}>
-                                {jsCode}
+                                {formattedJsCode}
                             </SyntaxHighlighter>
                         </>
                     )}

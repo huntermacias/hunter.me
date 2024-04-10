@@ -45,7 +45,7 @@ export const BentoGridItem = ({
         className
       )}
     >
-      <Meteors number={20} />
+      {/* <Meteors number={20} /> */}
       <div className="z-10">{header}</div>
       <div className="flex flex-col space-y-2 z-10">
         <div className="flex items-center justify-between">
