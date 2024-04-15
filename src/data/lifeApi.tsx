@@ -367,16 +367,16 @@ export const Work = [
     title: 'Software Developer',
     logo: Leadbird,
     roles: [],
-    start: 'Jun 2021',
-    end: 'Nov 2021 · 6 mos',
+    start: 'Jan 2021',
+    end: 'Jun 2021 · 6 mos',
   },
   {
     company: 'Candor',
     title: 'Frontend Developer',
     logo: Candor,
     roles: [],
-    start: 'Oct 2021',
-    end: 'Jan 2022 · 4 mos',
+    start: 'Sep 2021',
+    end: 'Jan 2022 · 5 mos',
   },
 ] as const;
 
