@@ -386,6 +386,14 @@ export const Work = [
     end: 'Mar 2022 · 2 yrs 3 mos',
   },
   {
+    company: 'Leadbird',
+    title: 'Software Developer',
+    logo: Leadbird,
+    roles: [],
+    start: 'Jan 2021',
+    end: 'Jun 2021 · 6 mos',
+  },
+  {
     company: 'Candor',
     title: 'Frontend Developer',
     logo: Candor,
