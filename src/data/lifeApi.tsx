@@ -386,6 +386,25 @@ export const Work = [
     end: 'Mar 2022 · 2 yrs 3 mos',
   },
   {
+<<<<<<< HEAD
+=======
+    company: 'Candor',
+    title: 'Frontend Developer',
+    logo: Candor,
+    roles: [],
+    start: 'Sep 2021',
+    end: 'Jan 2022 · 5 mos',
+  },
+  {
+    company: 'Leadbird',
+    title: 'Software Developer',
+    logo: Leadbird,
+    roles: [],
+    start: 'Jun 2021',
+    end: 'Nov 2021 · 6 mos',
+  },
+  {
+>>>>>>> HEAD@{1}
     company: 'Candor',
     title: 'Frontend Developer',
     logo: Candor,
