@@ -35,8 +35,8 @@ export const NavigationItems = [
   },
   {
     name: 'Resume',
-    href: 'https://hunters-resume.vercel.app/',
-    type: 'external',
+    href: '/viewResume',
+    type: 'internal',
   }
 ] as const;
 
@@ -53,7 +53,7 @@ const NavItem = ({ href, children }: React.PropsWithChildren<{ href: string }>) 
 
   return (
     <li>
-     <Link
+      <Link
         href={href}
         className={clsx(
           'relative block px-4 py-2 rounded-lg transition-all duration-300',
@@ -70,7 +70,7 @@ const NavItem = ({ href, children }: React.PropsWithChildren<{ href: string }>) 
 export const MobileNavItem = ({ href, children }: React.PropsWithChildren<{ href: string }>) => {
   return (
     <li>
-     <Popover.Button as={Fragment}>
+      <Popover.Button as={Fragment}>
         <Link href={href} className="block py-2 text-base hover:text-primary transition-colors duration-300">
           {children}
         </Link>
