@@ -29,6 +29,7 @@ import CameraLogo from "../images/logos/camera.jpg"
 import CalendarLogo from "../images/logos/calendar.jpg"
 import Lingo from "../images/logos/lingo.jpg"
 import USFCALogo from '../images/logos/usflogo.png';
+import CostcoLogo from "../images/logos/costcoLogo.png"
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
@@ -79,13 +80,13 @@ export const MyCurrentProjects: Project[] = [
       'Vercel',
     ],
     description: "Lingo redefines language learning with an interactive SaaS platform inspired by Duolingo. Dive into a world where language learning meets gamification, enhanced with AI voices, beautiful design, engaging characters, and immersive sound effects. Master new languages through guided lessons built on the latest tech stack including Next.js 14, Drizzle ORM, and PostgreSQL. Experience personalized education with our unique features: AI-generated voices, character-driven narratives, sound effects, a hearts system, an XP system, interactive pop-ups, a leaderboard, quest milestones, and a shop system. Lingo's Pro tier, powered by Stripe, offers unlimited hearts for uninterrupted learning. Our platform, responsive across devices, is designed for learners of all ages. Get started on your language journey with Lingo, and explore the richness of languages in a fun, engaging way.",
-    logo: Lingo, 
+    logo: Lingo,
     link: {
       label: 'Explore Lingo',
       href: 'https://lingo-aehvptrt5-huntermacias.vercel.app/',
     }
   },
-  
+
   {
     title: 'Headshot Hub',
     techStack: ['Next.js', 'Leap AI', 'Supabase', 'Stripe Connect', 'Resend'],
@@ -328,6 +329,21 @@ export const SocialMedia = [
 
 export const Work = [
   {
+    company: 'Costco',
+    logo: CostcoLogo,
+    title: '',
+    roles: [
+      {
+        title: 'Stocker',
+        start: 'Oct 2023',
+        end: 'Present',
+      },
+
+    ],
+    start: '',
+    end: '',
+  },
+  {
     company: 'TheCoderSchool',
     title: 'Lead Instructor',
     logo: CoderSchool,
@@ -340,16 +356,23 @@ export const Work = [
     logo: USFCALogo,
     title: '',
     roles: [
+
       {
         title: 'Teaching Assistant for Computer Science 245',
         start: 'Jul 2020',
         end: 'Jan 2021 · 7 mos',
       },
       {
+        title: 'IT Technician - Level 3',
+        start: 'Jan 2019',
+        end: 'Jan 2020 · 1 yr 1 mo',
+      },
+      {
         title: 'Teaching Assistant for Computer Science 110',
         start: 'Apr 2019',
         end: 'Aug 2019 · 5 mos',
       },
+
     ],
     start: '',
     end: '',
@@ -363,20 +386,20 @@ export const Work = [
     end: 'Mar 2022 · 2 yrs 3 mos',
   },
   {
-    company: 'Leadbird',
-    title: 'Software Developer',
-    logo: Leadbird,
-    roles: [],
-    start: 'Jun 2021',
-    end: 'Nov 2021 · 6 mos',
-  },
-  {
     company: 'Candor',
     title: 'Frontend Developer',
     logo: Candor,
     roles: [],
-    start: 'Oct 2021',
-    end: 'Jan 2022 · 4 mos',
+    start: 'Sep 2021',
+    end: 'Jan 2022 · 5 mos',
+  },
+  {
+    company: 'Leadbird',
+    title: 'Software Developer',
+    logo: Leadbird,
+    roles: [],
+    start: 'Jan 2021',
+    end: 'Jun 2021 · 6 mos',
   },
 ] as const;
 
