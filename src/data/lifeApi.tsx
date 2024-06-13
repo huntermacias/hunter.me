@@ -62,6 +62,17 @@ export type Project = {
 
 export const MyCurrentProjects: Project[] = [
   {
+    title: 'JSLy',
+    techStack: ['Nuxt.js', 'TailwindCSS', 'StackBlitz'],
+    description: "JSLy - A JavaScript Documentation Portal built with Nuxt.js and TailwindCSS. The platform offers features such as documentation search, documentation filtering, and documentation navigation, fostering an engaging and interactive community experience.",
+    logo: CameraLogo,
+    link: {
+      label: 'JSLy',
+      href: 'https://jsly.vercel.app/',
+    }
+
+  },
+  {
     title: 'Lingo',
     techStack: [
       'Next.js 14',
@@ -85,18 +96,6 @@ export const MyCurrentProjects: Project[] = [
       label: 'Explore Lingo',
       href: 'https://lingo-aehvptrt5-huntermacias.vercel.app/',
     }
-  },
-
-  {
-    title: 'Headshot Hub',
-    techStack: ['Next.js', 'Leap AI', 'Supabase', 'Stripe Connect', 'Resend'],
-    description: "Headshot Hub - An Elite SaaS application to generate Professional Headshots like never before.",
-    logo: CameraLogo,
-    link: {
-      label: 'Headshot Hub',
-      href: 'https://headshothub.vercel.app/',
-    }
-
   },
   {
     title: 'Stratify',
