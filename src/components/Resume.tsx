@@ -32,7 +32,7 @@ export const Resume = () => {
                 </div>
               </div>
 
-              <div className="ml-20 space-y-2 border-l-4 border-gray-300 dark:border-gray-700 pl-6">
+              <div className="md:ml-20 space-y-2 border-l-4 border-gray-300 dark:border-gray-700 pl-6">
                 {item.roles.map((role, roleIndex) => (
                   <div key={`role-${roleIndex}`} className="m-3 transform transition-transform duration-300 hover:translate-x-2">
                     <h4 className="text-md font-semibold text-gray-800 dark:text-gray-300">
