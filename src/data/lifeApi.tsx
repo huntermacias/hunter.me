@@ -331,10 +331,13 @@ export const Work = [
   {
     company: 'Costco Travel',
     logo: CostcoTravelLogo,
-    title: 'Quality Engineer',
-    roles: [],
-    start: 'Aug 2024',
-    end: 'Present',
+    roles: [
+      {
+        title: 'Quality Engineer',
+        start: 'Aug 2024',
+        end: 'Present',
+      },
+    ],
   },
   {
     company: 'Costco',
@@ -350,10 +353,13 @@ export const Work = [
   {
     company: 'TheCoderSchool',
     logo: CoderSchool,
-    title: 'Lead Instructor',
-    roles: [],
-    start: 'Jun 2020',
-    end: 'Present',
+    roles: [
+      {
+        title: 'Lead Instructor',
+        start: 'Jun 2020',
+        end: 'Present',
+      },
+    ],
   },
   {
     company: 'USFCA',
@@ -362,7 +368,7 @@ export const Work = [
       {
         title: 'Teaching Assistant for Computer Science 245',
         start: 'Jul 2020',
-        end: 'Jan 2021', // Removed extra duration for consistency
+        end: 'Jan 2021',
       },
       {
         title: 'IT Technician - Level 3',
@@ -379,28 +385,38 @@ export const Work = [
   {
     company: 'Mission Bit',
     logo: MissionBit,
-    title: 'Coding Instructor',
-    roles: [],
-    start: 'Jan 2020',
-    end: 'Mar 2022', // Simplified duration
+    roles: [
+      {
+        title: 'Coding Instructor',
+        start: 'Jan 2020',
+        end: 'Mar 2022',
+      },
+    ],
   },
   {
     company: 'Candor',
     logo: Candor,
-    title: 'Frontend Developer',
-    roles: [],
-    start: 'Sep 2021',
-    end: 'Jan 2022',
+    roles: [
+      {
+        title: 'Frontend Developer',
+        start: 'Sep 2021',
+        end: 'Jan 2022',
+      },
+    ],
   },
   {
     company: 'Leadbird',
     logo: Leadbird,
-    title: 'Software Developer',
-    roles: [],
-    start: 'Jan 2021',
-    end: 'Jun 2021',
+    roles: [
+      {
+        title: 'Software Developer',
+        start: 'Jan 2021',
+        end: 'Jun 2021',
+      },
+    ],
   },
 ] as const;
+
 
 
 export const Books = [
