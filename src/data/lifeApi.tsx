@@ -30,7 +30,7 @@ import CalendarLogo from "../images/logos/calendar.jpg"
 import Lingo from "../images/logos/lingo.jpg"
 import USFCALogo from '../images/logos/usflogo.png';
 import CostcoLogo from "../images/logos/costcoLogo.png"
-import CostcoTravelLogo from "../images/logos/costcotravel.png";
+import CostcoTravelLogo from "../images/logos/costcotravel.webp";
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
