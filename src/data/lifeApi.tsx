@@ -30,6 +30,7 @@ import CalendarLogo from "../images/logos/calendar.jpg"
 import Lingo from "../images/logos/lingo.jpg"
 import USFCALogo from '../images/logos/usflogo.png';
 import CostcoLogo from "../images/logos/costcoLogo.png"
+import CostcoTravelLogo from "../images/logos/costcotravel.png";
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
@@ -328,79 +329,79 @@ export const SocialMedia = [
 
 export const Work = [
   {
+    company: 'Costco Travel',
+    logo: CostcoTravelLogo,
+    title: 'Quality Engineer',
+    roles: [],
+    start: 'Aug 2024',
+    end: 'Present',
+  },
+  {
     company: 'Costco',
     logo: CostcoLogo,
-    title: '',
     roles: [
       {
         title: 'Stocker',
         start: 'Oct 2023',
-        end: 'Present',
+        end: 'Aug 2024',
       },
-
     ],
-    start: '',
-    end: '',
   },
   {
     company: 'TheCoderSchool',
-    title: 'Lead Instructor',
     logo: CoderSchool,
-    start: 'Jun 2020',
+    title: 'Lead Instructor',
     roles: [],
+    start: 'Jun 2020',
     end: 'Present',
   },
   {
     company: 'USFCA',
     logo: USFCALogo,
-    title: '',
     roles: [
-
       {
         title: 'Teaching Assistant for Computer Science 245',
         start: 'Jul 2020',
-        end: 'Jan 2021 · 7 mos',
+        end: 'Jan 2021', // Removed extra duration for consistency
       },
       {
         title: 'IT Technician - Level 3',
         start: 'Jan 2019',
-        end: 'Jan 2020 · 1 yr 1 mo',
+        end: 'Jan 2020',
       },
       {
         title: 'Teaching Assistant for Computer Science 110',
         start: 'Apr 2019',
-        end: 'Aug 2019 · 5 mos',
+        end: 'Aug 2019',
       },
-
     ],
-    start: '',
-    end: '',
   },
   {
     company: 'Mission Bit',
-    title: 'Coding Instructor',
     logo: MissionBit,
+    title: 'Coding Instructor',
     roles: [],
     start: 'Jan 2020',
-    end: 'Mar 2022 · 2 yrs 3 mos',
+    end: 'Mar 2022', // Simplified duration
   },
   {
     company: 'Candor',
-    title: 'Frontend Developer',
     logo: Candor,
+    title: 'Frontend Developer',
     roles: [],
     start: 'Sep 2021',
-    end: 'Jan 2022 · 5 mos',
+    end: 'Jan 2022',
   },
   {
     company: 'Leadbird',
-    title: 'Software Developer',
     logo: Leadbird,
+    title: 'Software Developer',
     roles: [],
     start: 'Jan 2021',
-    end: 'Jun 2021 · 6 mos',
+    end: 'Jun 2021',
   },
 ] as const;
+
 
 export const Books = [
   {
