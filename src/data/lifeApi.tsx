@@ -333,7 +333,7 @@ export const Work = [
     logo: CostcoTravelLogo,
     roles: [
       {
-        title: 'Quality Engineer',
+        title: 'SDET I',
         start: 'Aug 2024',
         end: 'Present',
       },

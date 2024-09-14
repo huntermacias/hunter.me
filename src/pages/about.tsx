@@ -2,7 +2,7 @@ import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import AvatarImage from '../../public/assets/blog/authors/me_ai.png';
+import AvatarImage from '../images/logos/logome.png';
 import { Container } from '../components/Container';
 import { PageTitle } from '../components/PageTitle';
 import { SocialLink } from '../components/SocialLink';
@@ -67,7 +67,7 @@ export default function AboutMe() {
                     aria-label={`Follow on ${socialProfile.name}`}
                     href={socialProfile.link}
                     icon={socialProfile.icon}
-                  />                
+                  />
               ))}
             </div>
 
@@ -76,7 +76,7 @@ export default function AboutMe() {
             <PodcastSection Podcasts={Podcasts} />
             <BlogsSection Blogs={Blogs} />
             <PeopleWorthFollowing PeopleWorthFollowingOnTwitter={PeopleWorthFollowingOnTwitter} />
-            
+
             {randomQuote && (
               <div className="mt-6 italic">{randomQuote.content}</div>
             )}
