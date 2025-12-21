@@ -31,6 +31,7 @@ import Lingo from "../images/logos/lingo.jpg"
 import USFCALogo from '../images/logos/usflogo.png';
 import CostcoLogo from "../images/logos/costcoLogo.png"
 import CostcoTravelLogo from "../images/logos/costcotravel.webp";
+import StarbucksLogo from "../images/logos/starbucks.png";
 import { LinkedInIcon } from '../components/icons/LinkedInIcon';
 
 export const Name = 'Hunter Macias';
@@ -321,7 +322,7 @@ export const MyPastProjects: Project[] = [
 ];
 
 export const SocialMedia = [
-  { name: 'Twitter', link: 'https://twitter.com/huntermacias_', icon: XIcon },
+  // { name: 'Twitter', link: 'https://twitter.com/huntermacias_', icon: XIcon },
   { name: 'Instagram', link: 'https://www.instagram.com/huntermacias/', icon: InstagramIcon },
   { name: 'Github', link: 'https://github.com/huntermacias', icon: GitHubIcon },
   { name: 'LinkedIn', link: 'https://www.linkedin.com/in/huntermacias/', icon: LinkedInIcon },
@@ -333,9 +334,14 @@ export const Work = [
     logo: CostcoTravelLogo,
     roles: [
       {
-        title: 'SDET I',
+        title: 'Quality Engineer II',
+        start: 'Nov 2025',
+        end: 'Present'
+      },
+      {
+        title: 'Software Development Engineer in Test I',
         start: 'Aug 2024',
-        end: 'Present',
+        end: 'Nov 2025',
       },
     ],
   },
@@ -344,9 +350,20 @@ export const Work = [
     logo: CostcoLogo,
     roles: [
       {
-        title: 'Stocker',
+        title: 'Warehouse Stocker',
         start: 'Oct 2023',
         end: 'Aug 2024',
+      },
+    ],
+  },
+  {
+    company: 'Starbucks',
+    logo: StarbucksLogo,
+    roles: [
+      {
+        title: 'Barista',
+        start: 'Apr 2023',
+        end: 'Oct 2023',
       },
     ],
   },
@@ -416,9 +433,6 @@ export const Work = [
     ],
   },
 ] as const;
-
-
-
 export const Books = [
   {
     name: 'Shoe Dog: A Memoir by the Creator of Nike by Phil Knight',
@@ -632,33 +646,153 @@ export const Quotes = [
 export const Tools = {
   Workstation: [
     {
-      title: 'Apple M3 Pro chip with 11‑core CPU, 14‑core GPU, 16‑core Neural Engine',
+      title: 'MacBook Pro (Apple M3 Pro)',
+      intent: 'primary',
       description:
-        "This MacBook Pro M3 represents the latest leap in my computing journey, embodying cutting-edge technology and performance. Its sleek design and powerful M3 chip enable me to tackle the most demanding projects, from coding to content creation. With this machine, I'm equipped to explore new horizons and push the boundaries of what's possible in my work.",
-      href: 'https://www.apple.com/shop/buy-mac/macbook-pro/14-inch-space-black-apple-m3-pro-with-11-core-cpu-and-14-core-gpu-18gb-memory-512gb?afid=p238%257CsF7IpQiKR-dc_mtid_1870765e38482_pcrid_652759409002_pgrid_146259541814_pntwk_g_pchan_local_pexid__&cid=aos-us-kwgo-pla-mac_lia--slid---product-MTLC3LL/A',
+        'My primary development machine. The M3 Pro provides the performance and battery life needed for running local services, automation suites, containers, and multiple browsers simultaneously without friction.',
+      href: 'https://www.apple.com/macbook-pro/',
     },
   ],
-  Software: [
+
+  'Languages & Frameworks': [
+    {
+      title: 'TypeScript',
+      intent: 'primary',
+      description:
+        'My default language for frontend, backend, and automation work. Strong typing and editor tooling help prevent entire classes of bugs before they ever reach runtime.',
+      href: 'https://www.typescriptlang.org/',
+    },
+    {
+      title: 'Java',
+      intent: 'primary',
+      description:
+        'Used extensively for enterprise-grade test automation and backend validation. I value Java for its maturity, ecosystem, and suitability for long-lived frameworks.',
+      href: 'https://www.oracle.com/java/',
+    },
+    {
+      title: 'React / Next.js',
+      intent: 'primary',
+      description:
+        'Used for building production UIs, internal tools, and this site. I focus on predictable rendering, accessibility, and performance over novelty.',
+      href: 'https://nextjs.org/',
+    },
+  ],
+
+  'Testing & Automation': [
+    {
+      title: 'Playwright',
+      intent: 'primary',
+      description:
+        'My preferred tool for modern UI and end-to-end testing. Deterministic execution, strong debugging tools, and cross-browser support make it ideal for validating critical user flows.',
+      href: 'https://playwright.dev/',
+    },
+    {
+      title: 'Selenium (Java)',
+      intent: 'supporting',
+      description:
+        'Used in legacy and enterprise automation frameworks. While heavier than modern tools, it remains relevant in large, established codebases.',
+      href: 'https://www.selenium.dev/',
+    },
+    {
+      title: 'JUnit / TestNG',
+      intent: 'supporting',
+      description:
+        'Core test runners for Java-based automation. Familiar, stable, and well-integrated into CI pipelines.',
+      href: 'https://junit.org/',
+    },
+    {
+      title: 'Postman',
+      intent: 'primary',
+      description:
+        'Useful for exploratory API testing, contract validation, and debugging integration issues before automation is introduced.',
+      href: 'https://www.postman.com/',
+    },
+  ],
+
+  'CI, Observability & Infrastructure': [
+    {
+      title: 'Jenkins',
+      intent: 'primary',
+      description:
+        'Primary CI system for running automation, gating releases, and validating changes at scale. I care deeply about fast feedback and actionable failure signals.',
+      href: 'https://www.jenkins.io/',
+    },
+    {
+      title: 'Splunk',
+      intent: 'primary',
+      description:
+        'Used for log analysis, debugging production issues, and validating system behavior across distributed services.',
+      href: 'https://www.splunk.com/',
+    },
+    {
+      title: 'Azure DevOps (ADO)',
+      intent: 'primary',
+      description:
+        'Used for work item tracking, test planning, pipelines, and release coordination in large teams.',
+      href: 'https://azure.microsoft.com/en-us/products/devops',
+    },
+    {
+      title: 'Docker',
+      intent: 'supporting',
+      description:
+        'Used for local development, reproducible environments, and isolating dependencies during testing.',
+      href: 'https://www.docker.com/',
+    },
+  ],
+
+  'Developer Tools & Productivity': [
     {
       title: 'Visual Studio Code',
-      description: `Long gone are the days of Eclipse. I now use Visual Studio for all my web development needs. `,
+      intent: 'primary',
+      description:
+        'My primary editor for TypeScript, JavaScript, and automation work. Extensions, debugging tools, and Git integration make it a reliable daily driver.',
       href: 'https://code.visualstudio.com/',
     },
-
     {
-      title: 'Figma',
-      description: `I'm not a designer but it allows me to quickly mock up interfaces and play with my ideas. One day I'll learn how to use it properly.`,
-      href: 'https://www.figma.com/',
+      title: 'IntelliJ IDEA',
+      intent: 'primary',
+      description:
+        'Essential for Java-heavy projects and large enterprise codebases. Strong refactoring tools and static analysis help maintain long-lived systems.',
+      href: 'https://www.jetbrains.com/idea/',
     },
     {
       title: 'Notion',
-      description: `I use it for everything. I have a separate workspace for each of my projects and I use it to keep track of my tasks, notes, and ideas. I'm even using Notion as a database for this portfolio :)`,
+      intent: 'supporting',
+      description:
+        'Used for documentation, planning, and knowledge capture. I treat documentation as part of the system, not an afterthought.',
       href: 'https://www.notion.so/',
     },
     {
       title: 'Excalidraw',
-      description: `I use Excalidraw to quickly sketch out ideas and concepts. It's a great tool for visualizing your thoughts and sharing them with others.`,
-      href: 'https://www.Excalidraw.com',
+      intent: 'supporting',
+      description:
+        'Used for lightweight architecture diagrams, test flow sketches, and system discussions. Optimized for thinking, not polish.',
+      href: 'https://excalidraw.com/',
+    },
+  ],
+
+  'Design & Collaboration': [
+    {
+      title: 'Figma',
+      intent: 'supporting',
+      description:
+        'Used to understand designs, mock ideas quickly, and collaborate with designers—primarily as a communication tool, not a design crutch.',
+      href: 'https://www.figma.com/',
+    },
+    {
+      title: "Teams",
+      intent: 'supporting',
+      description:
+        'Primary communication tool for cross-functional collaboration, incident coordination, and day-to-day testing discussions.',
+      href: 'https://www.microsoft.com/en/microsoft-teams/group-chat-software',
+    },
+    {
+      title: 'Slack',
+      intent: 'supporting',
+      description:
+        'Primary communication tool for cross-functional collaboration, incident coordination, and day-to-day engineering discussions.',
+      href: 'https://slack.com/',
     },
   ],
 } as const;
+

@@ -1,4 +1,3 @@
-import { compareDesc } from 'date-fns';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 
@@ -10,11 +9,11 @@ import { SocialLink } from '../components/SocialLink';
 import { NotePreview } from '../components/notes/NotePreview';
 import { About, Name, SocialMedia } from '../data/lifeApi';
 import { Note, notesApi } from '../lib/notesApi';
-import { Glow } from 'src/components/Glow';
+import { Glow } from '../components/Glow';
 
 const seoTitle = 'Hunter Macias';
 const seoDescription =
-  'A passionate software developer with an eye for details based in Seattle, Washington.';
+  'Software Development Engineer in Test at Costco Travel, focused on building reliable, high-quality consumer applications at scale.';
 
 type Props = {
   latestNotes: Note[];
@@ -26,7 +25,7 @@ export default function Home({ latestNotes }: Props) {
       <NextSeo
         title={seoTitle}
         description={seoDescription}
-        canonical={`${process.env.NEXT_PUBLIC_URL}`}
+        canonical={process.env.NEXT_PUBLIC_URL}
         openGraph={{
           images: [
             {
@@ -36,19 +35,31 @@ export default function Home({ latestNotes }: Props) {
         }}
       />
 
-      {/* Main content container with more padding for better spacing */}
       <Glow>
-        <Container className="mt-9 py-6 cursor-none">
-          <div className="max-w-7xl">
-            {/* Page Title with increased font size for emphasis */}
-            <PageTitle className="text-4xl font-bold">{Name}</PageTitle>
-            {/* About section with improved readability */}
+        {/* ===================== HERO ===================== */}
+        <Container className="mt-12 py-6">
+          <div className="max-w-5xl">
+            <header>
+              <PageTitle className="text-4xl font-bold">
+                {Name}
+              </PageTitle>
 
-            <p className="m-8 sm:m-16 max-w-2xl lg:max-w-7xl rounded-lg p-8
-      border border-gray-300 shadow-xl shadow-gray-500/20 transition-all duration-500
-      bg-white/30 dark:bg-[#0d1117]/30 backdrop-filter backdrop-blur-sm dark:border-gray-700">{About}</p>
-            {/* Social Media Links with increased interactivity */}
-            <nav className="mt-6 flex gap-6">
+              <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">
+                Software Development Engineer in Test at Costco Travel, focused on
+                building reliable, high-quality consumer applications at scale.
+              </p>
+
+              <p className="mt-4 max-w-2xl text-sm text-gray-600 dark:text-gray-400">
+                I work at the intersection of engineering, quality, and systems
+                design—helping teams ship confidently through automation,
+                test strategy, and thoughtful validation.
+              </p>
+            </header>
+
+            <nav
+              aria-label="Social links"
+              className="mt-6 flex gap-6"
+            >
               {SocialMedia.map((socialProfile) => (
                 <SocialLink
                   key={socialProfile.name}
@@ -61,28 +72,55 @@ export default function Home({ latestNotes }: Props) {
             </nav>
           </div>
         </Container>
+
+
+        {/* ===================== PHOTOS ===================== */}
         <Photos />
 
-        {/* Projects and Resume Section with improved layout */}
-        <Container className="mt-12">
-          <div className="grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-5">
-            {/* Latest Notes with more visual hierarchy */}
-            <div className="flex flex-col lg:col-span-3">
+        {/* ===================== NOTES + RESUME ===================== */}
+        <Container className="mt-20">
+          <div className="grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-5">
+            <section
+              aria-labelledby="engineering-notes"
+              className="flex flex-col lg:col-span-3"
+            >
+              <h2
+                id="software-projects-releases"
+                className="mb-2 text-xl font-bold text-gray-900 dark:text-gray-100"
+              >
+                Software Projects & Releases
+              </h2>
+
+              <p className="mb-6 max-w-2xl text-sm text-gray-600 dark:text-gray-400">
+                Projects and write-ups documenting how I think through engineering
+                problems, tradeoffs, and system design decisions.
+              </p>
+
               {latestNotes.map((blogPost) => (
-                <NotePreview key={blogPost.slug} note={blogPost} dense />
+                <NotePreview
+                  key={blogPost.slug}
+                  note={blogPost}
+                  dense
+                />
               ))}
-            </div>
-            {/* Resume Section with distinct background for focus */}
-            <div className="lg:col-span-2">
+            </section>
+
+            <section
+              aria-labelledby="resume"
+              className="lg:col-span-2"
+            >
+              <h2 id="resume" className="sr-only">
+                Work Experience
+              </h2>
               <Resume />
-            </div>
+            </section>
           </div>
         </Container>
       </Glow>
     </>
-
   );
 }
+
 
 const NEWEST_POSTS_TO_DISPLAY = 5;
 

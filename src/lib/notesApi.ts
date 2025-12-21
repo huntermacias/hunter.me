@@ -162,7 +162,7 @@ class NotesApi {
                 'rich_text' in page.properties.description
                   ? page.properties.description.rich_text.map((textBlock) => textBlock.plain_text).join(' ')
                   : '',
-              slug: 
+              slug:
                 'rich_text' in page.properties.slug && page.properties.slug.rich_text.length > 0
                   ? page.properties.slug.rich_text[0].plain_text
                   : '',
