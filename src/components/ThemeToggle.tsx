@@ -1,36 +1,56 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { MoonIcon } from './icons/MoonIcon';
 import { SunIcon } from './icons/SunIcon';
 
 export const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+
+  if (!mounted) {
+    // Reserve the same footprint so nothing shifts once the real toggle mounts.
+    return <div className="h-10 w-10" aria-hidden />;
+  }
+
+  const isDark = resolvedTheme === 'dark';
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 20, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        className="rounded-full p-1 bg-gradient-to-r from-cyan-500 to-blue-500 dark:from-indigo-500 dark:to-pink-500 shadow-lg shadow-cyan-500/50 dark:shadow-purple-500/50 backdrop-blur-sm"
-      >
-        <button
-          aria-label="Toggle dark mode"
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-white/80 dark:bg-black/80"
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        >
-   
-          <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-primary [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-primary-dark" />
-          <MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-primary" />
-        </button>
-      </motion.div>
-    </AnimatePresence>
+    <button
+      type="button"
+      aria-label="Toggle dark mode"
+      aria-pressed={isDark}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-gray-200/80 bg-white/60 shadow-lg shadow-gray-900/5 backdrop-blur-lg transition-colors duration-300 hover:border-primary/40 dark:border-gray-700/80 dark:bg-black/40 dark:shadow-black/20 dark:hover:border-primary/40"
+    >
+      <AnimatePresence mode="wait" initial={false}>
+        {isDark ? (
+          <motion.span
+            key="moon"
+            initial={{ y: -10, opacity: 0, rotate: -90 }}
+            animate={{ y: 0, opacity: 1, rotate: 0 }}
+            exit={{ y: 10, opacity: 0, rotate: 90 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="flex"
+          >
+            <MoonIcon className="h-5 w-5 fill-indigo-200 stroke-indigo-400" />
+          </motion.span>
+        ) : (
+          <motion.span
+            key="sun"
+            initial={{ y: -10, opacity: 0, rotate: -90 }}
+            animate={{ y: 0, opacity: 1, rotate: 0 }}
+            exit={{ y: 10, opacity: 0, rotate: 90 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="flex"
+          >
+            <SunIcon className="h-5 w-5 fill-amber-100 stroke-amber-500" />
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </button>
   );
 };

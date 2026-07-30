@@ -12,8 +12,8 @@ export default function Document() {
         <meta name="theme-color" content="#18181b" />
 
         {/* Add these tags for social media previews */}
-        <meta property="og:title" content="Hunter Macias: Innovative Software Engineer & Tech Problem Solver" />
-        <meta property="og:description" content="Dive into the portfolio of Hunter Macias, a passionate software engineer with a knack for tackling complex tech challenges. Discover a blend of cutting-edge projects showcasing expertise in AI, full-stack development, and cloud solutions. John's portfolio is not just a display of technical skills but a testament to a continuous journey of learning, innovation, and driving impact in the tech world." />
+        <meta property="og:title" content="Hunter Macias — Quality Engineer at Costco Travel" />
+        <meta property="og:description" content="Portfolio of Hunter Macias, a Quality Engineer at Costco Travel building test automation, performance tooling, and release confidence for large-scale travel booking systems. Also home to side projects and notes on engineering." />
         <meta name="image" property="og:image" content="/opengraph-image.png" />
         <meta name="author" content="Hunter Macias"></meta>
         <meta property="og:url" content="https://hunter-me.vercel.app" />
@@ -22,8 +22,8 @@ export default function Document() {
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="og:title" content="Hunter Macias: Innovative Software Engineer & Tech Problem Solver" />
-        <meta name="og:description" content="Dive into the portfolio of Hunter Macias, a passionate software engineer with a knack for tackling complex tech challenges. Discover a blend of cutting-edge projects showcasing expertise in AI, full-stack development, and cloud solutions. John's portfolio is not just a display of technical skills but a testament to a continuous journey of learning, innovation, and driving impact in the tech world." />
+        <meta name="twitter:title" content="Hunter Macias — Quality Engineer at Costco Travel" />
+        <meta name="twitter:description" content="Portfolio of Hunter Macias, a Quality Engineer at Costco Travel building test automation, performance tooling, and release confidence for large-scale travel booking systems." />
         <meta name="twitter:site" content="@HunterMacias_" />
         <meta name="twitter:creator" content="@HunterMacias_" />
         <meta property="og:image" content="/twitter-image.png" />

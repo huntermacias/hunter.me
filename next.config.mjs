@@ -5,6 +5,19 @@ const config = {
     scrollRestoration: true,
   },
   transpilePackages: ["geist"],
+  // Some local setups (security software, certain mounted/synced folders,
+  // sandboxed environments) never deliver native filesystem change events,
+  // so webpack's watcher silently sees nothing on save. Polling instead of
+  // relying on those events is slightly heavier on CPU but works everywhere.
+  webpack: (config, { dev }) => {
+    if (dev) {
+      config.watchOptions = {
+        poll: 800,
+        aggregateTimeout: 300,
+      };
+    }
+    return config;
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

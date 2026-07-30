@@ -7,26 +7,15 @@ import EventlyLogo from '../images/logos/evently.png';
 import MissionBit from '../images/logos/missionbit.jpg';
 import HunterLogo from '../images/logos/logome.png';
 import Leadbird from '../images/logos/leadbird.jpg';
-import PythonLogo from '../images/logos/pythonlogo.png';
 import Candor from '../images/logos/candor.png';
 import CoderSchool from '../images/logos/coderschool.jpg';
-import NFTLogo from "../images/logos/nftlogo.png"
-import BitcoinLogo from "../images/logos/bitcoin.png"
 import NotionLogo from '../images/logos/notionlogo.png';
-import VideoShareLogo from "../images/logos/videosharelogo.png";
 import KobeLogo from "../images/logos/kobe.jpg";
-import CureChatLogo from "../images/logos/curechat.png";
 import PeerChatLogo from "../images/logos/peerchat.png";
 import JobSearchLogo from "../images/logos/jobsearch.png";
-import OpenSeaLogo from "../images/logos/opensea.png"
-import AIMessengerLogo from "../images/logos/chatgptlogo.png";
-import TextSimLogo from "../images/logos/textsim.png";
-import PortfolioLogo from "../images/logos/threeDinitial.png";
 import FrameRateLogo from "../images/logos/framerate.png";
-import LotteryLogo from "../images/logos/lotteryapp.png";
 import AcquisitionLogo from "../images/logos/acquisition.png"
 import CameraLogo from "../images/logos/camera.jpg"
-import CalendarLogo from "../images/logos/calendar.jpg"
 import Lingo from "../images/logos/lingo.jpg"
 import USFCALogo from '../images/logos/usflogo.png';
 import CostcoLogo from "../images/logos/costcoLogo.png"
@@ -38,17 +27,117 @@ export const Name = 'Hunter Macias';
 
 export const About = (
   <>
-    {`Hi, I'm Hunter Macias, a Full Stack Engineer based in Seattle, Washington. I specialize in crafting dynamic and efficient code for cutting-edge applications, with a passion for exploring new technologies and leveraging innovation to solve challenges. My journey in the tech industry spans over five years, during which I've honed my skills in front-end and back-end development to deliver user-centric solutions that are both technically proficient and engaging.`}{' '}
+    {`Hi, I'm Hunter Macias, a Quality Engineer at Costco Travel focused on test strategy, performance engineering, and release confidence for large-scale booking systems. I care more about catching problems before they ship than about hitting a test count.`}{' '}
 
     {`For further discussions and collaboration, please feel free to reach out to me via email.`}{' '}
     <ExternalLink href="https://hunters-resume.vercel.app/">send me an email.</ExternalLink>
   </>
 );
 export const AboutExtended =
-  `I'm a passionate Full Stack Engineer with over five years of experience in crafting dynamic and efficient code for cutting-edge applications. My journey in the tech industry is fueled by a relentless drive to explore new technologies and an unwavering belief in the power of innovation to solve challenges.
-With a robust background in both front-end and back-end development, I pride myself on delivering solutions that are not only technically proficient but also user-centric. My expertise spans across a wide range of programming languages and frameworks, enabling me to adapt and thrive in fast-paced development environments.
-At the heart of my approach is a can-do attitude and a problem-solving mindset, guided by the principle that every challenge presents an opportunity for innovation. Whether working on complex projects or navigating the nuances of new technologies, my goal remains the same: to build software that makes a difference.
-As I continue to evolve as a developer and a tech enthusiast, I remain open to exploring new horizons and embracing the endless possibilities that the world of technology has to offer.`;
+  `I'm a Quality Engineer II at Costco Travel, where I work on the systems behind cruise, hotel, and vacation package bookings — the kind of software where a missed edge case means a real customer's trip goes sideways, not just a failed unit test.
+My background is a mix of hands-on testing and systems thinking. I spend as much time reading logs in Splunk and profiling API latency as I do writing test automation, and I'd rather catch a problem upstream than triage it downstream. Most of what I build reflects that: shift-left contract tests, self-service performance tooling, CI-integrated vulnerability monitoring — things that move quality earlier in the pipeline instead of bolting it on at the end.
+Before testing became the job, it was practice. I spent a few years teaching kids to code at TheCoderSchool and Mission Bit, and I still build side projects on my own time — partly to stay sharp on the other side of the stack, partly because I like building things. Below is a rundown of both: the professional work, and the stuff I build for fun.`;
+
+export type ProfessionalRole = {
+  role: string;
+  /** Parseable as `new Date('<Month> 1, <Year>')`, e.g. 'Nov 2025'. */
+  start: string;
+  /** Omit for a role that's still current. */
+  end?: string;
+  current: boolean;
+  title: string;
+  summary: string;
+  /** Labeled, prose-level breakdown of what the role actually involved. */
+  details?: { label: string; body: string }[];
+  /** Big-number metrics, e.g. a latency reduction figure. */
+  stats?: { value: string; label: string }[];
+  /** Named achievements/launches, shown as tags rather than metrics. */
+  highlights?: string[];
+};
+
+export const ProfessionalExperience: ProfessionalRole[] = [
+  {
+    role: 'Quality Engineer II',
+    start: 'Nov 2025',
+    current: true,
+    title: 'Modernizing the cruise search platform',
+    summary:
+      "I own quality, performance, and release confidence for Costco Travel's cruise search platform modernization, working within a cross-functional team that includes a product owner, a scrum master, three QAs (one offshore in India), and six developers split evenly onshore and offshore. My scope stays inside the Shopping portfolio roughly 90–95% of the time, stepping outside it only when a bug traces back to an upstream or downstream system.",
+    details: [
+      {
+        label: 'Shift-left API testing',
+        body: "Built a contract-based acceptance testing practice, written before a feature is code-complete, so development validates against a production-ready test suite throughout implementation instead of finding gaps in a regression pass afterward. It wasn't an easy sell at first — developers were wary of QA working directly in the same repo, worried it would become a flaky gatekeeper slowing them down. Within two sprints that concern flipped: developers started actively pointing out how much faster issues were getting caught and resolved, and how much sharper the coverage was on business-rule and endpoint-level detail that used to slip through.",
+      },
+      {
+        label: 'Performance testing platform',
+        body: 'Stood up an engineering-owned performance testing platform on k6 and Jenkins with automated reporting, replacing a coordination-heavy process with self-service load testing any team can run on their own. A FY27 goal is scaling that further — bringing at least two more Shopping-portfolio teams onto k6 and shift-left testing, backed by Splunk APM for request-level visibility.',
+      },
+      {
+        label: 'Architecture benchmarking',
+        body: 'Used that platform to benchmark legacy and microservice architectures head to head, validating 63–99% latency reductions across key search endpoints and directly informing how we sequenced the production rollout.',
+      },
+      {
+        label: 'Security & dependency management',
+        body: 'Built proactive dependency vulnerability monitoring into CI pipelines, so remediation starts before a CVE becomes an org-wide advisory instead of after.',
+      },
+      {
+        label: 'Mentoring',
+        body: "Mentoring an incoming intern whose team owns a business-rules microservice, walking them through the STLC end to end — how to scope a test plan, decide what's worth automating versus testing manually, and build the automation itself.",
+      },
+      {
+        label: 'QA tooling enablement',
+        body: 'Most QAs across the org don’t have the consumer and agent apps developers rely on for debugging set up, leaving them limited to logs and traces. A FY27 goal is closing that gap — either a written setup guide or a live session for the broader QA org (20–60 people) — so more QAs can debug with the same visibility developers have.',
+      },
+    ],
+    stats: [
+      { value: '63–99%', label: 'Latency reduced' },
+      { value: 'k6 + Jenkins', label: 'Perf platform built' },
+      { value: 'Shift-left', label: 'API contract testing' },
+      { value: 'CI-integrated', label: 'CVE remediation' },
+    ],
+  },
+  {
+    role: 'Software Development Engineer in Test I',
+    start: 'Aug 2024',
+    end: 'Nov 2025',
+    current: false,
+    title: 'Shipping QA across major product launches',
+    summary:
+      'My first 16 months were spent writing automated and manual tests in Java, JavaScript, and SQL for vacation package shopping, working across the full testing stack to ship QA coverage behind some of the bigger launches on the roadmap.',
+    details: [
+      {
+        label: 'Test automation',
+        body: 'Wrote automated and manual tests in Java, JavaScript, and SQL, focused on vacation package shopping features across the booking flow.',
+      },
+      {
+        label: 'Full-stack testing coverage',
+        body: 'Worked across the full testing stack: API testing with Postman, Swagger, and RestAssured; observability through Splunk and Grafana; and UI regression with Selenium.',
+      },
+      {
+        label: 'Automation observability',
+        body: 'Helped build a Grafana dashboard that scraped Jenkins automation job reports into a database, surfacing metrics like top failing tests and pass/fail trend lines so the team could see automation health at a glance instead of digging through individual build logs.',
+      },
+    ],
+    highlights: [
+      'Theme park ticket customization',
+      'Hotel + theme park ticket bundles',
+      'Australia cruise market launch',
+      'CMS migration (Cascade → Magnolia)',
+    ],
+  },
+];
+
+export const CoreSkills = [
+  'TypeScript',
+  'Java',
+  'React / Next.js',
+  'Playwright',
+  'Selenium',
+  'Postman',
+  'Jenkins',
+  'Splunk',
+  'Azure DevOps',
+] as const;
 
 export type Project = {
   video?: any;
@@ -56,6 +145,8 @@ export type Project = {
   techStack: string[];
   description: string;
   logo: any;
+  /** Renders larger, in the first grid position, to call out flagship work. */
+  featured?: boolean;
   link?: {
     label: string;
     href: string;
@@ -64,18 +155,8 @@ export type Project = {
 
 export const MyCurrentProjects: Project[] = [
   {
-    title: 'JSLy',
-    techStack: ['Nuxt.js', 'TailwindCSS', 'StackBlitz'],
-    description: "JSLy - A JavaScript Documentation Portal built with Nuxt.js and TailwindCSS. The platform offers features such as documentation search, documentation filtering, and documentation navigation, fostering an engaging and interactive community experience.",
-    logo: CameraLogo,
-    link: {
-      label: 'JSLy',
-      href: 'https://jsly.vercel.app/',
-    }
-
-  },
-  {
     title: 'Lingo',
+    featured: true,
     techStack: [
       'Next.js 14',
       'React.js',
@@ -87,12 +168,10 @@ export const MyCurrentProjects: Project[] = [
       'Tailwind CSS',
       'Elevenlabs AI',
       'Clerk',
-      'KenneyNL Characters',
-      'React Admin',
       'NeonDB',
       'Vercel',
     ],
-    description: "Lingo redefines language learning with an interactive SaaS platform inspired by Duolingo. Dive into a world where language learning meets gamification, enhanced with AI voices, beautiful design, engaging characters, and immersive sound effects. Master new languages through guided lessons built on the latest tech stack including Next.js 14, Drizzle ORM, and PostgreSQL. Experience personalized education with our unique features: AI-generated voices, character-driven narratives, sound effects, a hearts system, an XP system, interactive pop-ups, a leaderboard, quest milestones, and a shop system. Lingo's Pro tier, powered by Stripe, offers unlimited hearts for uninterrupted learning. Our platform, responsive across devices, is designed for learners of all ages. Get started on your language journey with Lingo, and explore the richness of languages in a fun, engaging way.",
+    description: "A Duolingo-inspired language learning platform with AI-generated voice lines, character-driven lessons, an XP/hearts progression system, and a Stripe-backed Pro tier. Built to explore full-stack SaaS mechanics end to end: auth, billing, a course-authoring admin, and a gamified learning loop.",
     logo: Lingo,
     link: {
       label: 'Explore Lingo',
@@ -102,42 +181,28 @@ export const MyCurrentProjects: Project[] = [
   {
     title: 'Stratify',
     techStack: ['Next.js', 'Bun', 'Stripe Connect', 'Prisma', 'MySQL'],
-    description: "Welcome to the ultimate SaaS Website Builder and Project Management platform, tailored for agencies and sub-accounts looking to streamline their online presence and internal workflows. Built on the cutting-edge Next.js 14 and leveraging the speed of Bun, this solution integrates Stripe Connect for seamless financial transactions, Prisma for robust database management, and MySQL for data storage. Dive into a world where connecting a user's Stripe account, syncing products, and crafting unique websites and funnels from scratch is the norm - all hosted on custom subdomains within the app.",
+    description: "A multi-tenant website builder and project management tool for agencies, with sub-account support and Stripe Connect so agencies can bill their own clients through the platform. Every site is deployable to a custom subdomain from a shared funnel/page builder.",
     logo: AcquisitionLogo,
     link: {
-      label: 'Stratify: Agency Manangement',
+      label: 'Stratify: Agency Management',
       href: 'https://stratifyapp.vercel.app/',
     }
-
-  },
-
-  {
-    title: 'Python Documentation Portal',
-    techStack: ['Web Development', 'Typescript', 'Documentation'],
-    description:
-      'Created a Python Documentation Portal using Next.js and TailwindCSS. The platform offers features such as documentation search, documentation filtering, and documentation navigation, fostering an engaging and interactive community experience.',
-    logo: PythonLogo,
-    link: {
-      label: 'Explore Pygame Docs',
-      href: 'https://pydocs-aoc.vercel.app',
-    },
   },
   {
-    title: 'Evently',
-    techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'Server Actions'],
-    description:
-      "Evently is a comprehensive event management app, featuring a robust backend and a modern UI/UX design. It's a one-stop solution for event organizers and attendees alike.",
-    logo: CalendarLogo,
+    title: 'JSLy',
+    techStack: ['Nuxt.js', 'TailwindCSS', 'StackBlitz'],
+    description: "A JavaScript documentation portal built with Nuxt.js, with searchable, filterable docs and in-browser code playgrounds via StackBlitz.",
+    logo: CameraLogo,
     link: {
-      label: 'https://meetix.vercel.app/',
-      href: 'https://meetix.vercel.app/',
-    },
+      label: 'JSLy',
+      href: 'https://jsly.vercel.app/',
+    }
   },
   {
     title: 'FrameRate',
-    techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'MovieAPI'],
+    techStack: ['Next.js', 'TailwindCSS', 'MovieAPI'],
     description:
-      "At FrameRate, every review counts. Share your perspective, rate movies, and contribute to a community-driven rating system that values authenticity and diversity of opinion.",
+      "A community movie-rating app in the spirit of Letterboxd — rate films, write reviews, and browse a rating system built around authentic, individual opinions rather than aggregate scores.",
     logo: FrameRateLogo,
     link: {
       label: 'FrameRate',
@@ -145,24 +210,24 @@ export const MyCurrentProjects: Project[] = [
     },
   },
   {
+    title: 'Raiders Rundown',
+    techStack: ['Sanity', 'React.js'],
+    description:
+      "A Sanity-backed content site for Las Vegas Raiders fans — game recaps, player profiles, and draft coverage, all editable through a headless CMS.",
+    logo: RaiderLogo,
+    link: {
+      label: 'raidersrundown.com',
+      href: 'https://www.raidersrundown.com',
+    },
+  },
+  {
     title: 'Hunter.me',
-    techStack: ['Side Project', 'Next.js', 'MDX', 'Notion API'],
-    description: 'My personal website you are currently on, built with Next.js.',
+    techStack: ['Next.js', 'MDX', 'Notion API'],
+    description: 'The site you’re on right now — built with Next.js, with notes pulled and rendered from a Notion database.',
     logo: HunterLogo,
     link: {
       label: 'github.com',
       href: 'https://hunter-me.vercel.app',
-    },
-  },
-  {
-    title: 'Raiders Rundown',
-    techStack: ['Side Project', 'Sanity', 'React.js'],
-    description:
-      "The ultimate resource for Las Vegas Raiders fans, featuring game recaps, player profiles, draft predictions, and the latest updates. It's a one-stop destination for all things Raiders.",
-    logo: RaiderLogo,
-    link: {
-      label: 'https://www.raidersrundown.com',
-      href: 'https://www.raidersrundown.com',
     },
   },
 ];
@@ -170,9 +235,9 @@ export const MyCurrentProjects: Project[] = [
 export const MyPastProjects: Project[] = [
   {
     title: 'Notionary',
-    techStack: ['Side Project', 'Stripe', 'SaaS', 'Drizzle ORM', 'Supabase', 'Sockets'],
+    techStack: ['Next.js', 'Stripe', 'Supabase', 'Sockets'],
     description:
-      'Developed a Notion inspired web application using Next.js, Supabase, and Stripe. The platform offers features such as user authentication, subscription payments, and real-time collaboration, fostering an engaging and interactive community experience.',
+      'A Notion-inspired workspace app with auth, subscription billing, and real-time collaborative editing over web sockets.',
     logo: NotionLogo,
     link: {
       label: 'Notionary',
@@ -180,31 +245,32 @@ export const MyPastProjects: Project[] = [
     },
   },
   {
-    title: 'Video-Sharing Social Network',
-    techStack: ['Side Project', 'TypeScript', 'Next.js', 'Sanity Management'],
+    title: 'Evently',
+    techStack: ['Next.js', 'TailwindCSS', 'Server Actions'],
     description:
-      'Developed an interactive web application using Next.js and Sanity.io, designed to create a shared space for users to connect with friends and family through video content. The platform offers features such as video sharing, commenting, liking, and user search, fostering an engaging and interactive community experience.',
-    logo: VideoShareLogo,
+      'An event management app covering the full organizer/attendee flow — event creation, RSVPs, and a modern UI built on Next.js Server Actions.',
+    logo: EventlyLogo,
     link: {
-      label: 'ShareMe',
-      href: 'https://symphonious-kitten-397f94.netlify.app/',
+      label: 'Meetix',
+      href: 'https://meetix.vercel.app/',
     },
   },
   {
-    title: 'Similarity Scout',
-    techStack: ['Side Project', 'Typescript', 'Animations', 'Radix UI'],
-    description: 'API Service that compares the similarity of two pieces of text',
-    logo: TextSimLogo,
+    title: 'PeerChat',
+    techStack: ['WebRTC', 'SDP', 'React.js'],
+    description:
+      'A Zoom-style video calling app built directly on WebRTC — screen share, live participant tiles, and chat, with no third-party video SDK.',
+    logo: PeerChatLogo,
     link: {
-      label: 'SimilarityScout',
-      href: 'https://similarityscout.netlify.app/',
+      label: 'Peer Chat',
+      href: 'https://lively-pastelito-3c6253.netlify.app/',
     },
   },
   {
     title: 'Comprehensive Job Search Mobile App',
-    techStack: ['Side Project', 'React Native', 'RapidAPI'],
+    techStack: ['React Native', 'RapidAPI'],
     description:
-      'A powerful job search tool leveraging RapidAPI for comprehensive job listings. Features modern UX/UI design and robust search functionality to match users with their ideal job roles.',
+      'A React Native job search app pulling listings from RapidAPI, with saved searches and a native mobile UX.',
     logo: JobSearchLogo,
     link: {
       label: 'Job Hunt - RN',
@@ -212,111 +278,13 @@ export const MyPastProjects: Project[] = [
     },
   },
   {
-    title: 'NFT Marketplace React Native App',
-    techStack: ['Side Project', 'React Native', 'TailwindCSS'],
-    description:
-      'Created an NFT Marketplace mobile app using React Native. Integrated modern UI/UX principles with efficient backend handling for a seamless digital asset trading experience.',
-    logo: NFTLogo,
-    link: {
-      label: 'NFT Marketplace - RN',
-      href: 'https://pro-nef-x.netlify.app/',
-    },
-  },
-  {
-    title: 'Web3 Crypto Lottery App',
-    techStack: ['Side Project', 'Smart Contracts', 'Solidity', 'Blockchain', 'Next.js'],
-    description:
-      'Designed a cryptocurrency lottery application leveraging Next.js and Solidity smart contracts. Featured Metamask integration for secure blockchain transactions.',
-    logo: LotteryLogo,
-    link: {
-      label: 'Web3 Lottery App',
-      href: 'https://lottery-draw.netlify.app/',
-    },
-  },
-  {
-    title: 'CureChat',
-    techStack: ['Side Project', 'React.js', 'Twilio', 'Stream', 'SSA'],
-    description:
-      'With Direct and Group Chats, emojis & Reactions, Built-in Gif support, the ability to edit & delete messages, specialized commands, and much more',
-    logo: CureChatLogo,
-    link: {
-      label: 'CureChat',
-      href: 'https://curechat.netlify.app/',
-    },
-  },
-  {
-    title: 'PeerChat',
-    techStack: ['Side Project', 'WebRTC', 'SDP', 'React.js'],
-    description:
-      'Video Calling application built using WebRTC, similiar to zoom. Features include video on/off, mic on/off, chat, live participants, screen share, highlight video',
-    logo: PeerChatLogo,
-    link: {
-      label: 'Peer Chat - Twitch Rooms',
-      href: 'https://lively-pastelito-3c6253.netlify.app/',
-    },
-  },
-  {
-    title: 'Blockchain-Powered Crowdfunding Platform',
-    techStack: ['Side Project', 'Smart Contracts', 'Solidity', 'Web3'],
-    description:
-      "A blockchain-based crowdfunding platform, featuring Metamask integration, smart contract interactions, and Ethereum transactions. It's a comprehensive demonstration of creating and participating in blockchain-enabled campaigns.",
-    logo: BitcoinLogo,
-    link: {
-      label: 'CrowdFund with Web3',
-      href: 'https://cool-cactus-84bc7e.netlify.app/',
-    },
-  },
-  {
-    title: 'NFT Marketplace: OpenSea',
-    techStack: ['Side Project', 'Next.js', 'Web3'],
-    description:
-      'An NFT marketplace mimicking OpenSea, showcasing a variety of blockchain use cases. It stands out with features like multi-test support and comprehensive NFT trading functionalities.',
-    logo: OpenSeaLogo,
-    link: {
-      label: 'NFT Marketplace - OpenSea',
-      href: 'https://opensea-hm.netlify.app',
-    },
-  },
-  {
     title: "Kobe Bryant's Legacy: A Data Visualization",
-    techStack: ['Side Project', 'D3.js', 'Data Visualization'],
-    description: 'Interactive Data Visualization with D3.js',
+    techStack: ['D3.js', 'Data Visualization'],
+    description: 'An interactive D3.js visualization of Kobe Bryant’s career statistics and milestones.',
     logo: KobeLogo,
     link: {
       label: 'Kobe Bryant - A Visual Story',
       href: 'https://huntermacias.github.io/data-vis-basketball/index.html',
-    },
-  },
-  {
-    title: 'AI-Powered Messaging Platform',
-    techStack: ['Lead Android Developer', 'Android', 'Kotlin'],
-    description:
-      "ChatGPT Messenger revolutionizes communication with AI-driven conversations, leveraging NLP and ML for personalized user interactions. It's a seamless blend of technology and user experience",
-    logo: AIMessengerLogo,
-    link: {
-      label: 'AI-Responds',
-      href: 'https://chatgpt-messenger-three.vercel.app/',
-    },
-  },
-  {
-    title: '3D Interactive Developer Portfolio',
-    techStack: ['Side Project', 'Three.js', 'Framer Motion'],
-    description: 'Personal Portfolio Creation with Three.js & Framer Motion',
-    logo: PortfolioLogo,
-    link: {
-      label: '3D Portfolio',
-      href: 'https://huntercodes.netlify.app/',
-    },
-  },
-  {
-    title: 'Evently',
-    techStack: ['Side Project', 'TailwindCSS', 'Next.js', 'Server Actions'],
-    description:
-      "Evently is a comprehensive event management app, featuring a robust backend and a modern UI/UX design. It's a one-stop solution for event organizers and attendees alike.",
-    logo: EventlyLogo,
-    link: {
-      label: 'Meetix',
-      href: 'https://meetix.vercel.app/',
     },
   },
 ];
@@ -346,7 +314,7 @@ export const Work = [
     ],
   },
   {
-    company: 'Costco',
+    company: 'Costco Wholesale',
     logo: CostcoLogo,
     roles: [
       {
@@ -388,7 +356,13 @@ export const Work = [
         end: 'Jan 2021',
       },
       {
-        title: 'IT Technician - Level 3',
+        // I was on the womens basketball practice squad from like nov 2018 to march 2020
+        title: 'USFCA Womens Basketball Practice Squad',
+        start: 'Nov 2018',
+        end: 'Mar 2020',
+      },
+      {
+        title: 'OneCard IT Technical Support',
         start: 'Jan 2019',
         end: 'Jan 2020',
       },
@@ -781,16 +755,16 @@ export const Tools = {
     },
     {
       title: "Teams",
-      intent: 'supporting',
+      intent: 'primary',
       description:
-        'Primary communication tool for cross-functional collaboration, incident coordination, and day-to-day testing discussions.',
+        'Day-to-day communication at Costco Travel — cross-functional collaboration, incident coordination, and the running conversation with devs that makes shift-left testing work in practice.',
       href: 'https://www.microsoft.com/en/microsoft-teams/group-chat-software',
     },
     {
       title: 'Slack',
       intent: 'supporting',
       description:
-        'Primary communication tool for cross-functional collaboration, incident coordination, and day-to-day engineering discussions.',
+        'Where I keep up with side-project collaborators and a few engineering communities outside of work.',
       href: 'https://slack.com/',
     },
   ],

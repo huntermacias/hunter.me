@@ -1,50 +1,62 @@
-import React from 'react'
-import { Section } from '../Section'
+import React from 'react';
+import Link from 'next/link';
+
+const EMAIL = 'huntermacias20@gmail.com';
 
 const WorkStation = () => {
   return (
-    <Section>
-    <Section.Title as="h2">Work</Section.Title>
-    <Section.Content>
-      Hey there! I&apos;m Hunter Macias, a software developer based in Seattle, weaving magic in tech with my fingertips. I might be a recent CS grad,
-      but don&apos;t let that fool you – I&apos;ve got a rich tapestry of experiences
-      under my belt. I&apos;m currently shaping young minds as a Coding Coach at TheCoder
-      School, where I blend my love for Python, JavaScript, and React with a passion for
-      teaching. Before this, I was the Lead Instructor at Mission Bit, where I spearheaded
-      an innovative Python curriculum, guiding over 100 students through the intricacies
-      of web design and Unity.
-      <br />
-      <br />
-      But wait, there&apos;s more to my story. I&apos;ve had a thrilling stint as a Web
-      Application Developer at Leadbird Agency in New York, where I developed a
-      sophisticated React-based web dashboard for top executives. It was all about
-      transforming complex data into intuitive insights – think Python-powered web
-      scraping, Google Sheets integration, and an interactive dashboard that made data
-      look sexy.
-      <br />
-      <br />
-      My project portfolio? It&apos;s a kaleidoscope of innovation. From a music
-      recommendation engine that marries machine learning with Python, to Notionary – a
-      Notion-inspired web app built with Next.js and Supabase. And let&apos;s not forget
-      my ChatGPT Messaging Platform, a testament to my prowess in AI, real-time messaging,
-      and sleek frontend development. Evently, my event management app, combines robust
-      backend development with modern UI/UX design, providing a comprehensive solution for
-      event organizers and attendees alike.
-      <br />
-      <br />
-      When I&apos;m not teaching or building, I&apos;m diving deep into technical
-      proficiencies like HTML, CSS, React.js, Next.js, and database management with MySQL,
-      MongoDB, and Firebase. Frameworks? Libraries? APIs? Cloud Services? You name it,
-      I&apos;ve dabbled in it – always with an eye towards cutting-edge solutions and
-      cloud-based efficiencies.
-      <br />
-      <br />
-      So, if you&apos;re on the hunt for a developer who combines technical know-how with
-      a flair for innovative solutions and a dash of mentorship, let&apos;s connect. You
-      can DM me on Twitter or just email me. Let&apos;s create something awesome together!
-    </Section.Content>
-  </Section>
-  )
-}
+    <div className="mt-8 rounded-2xl border border-gray-200 bg-white/70 p-6 shadow-lg shadow-gray-900/5 backdrop-blur-xl dark:border-gray-800 dark:bg-gray-950/70 dark:shadow-black/20 sm:p-8">
+      <p className="text-xs font-semibold uppercase tracking-wide text-primary">Work</p>
+      <h2 className="mt-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-2xl">
+        Quality Engineer II at Costco Travel
+      </h2>
 
-export default WorkStation
+      <div className="mt-4 max-w-2xl space-y-4 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+        <p>
+          I own quality, performance, and release confidence for the ongoing modernization of
+          Costco Travel&apos;s cruise search platform. Most
+          of what I build lives upstream of the bug: a shift-left contract testing practice, a
+          self-service performance platform on k6 and Jenkins that validated 63–99% latency
+          reductions across key search endpoints, and CI-integrated dependency monitoring that
+          catches vulnerabilities before they become org-wide advisories. The full breakdown,
+          with the reasoning behind each one, is on the{' '}
+          <Link href="/creating" className="text-primary hover:underline">
+            Creating
+          </Link>{' '}
+          page.
+        </p>
+
+        <p>
+          Before that, I spent 16 months as a Software Development Engineer in Test writing
+          automated and manual tests in Java, JavaScript, and SQL across the full testing stack
+          — API, observability, and UI regression — shipping QA coverage behind several of the
+          bigger launches on the roadmap, including a new market launch and a full CMS
+          migration.
+        </p>
+
+        <p>
+          Outside of work I still build, usually with the same stack I use professionally.
+          Before quality engineering was the job, teaching was — a few years as a coding
+          instructor at TheCoderSchool and Mission Bit, which is probably where the habit of
+          explaining my reasoning, not just stating a result, comes from. If you want to talk
+          shop about test strategy or performance engineering, I&apos;m reachable on{' '}
+          <a
+            href="https://www.linkedin.com/in/huntermacias/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            LinkedIn
+          </a>{' '}
+          or by{' '}
+          <a href={`mailto:${EMAIL}`} className="text-primary hover:underline">
+            email
+          </a>
+          .
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default WorkStation;

@@ -1,14 +1,6 @@
 import clsx from 'clsx';
 import Link, { LinkProps } from 'next/link';
 import React from 'react';
-import { Meteors } from './meteors';
-
-
-interface CardDescriptionProps extends React.PropsWithChildren<{}> {
-  classNames?: string; // Optional prop to allow custom line clamp classes
-  
-}
-
 
 const CardRoot = ({
   as: Component = 'div',
@@ -28,7 +20,7 @@ const CardRoot = ({
     <Component
       className={clsx(
         className,
-        'group relative flex flex-col p-6 items-start overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105',
+        'group relative flex flex-col p-6 items-start overflow-hidden rounded-2xl shadow-lg shadow-gray-900/5 transition-shadow duration-300 hover:shadow-xl dark:shadow-black/20',
         'backdrop-filter backdrop-blur-md border border-gray-200 dark:border-gray-700',
         'bg-white bg-opacity-20 dark:bg-zinc-600 dark:bg-opacity-20',
         'text-black dark:text-white'
@@ -47,6 +39,8 @@ const CardLink = ({ children, ...props }: React.PropsWithChildren<LinkProps>) =>
   );
 };
 
+const CARD_TITLE_CLASS = 'text-lg font-bold tracking-tight text-gray-900 dark:text-white';
+
 const CardTitle = ({
   as: Component = 'h2',
   href,
@@ -54,24 +48,20 @@ const CardTitle = ({
 }: React.PropsWithChildren<{ as?: React.ElementType; href?: string }>) => {
   const content = href ? (
     <Link href={href} passHref
-      className="text-xl font-bold tracking-tight">{children}
+      className={CARD_TITLE_CLASS}>{children}
     </Link>
   ) : (
     children
   );
 
-  return <Component>{content}</Component>;
+  return <Component className={href ? undefined : CARD_TITLE_CLASS}>{content}</Component>;
 };
 
 const CardDescription = ({ children, classNames }: React.PropsWithChildren<{ classNames?: string }>) => {
   return (
-    <div className={`relative z-0 text-sm leading-relaxed text-gray-800 dark:text-gray-300 space-y-4 ${classNames}`}>
+    <div className={clsx('relative z-0 text-sm leading-relaxed text-gray-600 dark:text-gray-300 space-y-3', classNames)}>
       {typeof children === 'string' ? (
-        children.split('\n').map((paragraph, index) => (
-          <p key={index} className="first-letter:float-left first-letter:text-3xl first-letter:font-bold first-letter:mr-2 first-letter:text-primary-500">
-            {paragraph}
-          </p>
-        ))
+        children.split('\n').map((paragraph, index) => <p key={index}>{paragraph}</p>)
       ) : (
         children
       )}
@@ -83,10 +73,10 @@ const CardCta = ({ children }: React.PropsWithChildren) => {
   return (
     <div
       aria-hidden="true"
-      className="relative z-10 mt-4 flex items-center text-sm font-medium text-primary-500 hover:text-primary-400 transition-colors duration-300"
+      className="relative z-10 mt-4 flex items-center text-sm font-medium text-primary transition-colors duration-300 group-hover:text-primary/80"
     >
       {children}
-      <span className="ml-1 text-xl transition-transform duration-300 group-hover:translate-x-2">→</span>
+      <span className="ml-1 text-lg transition-transform duration-300 group-hover:translate-x-0.5">→</span>
     </div>
   );
 };
@@ -109,7 +99,7 @@ const CardEyebrow = ({
       className={clsx(
         className,
         'relative z-10 order-first mb-3 text-xs font-medium uppercase tracking-wide',
-        'text-gray-950 dark:text-teal-600',
+        'text-gray-500 dark:text-gray-400',
         decorate && 'pl-4 before:absolute before:inset-y-0 before:left-0 before:flex before:items-center before:content-[""] before:h-full before:w-0.5 before:rounded-full',
         decorate && 'before:bg-gradient-to-b from-pink-500 to-purple-600 dark:before:bg-gradient-to-b dark:from-pink-500 dark:to-purple-600 animate-pulse',
       )}

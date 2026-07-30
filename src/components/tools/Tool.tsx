@@ -1,5 +1,7 @@
 import clsx from 'clsx';
+import { IconExternalLink } from '@tabler/icons-react';
 import { Card } from '../Card';
+import { ExternalLink } from '../ExternalLink';
 
 type ToolIntent = 'primary' | 'supporting' | 'experimental';
 
@@ -24,9 +26,20 @@ export const Tool = ({
         intent === 'experimental' && 'opacity-80'
       )}
     >
-      <Card.Title as="h3" href={href}>
-        {title}
-      </Card.Title>
+      {href ? (
+        <ExternalLink
+          href={href}
+          className="group/tool inline-flex items-center gap-1.5 text-lg font-bold tracking-tight text-gray-900 transition-colors hover:text-primary dark:text-white"
+        >
+          {title}
+          <IconExternalLink
+            className="h-3.5 w-3.5 shrink-0 text-gray-400 transition-colors group-hover/tool:text-primary"
+            aria-hidden
+          />
+        </ExternalLink>
+      ) : (
+        <Card.Title as="h3">{title}</Card.Title>
+      )}
 
       <Card.Description>{children}</Card.Description>
 
@@ -52,5 +65,9 @@ const IntentLabel = ({ intent }: { intent: ToolIntent }) => {
     );
   }
 
-  return null;
+  return (
+    <span className="mt-2 inline-block text-xs text-zinc-400 dark:text-zinc-500">
+      Also reach for
+    </span>
+  );
 };
