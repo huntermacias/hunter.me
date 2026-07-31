@@ -1,23 +1,14 @@
 const config = {
-  swcMinify: true,
   reactStrictMode: true,
   experimental: {
     scrollRestoration: true,
   },
   transpilePackages: ["geist"],
-  // Some local setups (security software, certain mounted/synced folders,
-  // sandboxed environments) never deliver native filesystem change events,
-  // so webpack's watcher silently sees nothing on save. Polling instead of
-  // relying on those events is slightly heavier on CPU but works everywhere.
-  webpack: (config, { dev }) => {
-    if (dev) {
-      config.watchOptions = {
-        poll: 800,
-        aggregateTimeout: 300,
-      };
-    }
-    return config;
-  },
+  // Turbopack (default since Next 16) uses its own native file watcher and
+  // doesn't need the webpack polling workaround this project used to carry
+  // for iCloud-synced folders — the project no longer lives in one anyway.
+  // If hot reload ever breaks again on a new machine/folder, that workaround
+  // can come back as a `turbopack` config instead of a `webpack` one.
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -32,8 +23,8 @@ const config = {
     {
       protocol: 'https',
       hostname: 'plus.unsplash.com',
-    }, 
-    
+    },
+
     ],
   },
   async redirects() {

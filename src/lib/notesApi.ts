@@ -93,6 +93,10 @@ const CompareFunctionLookup = {
 };
 
 class NotesApi {
+  // Notion's API moved database querying to a separate "data source" resource
+  // (a database can now have multiple data sources); resolved lazily and cached.
+  private dataSourceId: string | null = null;
+
   constructor(
     private readonly notion: Client,
     private readonly databaseId: string,
@@ -125,12 +129,29 @@ class NotesApi {
     return Array.from(new Set(posts.map((note) => note.tags).flat()));
   }
 
+  private getDataSourceId = async (): Promise<string> => {
+    if (this.dataSourceId) {
+      return this.dataSourceId;
+    }
+
+    const database = await this.notion.databases.retrieve({ database_id: this.databaseId });
+    const dataSourceId = database.data_sources?.[0]?.id;
+
+    if (!dataSourceId) {
+      throw new Error(`Notion database ${this.databaseId} has no queryable data source.`);
+    }
+
+    this.dataSourceId = dataSourceId;
+    return dataSourceId;
+  };
+
   private getDatabaseContent = async (databaseId: string): Promise<Note[]> => {
-    const db = await this.notion.databases.query({ database_id: databaseId });
+    const dataSourceId = await this.getDataSourceId();
+    const db = await this.notion.dataSources.query({ data_source_id: dataSourceId });
 
     while (db.has_more && db.next_cursor) {
-      const { results, has_more, next_cursor } = await this.notion.databases.query({
-        database_id: databaseId,
+      const { results, has_more, next_cursor } = await this.notion.dataSources.query({
+        data_source_id: dataSourceId,
         start_cursor: db.next_cursor,
       });
       db.results = [...db.results, ...results];

@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://hunter-me.vercel.app/
+Host: https://huntermacias.com
 
 # Sitemaps
-Sitemap: https://hunter-me.vercel.app/sitemap.xml
+Sitemap: https://huntermacias.com/sitemap.xml

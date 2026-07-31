@@ -1,4 +1,4 @@
-import { TextRichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
+import { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 import clsx from 'clsx';
 import Link from 'next/link';
 
@@ -130,7 +130,7 @@ export const NotionBlockRenderer = ({ block }: Props) => {
 };
 
 
-const NotionText = ({ textItems }: { textItems: TextRichTextItemResponse[] }) => {
+const NotionText = ({ textItems }: { textItems: RichTextItemResponse[] }) => {
   if (!textItems) {
     return null;
   }
@@ -177,6 +177,11 @@ const NotionText = ({ textItems }: { textItems: TextRichTextItemResponse[] }) =>
   return (
     <>
       {textItems.map((textItem, index) => {
+        if (textItem.type !== 'text') {
+          // Mentions and equations aren't rendered inline yet — skip rather than crash.
+          return null;
+        }
+
         const {
           annotations: { bold, code, color, italic, strikethrough, underline },
           text,
