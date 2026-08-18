@@ -184,7 +184,7 @@ const NotionText = ({ textItems }: { textItems: TextRichTextItemResponse[] }) =>
 
         return (
           <span
-            key={index} // Changed to index for uniqueness
+            key={index}
             className={clsx({
               'font-bold': bold,
               'font-mono font-semibold': code,

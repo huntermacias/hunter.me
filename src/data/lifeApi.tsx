@@ -154,40 +154,40 @@ export type Project = {
 };
 
 export const MyCurrentProjects: Project[] = [
-  {
-    title: 'Lingo',
-    featured: true,
-    techStack: [
-      'Next.js 14',
-      'React.js',
-      'Drizzle ORM',
-      'PostgreSQL',
-      'Stripe',
-      'Server Actions',
-      'ShadcnUI',
-      'Tailwind CSS',
-      'Elevenlabs AI',
-      'Clerk',
-      'NeonDB',
-      'Vercel',
-    ],
-    description: "A Duolingo-inspired language learning platform with AI-generated voice lines, character-driven lessons, an XP/hearts progression system, and a Stripe-backed Pro tier. Built to explore full-stack SaaS mechanics end to end: auth, billing, a course-authoring admin, and a gamified learning loop.",
-    logo: Lingo,
-    link: {
-      label: 'Explore Lingo',
-      href: 'https://lingo-aehvptrt5-huntermacias.vercel.app/',
-    }
-  },
-  {
-    title: 'Stratify',
-    techStack: ['Next.js', 'Bun', 'Stripe Connect', 'Prisma', 'MySQL'],
-    description: "A multi-tenant website builder and project management tool for agencies, with sub-account support and Stripe Connect so agencies can bill their own clients through the platform. Every site is deployable to a custom subdomain from a shared funnel/page builder.",
-    logo: AcquisitionLogo,
-    link: {
-      label: 'Stratify: Agency Management',
-      href: 'https://stratifyapp.vercel.app/',
-    }
-  },
+  // {
+  //   title: 'Lingo',
+  //   featured: true,
+  //   techStack: [
+  //     'Next.js 14',
+  //     'React.js',
+  //     'Drizzle ORM',
+  //     'PostgreSQL',
+  //     'Stripe',
+  //     'Server Actions',
+  //     'ShadcnUI',
+  //     'Tailwind CSS',
+  //     'Elevenlabs AI',
+  //     'Clerk',
+  //     'NeonDB',
+  //     'Vercel',
+  //   ],
+  //   description: "A Duolingo-inspired language learning platform with AI-generated voice lines, character-driven lessons, an XP/hearts progression system, and a Stripe-backed Pro tier. Built to explore full-stack SaaS mechanics end to end: auth, billing, a course-authoring admin, and a gamified learning loop.",
+  //   logo: Lingo,
+  //   link: {
+  //     label: 'Explore Lingo',
+  //     href: 'https://lingo-aehvptrt5-huntermacias.vercel.app/',
+  //   }
+  // },
+  // {
+  //   title: 'Stratify',
+  //   techStack: ['Next.js', 'Bun', 'Stripe Connect', 'Prisma', 'MySQL'],
+  //   description: "A multi-tenant website builder and project management tool for agencies, with sub-account support and Stripe Connect so agencies can bill their own clients through the platform. Every site is deployable to a custom subdomain from a shared funnel/page builder.",
+  //   logo: AcquisitionLogo,
+  //   link: {
+  //     label: 'Stratify: Agency Management',
+  //     href: 'https://stratifyapp.vercel.app/',
+  //   }
+  // },
   {
     title: 'JSLy',
     techStack: ['Nuxt.js', 'TailwindCSS', 'StackBlitz'],
@@ -198,17 +198,17 @@ export const MyCurrentProjects: Project[] = [
       href: 'https://jsly.vercel.app/',
     }
   },
-  {
-    title: 'FrameRate',
-    techStack: ['Next.js', 'TailwindCSS', 'MovieAPI'],
-    description:
-      "A community movie-rating app in the spirit of Letterboxd — rate films, write reviews, and browse a rating system built around authentic, individual opinions rather than aggregate scores.",
-    logo: FrameRateLogo,
-    link: {
-      label: 'FrameRate',
-      href: 'https://better-letterboxd.vercel.app/',
-    },
-  },
+  // {
+  //   title: 'FrameRate',
+  //   techStack: ['Next.js', 'TailwindCSS', 'MovieAPI'],
+  //   description:
+  //     "A community movie-rating app in the spirit of Letterboxd — rate films, write reviews, and browse a rating system built around authentic, individual opinions rather than aggregate scores.",
+  //   logo: FrameRateLogo,
+  //   link: {
+  //     label: 'FrameRate',
+  //     href: 'https://better-letterboxd.vercel.app/',
+  //   },
+  // },
   {
     title: 'Raiders Rundown',
     techStack: ['Sanity', 'React.js'],
@@ -221,7 +221,7 @@ export const MyCurrentProjects: Project[] = [
     },
   },
   {
-    title: 'Hunter.me',
+    title: 'The site you’re on right now',
     techStack: ['Next.js', 'MDX', 'Notion API'],
     description: 'The site you’re on right now — built with Next.js, with notes pulled and rendered from a Notion database.',
     logo: HunterLogo,
@@ -244,17 +244,17 @@ export const MyPastProjects: Project[] = [
       href: 'https://notionary.vercel.app/',
     },
   },
-  {
-    title: 'Evently',
-    techStack: ['Next.js', 'TailwindCSS', 'Server Actions'],
-    description:
-      'An event management app covering the full organizer/attendee flow — event creation, RSVPs, and a modern UI built on Next.js Server Actions.',
-    logo: EventlyLogo,
-    link: {
-      label: 'Meetix',
-      href: 'https://meetix.vercel.app/',
-    },
-  },
+  // {
+  //   title: 'Evently',
+  //   techStack: ['Next.js', 'TailwindCSS', 'Server Actions'],
+  //   description:
+  //     'An event management app covering the full organizer/attendee flow — event creation, RSVPs, and a modern UI built on Next.js Server Actions.',
+  //   logo: EventlyLogo,
+  //   link: {
+  //     label: 'Meetix',
+  //     href: 'https://meetix.vercel.app/',
+  //   },
+  // },
   {
     title: 'PeerChat',
     techStack: ['WebRTC', 'SDP', 'React.js'],
@@ -266,17 +266,17 @@ export const MyPastProjects: Project[] = [
       href: 'https://lively-pastelito-3c6253.netlify.app/',
     },
   },
-  {
-    title: 'Comprehensive Job Search Mobile App',
-    techStack: ['React Native', 'RapidAPI'],
-    description:
-      'A React Native job search app pulling listings from RapidAPI, with saved searches and a native mobile UX.',
-    logo: JobSearchLogo,
-    link: {
-      label: 'Job Hunt - RN',
-      href: 'https://expo.dev/@huntermacias/job-search-app?serviceType=classic&distribution=expo-go',
-    },
-  },
+  // {
+  //   title: 'Comprehensive Job Search Mobile App',
+  //   techStack: ['React Native', 'RapidAPI'],
+  //   description:
+  //     'A React Native job search app pulling listings from RapidAPI, with saved searches and a native mobile UX.',
+  //   logo: JobSearchLogo,
+  //   link: {
+  //     label: 'Job Hunt - RN',
+  //     href: 'https://expo.dev/@huntermacias/job-search-app?serviceType=classic&distribution=expo-go',
+  //   },
+  // },
   {
     title: "Kobe Bryant's Legacy: A Data Visualization",
     techStack: ['D3.js', 'Data Visualization'],
@@ -409,33 +409,21 @@ export const Work = [
 ] as const;
 export const Books = [
   {
-    name: 'Shoe Dog: A Memoir by the Creator of Nike by Phil Knight',
-    link: 'https://www.amazon.com/Shoe-Dog-Memoir-Creator-Nike-ebook/dp/B0176M1A44',
+    name: 'The Dungeon Crawler Series by Matt Dinniman',
+    link: 'https://www.goodreads.com/series/309211-dungeon-crawler-carl',
   },
   {
-    name: 'The Black Swan: The Impact of the Highly Improbable by Nassim Nicholas Taleb',
-    link: 'https://amzn.to/2NwihaS',
+    name: 'The Three-Body Problem Series by Cixin Liu',
+    link: 'https://www.goodreads.com/book/show/52073230-three-body-problem-series-collection---the-dark-forest-death-s-end?from_search=true&from_srp=true&qid=CoD4UzQMUy&rank=2',
   },
   {
-    name: 'Antifragile: Things That Gain from Disorder by Nassim Nicholas Taleb',
-    link: 'https://amzn.to/3aIG805',
+    name: 'Crime and Punishment by Fyodor Dostoevsky',
+    link: 'https://www.goodreads.com/book/show/7144.Crime_and_Punishment?ref=nav_sb_ss_1_6',
   },
   {
-    name: 'Fooled by Randomness: The Hidden Role of Chance in Life and in the Markets by Nassim Nicholas Taleb',
-    link: 'https://amzn.to/3kbvaD9',
-  },
-  {
-    name: 'Daily stoic by Ryan Holiday',
-    link: 'https://amzn.to/3n8ATuC',
-  },
-  {
-    name: 'A Guide to the Good Life: The Ancient Art of Stoic Joy by William B. Irvine',
-    link: 'https://amzn.to/3iuL1ud',
-  },
-  {
-    name: 'Atomic Habits by James Clear',
-    link: 'https://amzn.to/3iqimpZ',
-  },
+    name: 'A Song of Ice and Fire Series by George R.R. Martin',
+    link: 'https://www.goodreads.com/series/43790-a-song-of-ice-and-fire',
+  }
 ] as const;
 
 export const Podcasts = [
